@@ -62,10 +62,7 @@ public class LoginPage extends AppCompatActivity {
             }
 
             UserData userData = new UserData(binding.Email.getText().toString(), binding.passworded.getText().toString());
-            alertDialog =
-                    new AlertDialog.Builder(LoginPage.this).setTitle("جاري تسجيل الدخول ")
-                            .setMessage("يرجو الانتظار ").setCancelable(false)
-                            .setIcon(R.drawable.wait).create();
+            alertDialog =Constans.setAlertMeaage("جار تسجيل الدخول",LoginPage.this);
 
             //Here To make Display touch for User
             alertDialog.show();

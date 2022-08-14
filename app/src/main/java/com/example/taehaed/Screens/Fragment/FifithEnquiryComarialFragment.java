@@ -86,7 +86,7 @@ public class FifithEnquiryComarialFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        binding.goBack.setOnClickListener(view1 -> getActivity().onBackPressed());
+
         SetVisbilty();
         SetRadiobutttions();
 

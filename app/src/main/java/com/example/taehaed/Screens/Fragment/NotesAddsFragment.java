@@ -73,11 +73,7 @@ public class NotesAddsFragment extends DialogFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        binding.goBack.setOnClickListener(view1 -> {
-            getActivity().getSupportFragmentManager().beginTransaction().remove(this).commit();
 
-
-        });
 
 
         binding.ButtonDiel.setOnClickListener(view1 -> {

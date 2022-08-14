@@ -82,9 +82,7 @@ public class ThridJobInfoFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        binding.goBack.setOnClickListener(view1 -> {
-            getActivity().onBackPressed();
-        });
+
         setDateForInputText(binding.PerathData, getContext());
         if (itsNotNull(formdata)) {
             binding.Sumbit.setVisibility(View.GONE);

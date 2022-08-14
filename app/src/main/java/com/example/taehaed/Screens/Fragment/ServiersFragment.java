@@ -72,10 +72,7 @@ public class ServiersFragment extends DialogFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        binding.goBack.setOnClickListener(view1 -> {
-            getActivity().getSupportFragmentManager().beginTransaction().remove(this).commit();
 
-        });
         binding.ServieName.setText(SeriverName);
 
         binding.RadioDiel.setOnCheckedChangeListener((compoundButton, b) -> {

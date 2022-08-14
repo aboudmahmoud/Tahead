@@ -81,9 +81,7 @@ public class EighthRealetateFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         SetTheRadioButton();
-        binding.goBack.setOnClickListener(view1 -> {
-            getActivity().onBackPressed();
-        });
+
         setDate();
         SetDataUI();
         binding.Sumbit.setOnClickListener(view1 -> {

@@ -40,9 +40,7 @@ public class ClientInfo extends AppCompatActivity implements Serializable {
             agentInfoFragment.show(fragmentManager, "");
 
         });
-        binding.goBack.setOnClickListener(view -> {
-            finish();
-        });
+
         //هنا بيتم اظهار الخدمات
         taehaedVModel.getRqusetOpertatiom(request.getId(), Status -> {
             if (Status) {

@@ -83,9 +83,7 @@ public class SixHomeFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        binding.goBack.setOnClickListener(view1 -> {
-            getActivity().onBackPressed();
-        });
+
 
         Constans.setDateForInputText(binding.PerathData,getContext());
 

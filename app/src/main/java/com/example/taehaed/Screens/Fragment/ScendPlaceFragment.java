@@ -86,7 +86,7 @@ public class ScendPlaceFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
 
-        binding.goBack.setOnClickListener(view1 -> getActivity().onBackPressed());
+
         SetDate();
         //Here We set the Data if From data is send it
         SetDataUi();

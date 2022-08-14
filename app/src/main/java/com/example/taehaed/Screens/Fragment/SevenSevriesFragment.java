@@ -83,9 +83,7 @@ public class SevenSevriesFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         SetRadios();
-        binding.goBack.setOnClickListener(view1 -> {
-            getActivity().onBackPressed();
-        });
+
         SetDate();
         SetDataUI();
         binding.Sumbit.setOnClickListener(view1 -> {

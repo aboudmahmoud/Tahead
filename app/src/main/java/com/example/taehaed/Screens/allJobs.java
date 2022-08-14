@@ -27,8 +27,6 @@ private ActivityAllJobsBinding binding;
         adpater=new jobsAdpater(indexRoot);
         binding.listOfData.setAdapter(adpater);
         binding.listOfData.setLayoutManager(new LinearLayoutManager(binding.getRoot().getContext()));
-        binding.goback.setOnClickListener(view -> {
-            finish();
-        });
+
     }
 }
