@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintBottom_toBottomOf="parent"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:orientation="horizontal"
+        android:layout_margin="@dimen/_10sdp"
+       >
+        <EditText
+            android:id="@+id/Fomvalue"
+            android:layout_width="@dimen/_180sdp"
+            android:layout_height="wrap_content"
+
+            android:background="@drawable/edit_text_neargrren"
+            android:padding="@dimen/_3sdp" />
+
+        <TextView
+            android:id="@+id/InputName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_5sdp"
+
+            android:text="الاسم محمد الاشغواني  "
+            android:textColor="@color/nearGreen"
+            android:textSize="@dimen/_12ssp"
+            android:textStyle="bold" />
+    </LinearLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/ListOfChoesies"
+        android:orientation="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+android:visibility="gone"
+
+        android:padding="@dimen/_10sdp"/>
+</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+android:id="@+id/cartInfo"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/_10sdp"
+        android:layout_marginStart="13dp"
+        android:layout_marginEnd="13dp"
+        app:cardCornerRadius="@dimen/_8sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="@dimen/_10sdp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:orientation="horizontal">
+
+          <LinearLayout
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:orientation="vertical">
+              <com.google.android.material.imageview.ShapeableImageView
+                  android:id="@+id/CardEgypt"
+
+                  android:maxHeight="@dimen/_50sdp"
+                  android:maxWidth="@dimen/_50sdp"
+                  android:layout_width="@dimen/_50sdp"
+                  android:layout_height="@dimen/_50sdp"
+                  android:layout_marginEnd="@dimen/_5sdp"
+
+                  android:scaleType="fitCenter"
+                  android:adjustViewBounds="true"
+                  app:strokeColor="@color/nearGreen"
+
+                  app:strokeWidth="@dimen/_1sdp"
+                  app:shapeAppearanceOverlay="@style/roundedImageView2"
+                  />
+              <TextView
+                  android:id="@+id/CompanyName"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:textSize="@dimen/_7ssp"
+                  android:layout_marginTop="@dimen/_5sdp"
+                  android:textColor="@color/nearGreen"
+                  android:text="CompanyName"/>
+          </LinearLayout>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="end"
+android:layout_weight="1"
+                    android:orientation="vertical">
+<!--                    <TextView-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                               android:layout_height="wrap_content"-->
+<!--                        android:layout_gravity="right"-->
+<!--                             android:text=":الاسم"/>-->
+         <LinearLayout
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+       android:layout_gravity="right"
+             android:gravity="right"
+             android:orientation="horizontal">
+
+             <TextView
+                 android:id="@+id/ClinetName"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+
+                 android:gravity="right"
+
+                 android:text="سيد احمد السيد عوضين"
+android:textSize="@dimen/_8ssp"
+
+                 android:textColor="@color/nearGreen"
+                 />
+
+             <TextView
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:text="الاسم: "
+
+                 android:textSize="@dimen/_9ssp"
+
+                 android:textColor="#000000"
+                 android:textStyle="bold" />
+         </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:gravity="right"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/Adders"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="31 ش 66 مدينة نصر"
+                            android:gravity="right"
+
+
+                          android:textSize="@dimen/_8ssp"
+
+                            android:textColor="@color/nearGreen"
+                          />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="العنوان: "
+                            android:textSize="@dimen/_9ssp"
+                            android:textColor="#000000"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+android:gravity="center"
+    android:layout_marginTop="@dimen/_10sdp"
+    android:padding="@dimen/_2sdp"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/Pranstger"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textSize="@dimen/_8ssp"
+        android:text="80%"
+        android:layout_marginEnd="@dimen/_4sdp"
+        android:textColor="#000000" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+       android:layout_gravity="center"
+       android:textStyle="bold"
+        android:textSize="@dimen/_8ssp"
+        android:text="مكتمل"
+        android:textColor="#000000" />
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:layout_width="0dp"
+        android:id="@+id/progesAction"
+        android:padding="@dimen/_2sdp"
+        android:rotation="180"
+        app:indicatorColor="#4ACDBA"
+        app:trackColor="#D2D9E2"
+        app:trackCornerRadius="@dimen/_8sdp"
+        app:trackThickness="@dimen/_10sdp"
+        android:layout_height="wrap_content"
+
+        android:layout_weight="2"
+        android:layout_margin="@dimen/_5sdp"
+        android:layout_gravity="center"/>
+
+</LinearLayout>
+            <TextView
+                android:id="@+id/DateTaske"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:textSize="@dimen/_11ssp"
+                android:text="06/07/2022"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Screens.Fragment.ServiersFragment">
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/Parent">
+
+    <LinearLayout
+        android:id="@+id/CLientHadder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:background="@color/nearGreen"
+        android:orientation="horizontal"
+        android:padding="@dimen/_10sdp"
+        app:layout_constraintBottom_toTopOf="@id/Content"
+        app:layout_constraintEnd_toEndOf="@id/Parent"
+        app:layout_constraintStart_toStartOf="@id/Parent"
+        app:layout_constraintTop_toTopOf="@id/Parent">
+
+        <TextView
+            android:id="@+id/ServieName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="servies"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_11ssp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <ImageView
+            android:id="@+id/goBack"
+            android:layout_width="wrap_content"
+
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:gravity="right"
+            android:src="@drawable/ic_arrowbackline" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:layout_constraintTop_toBottomOf="@id/CLientHadder"
+    app:layout_constraintStart_toStartOf="@id/Parent"
+    app:layout_constraintEnd_toEndOf="@id/Parent"
+    app:layout_constraintBottom_toBottomOf="@id/Parent"
+        android:id="@+id/Content"
+    android:orientation="vertical"
+    >
+
+        <RadioGroup
+            android:id="@+id/Rgroub"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_5sdp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rdioAccept"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:buttonTint="@color/radiobutton"
+
+                android:text="قبول"
+
+
+                android:textColor="@color/nearGreen"
+                android:textSize="@dimen/_10ssp" />
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <RadioButton
+                android:id="@+id/RadioDiel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:buttonTint="@color/redbutton"
+
+                android:text="رفض"
+
+                android:textColor="@color/NearRed"
+                android:textSize="@dimen/_10ssp" />
+
+        </RadioGroup>
+
+
+
+    <Button
+        android:id="@+id/ButtonCoremit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+android:visibility="gone"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:layout_marginRight="@dimen/_80sdp"
+        android:layout_marginLeft="@dimen/_80sdp"
+        android:textSize="@dimen/_10sdp"
+        android:text="تأكيد"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        app:strokeColor="@color/nearGreen"
+        app:strokeWidth="@dimen/_1sdp"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+
+            android:id="@+id/TextInputDenyResson"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_4sdp"
+            android:hint="سبب الرفض"
+            android:visibility="gone"
+            android:textColorHint="@color/NearRed"
+            android:textSize="@dimen/_9ssp"
+
+            app:boxCornerRadiusBottomEnd="@dimen/_10sdp"
+            app:boxCornerRadiusBottomStart="@dimen/_10sdp"
+            app:boxCornerRadiusTopEnd="@dimen/_10sdp"
+            app:boxCornerRadiusTopStart="@dimen/_10sdp"
+            app:boxStrokeColor="@color/outlined_red_stroke"
+            app:boxStrokeWidth="@dimen/_2sdp"
+            app:boxStrokeWidthFocused="@dimen/_2sdp"
+            app:hintTextColor="#A8A8A8">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/DeletAnsewer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="@dimen/_60sdp"
+                android:textSize="@dimen/_9ssp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/ButtonCoremitDiel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+    android:layout_gravity="right"
+        android:visibility="gone"
+android:layout_margin="@dimen/_15sdp"
+
+        android:textSize="@dimen/_10sdp"
+        android:text="تأكيد"
+        android:textColor="@color/NearRed"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        app:strokeColor="@color/NearRed"
+        app:strokeWidth="@dimen/_1sdp"/>
+
+</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

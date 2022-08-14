@@ -1,0 +1,2650 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Screens.Fragment.FifithEnquiryComarialFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/Parent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/CLientHadder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:background="@color/nearGreen"
+            android:orientation="horizontal"
+            android:padding="@dimen/_10sdp"
+            app:layout_constraintBottom_toTopOf="@id/infoDataColoect"
+            app:layout_constraintEnd_toEndOf="@id/Parent"
+            app:layout_constraintStart_toStartOf="@id/Parent"
+            app:layout_constraintTop_toTopOf="@id/Parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+
+                android:gravity="center"
+                android:text="إستعلام نشاط تجاري"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_11ssp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <ImageView
+                android:id="@+id/goBack"
+                android:layout_width="wrap_content"
+
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:gravity="right"
+                android:src="@drawable/ic_arrowbackline" />
+
+
+        </LinearLayout>
+
+        <ScrollView
+            android:id="@+id/infoDataColoect"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/_10sdp"
+            app:layout_constraintBottom_toBottomOf="@id/Parent"
+            app:layout_constraintEnd_toEndOf="@id/Parent"
+            app:layout_constraintStart_toStartOf="@id/Parent"
+            app:layout_constraintTop_toBottomOf="@id/CLientHadder"
+
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/CoustmerInforamtion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+
+                    <TextView
+                        android:id="@+id/Tv_quset"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_5sdp"
+
+                        android:gravity="center"
+                        android:text="بيانات العميل"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_15ssp" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:layout_margin="@dimen/_4sdp"
+                        android:hint="الإسم بالكامل - وفقاً للرقم القومي"
+                        android:textColorHint="@color/nearGreen"
+                        android:textSize="@dimen/_9ssp"
+                        app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
+                        app:boxCornerRadiusBottomStart="@dimen/_12sdp"
+                        app:boxCornerRadiusTopEnd="@dimen/_12sdp"
+                        app:boxCornerRadiusTopStart="@dimen/_12sdp"
+                        app:boxStrokeColor="@color/outlined_storke"
+                        app:boxStrokeWidth="@dimen/_2sdp"
+                        app:boxStrokeWidthFocused="@dimen/_2sdp"
+                        app:hintTextColor="#A8A8A8">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/FullName"
+                            android:inputType="text"
+                            android:textSize="@dimen/_9ssp" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:layout_margin="@dimen/_4sdp"
+                        android:hint="إسم الشهرة (إن وجد)"
+                        android:textColorHint="@color/nearGreen"
+                        android:textSize="@dimen/_9ssp"
+                        app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
+                        app:boxCornerRadiusBottomStart="@dimen/_12sdp"
+                        app:boxCornerRadiusTopEnd="@dimen/_12sdp"
+                        app:boxCornerRadiusTopStart="@dimen/_12sdp"
+                        app:boxStrokeColor="@color/outlined_storke"
+                        app:boxStrokeWidth="@dimen/_2sdp"
+                        app:boxStrokeWidthFocused="@dimen/_2sdp"
+                        app:hintTextColor="#A8A8A8">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/NakeName"
+                            android:inputType="text"
+                            android:textSize="@dimen/_9ssp" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:layout_margin="@dimen/_4sdp"
+                        android:hint="الرقم القومي "
+                        android:textColorHint="@color/nearGreen"
+                        android:textSize="@dimen/_9ssp"
+                        app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
+                        app:boxCornerRadiusBottomStart="@dimen/_12sdp"
+                        app:boxCornerRadiusTopEnd="@dimen/_12sdp"
+                        app:boxCornerRadiusTopStart="@dimen/_12sdp"
+                        app:boxStrokeColor="@color/outlined_storke"
+                        app:boxStrokeWidth="@dimen/_2sdp"
+                        app:boxStrokeWidthFocused="@dimen/_2sdp"
+                        app:hintTextColor="#A8A8A8">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="number"
+                            android:id="@+id/NainolIdNumber"
+                            android:textSize="@dimen/_9ssp" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+android:id="@+id/dataPiker"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:layout_margin="@dimen/_4sdp"
+                        android:hint="تاريخ الميلاد"
+                        android:textColorHint="@color/nearGreen"
+                        android:textSize="@dimen/_9ssp"
+                        app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
+                        app:boxCornerRadiusBottomStart="@dimen/_12sdp"
+                        app:boxCornerRadiusTopEnd="@dimen/_12sdp"
+                        app:boxCornerRadiusTopStart="@dimen/_12sdp"
+                        app:boxStrokeColor="@color/outlined_storke"
+                        app:boxStrokeWidth="@dimen/_2sdp"
+                        android:clickable="false"
+                        android:cursorVisible="false"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"
+                        app:boxStrokeWidthFocused="@dimen/_2sdp"
+                        app:hintTextColor="#A8A8A8">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="date"
+                            android:clickable="false"
+                            android:cursorVisible="false"
+                            android:focusable="false"
+                            android:focusableInTouchMode="false"
+                            android:id="@+id/PerathData"
+                            android:textSize="@dimen/_9ssp" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:layout_margin="@dimen/_4sdp"
+                        android:hint="رقم المحمول 1"
+                        android:textColorHint="@color/nearGreen"
+                        android:textSize="@dimen/_9ssp"
+                        app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
+                        app:boxCornerRadiusBottomStart="@dimen/_12sdp"
+                        app:boxCornerRadiusTopEnd="@dimen/_12sdp"
+                        app:boxCornerRadiusTopStart="@dimen/_12sdp"
+                        app:boxStrokeColor="@color/outlined_storke"
+                        app:boxStrokeWidth="@dimen/_2sdp"
+                        app:boxStrokeWidthFocused="@dimen/_2sdp"
+                        app:hintTextColor="#A8A8A8">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="phone"
+                            android:id="@+id/PhonNumber"
+                            android:textSize="@dimen/_9ssp" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:layout_margin="@dimen/_4sdp"
+                        android:hint="رقم المحمول 2"
+                        android:textColorHint="@color/nearGreen"
+                        android:textSize="@dimen/_9ssp"
+                        app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
+                        app:boxCornerRadiusBottomStart="@dimen/_12sdp"
+                        app:boxCornerRadiusTopEnd="@dimen/_12sdp"
+                        app:boxCornerRadiusTopStart="@dimen/_12sdp"
+                        app:boxStrokeColor="@color/outlined_storke"
+                        app:boxStrokeWidth="@dimen/_2sdp"
+                        app:boxStrokeWidthFocused="@dimen/_2sdp"
+                        app:hintTextColor="#A8A8A8">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="phone"
+                            android:id="@+id/PhonNumber2"
+                            android:textSize="@dimen/_9ssp" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:layout_margin="@dimen/_4sdp"
+                        android:hint="الرقم الارضي"
+                        android:textColorHint="@color/nearGreen"
+                        android:textSize="@dimen/_9ssp"
+                        app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
+                        app:boxCornerRadiusBottomStart="@dimen/_12sdp"
+                        app:boxCornerRadiusTopEnd="@dimen/_12sdp"
+                        app:boxCornerRadiusTopStart="@dimen/_12sdp"
+                        app:boxStrokeColor="@color/outlined_storke"
+                        app:boxStrokeWidth="@dimen/_2sdp"
+                        app:boxStrokeWidthFocused="@dimen/_2sdp"
+                        app:hintTextColor="#A8A8A8">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="phone"
+                            android:id="@+id/PhonNumber3"
+                            android:textSize="@dimen/_9ssp" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_10sdp"
+                        android:fontFamily="@font/gstb"
+                        android:gravity="center"
+                        android:text="بيانات النشاط "
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:textSize="@dimen/_15ssp" />
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+
+                        <com.google.android.material.textfield.TextInputLayout
+
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+
+                            android:layout_margin="@dimen/_4sdp"
+                            android:hint="الإسم التجاري"
+                            android:textColorHint="@color/nearGreen"
+                            android:textSize="@dimen/_9ssp"
+                            app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
+                            app:boxCornerRadiusBottomStart="@dimen/_12sdp"
+                            app:boxCornerRadiusTopEnd="@dimen/_12sdp"
+                            app:boxCornerRadiusTopStart="@dimen/_12sdp"
+                            app:boxStrokeColor="@color/outlined_storke"
+                            app:boxStrokeWidth="@dimen/_2sdp"
+                            app:boxStrokeWidthFocused="@dimen/_2sdp"
+                            app:hintTextColor="#A8A8A8">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/ComarialName"
+                                android:inputType="text"
+                                android:textSize="@dimen/_9ssp" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+
+                            android:layout_margin="@dimen/_4sdp"
+                            android:hint="الإسم الشائع"
+                            android:textColorHint="@color/nearGreen"
+                            android:textSize="@dimen/_9ssp"
+                            app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
+                            app:boxCornerRadiusBottomStart="@dimen/_12sdp"
+                            app:boxCornerRadiusTopEnd="@dimen/_12sdp"
+                            app:boxCornerRadiusTopStart="@dimen/_12sdp"
+                            app:boxStrokeColor="@color/outlined_storke"
+                            app:boxStrokeWidth="@dimen/_2sdp"
+                            app:boxStrokeWidthFocused="@dimen/_2sdp"
+                            app:hintTextColor="#A8A8A8">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/ComaanName"
+                                android:inputType="text"
+                                android:textSize="@dimen/_9ssp" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+
+                            android:layout_margin="@dimen/_4sdp"
+                            android:hint="تاريخ بدء النشاط الفعلي"
+                            android:textColorHint="@color/nearGreen"
+                            android:textSize="@dimen/_9ssp"
+                            app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
+                            app:boxCornerRadiusBottomStart="@dimen/_12sdp"
+                            app:boxCornerRadiusTopEnd="@dimen/_12sdp"
+                            app:boxCornerRadiusTopStart="@dimen/_12sdp"
+                            app:boxStrokeColor="@color/outlined_storke"
+                            app:boxStrokeWidth="@dimen/_2sdp"
+                            android:clickable="false"
+                            android:cursorVisible="false"
+                            android:focusable="false"
+                            android:focusableInTouchMode="false"
+                            app:boxStrokeWidthFocused="@dimen/_2sdp"
+                            app:hintTextColor="#A8A8A8">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="date"
+                                android:clickable="false"
+                                android:cursorVisible="false"
+                                android:focusable="false"
+                                android:focusableInTouchMode="false"
+                                android:id="@+id/ComarialDate"
+                                android:textSize="@dimen/_9ssp" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+
+                            android:layout_margin="@dimen/_4sdp"
+                            android:hint="نوع النشاط"
+                            android:textColorHint="@color/nearGreen"
+                            android:textSize="@dimen/_9ssp"
+                            app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
+                            app:boxCornerRadiusBottomStart="@dimen/_12sdp"
+                            app:boxCornerRadiusTopEnd="@dimen/_12sdp"
+                            app:boxCornerRadiusTopStart="@dimen/_12sdp"
+                            app:boxStrokeColor="@color/outlined_storke"
+                            app:boxStrokeWidth="@dimen/_2sdp"
+                            app:boxStrokeWidthFocused="@dimen/_2sdp"
+                            app:hintTextColor="#A8A8A8">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/ComarialType"
+                                android:inputType="text"
+                                android:textSize="@dimen/_9ssp" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+
+                            android:layout_margin="@dimen/_4sdp"
+                            android:hint="عدد الفروع (إن وجد)"
+                            android:textColorHint="@color/nearGreen"
+                            android:textSize="@dimen/_9ssp"
+                            app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
+                            app:boxCornerRadiusBottomStart="@dimen/_12sdp"
+                            app:boxCornerRadiusTopEnd="@dimen/_12sdp"
+                            app:boxCornerRadiusTopStart="@dimen/_12sdp"
+                            app:boxStrokeColor="@color/outlined_storke"
+                            app:boxStrokeWidth="@dimen/_2sdp"
+                            app:boxStrokeWidthFocused="@dimen/_2sdp"
+                            app:hintTextColor="#A8A8A8">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/NumberOfBransh"
+                                android:inputType="text"
+                                android:textSize="@dimen/_9ssp" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+
+                            android:layout_margin="@dimen/_4sdp"
+                            android:hint="عدد العمالة"
+                            android:textColorHint="@color/nearGreen"
+                            android:textSize="@dimen/_9ssp"
+                            app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
+                            app:boxCornerRadiusBottomStart="@dimen/_12sdp"
+                            app:boxCornerRadiusTopEnd="@dimen/_12sdp"
+                            app:boxCornerRadiusTopStart="@dimen/_12sdp"
+                            app:boxStrokeColor="@color/outlined_storke"
+                            app:boxStrokeWidth="@dimen/_2sdp"
+                            app:boxStrokeWidthFocused="@dimen/_2sdp"
+                            app:hintTextColor="#A8A8A8">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="number"
+                                android:id="@+id/NumberOfEmployers"
+                                android:textSize="@dimen/_9ssp" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/_4sdp"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/Pradiao"
+                                android:maxWidth="@dimen/_80sdp"
+                                android:text="يوجد شركاء بالنشاط"
+                                android:textColor="@color/nearGreen"
+
+                                android:textSize="@dimen/_9ssp"
+                                android:textStyle="bold" />
+
+                            <RadioGroup
+                                android:id="@+id/radioPartner"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="right"
+                                android:orientation="horizontal"
+                                android:padding="@dimen/_4sdp">
+
+                                <RadioButton
+                                    android:id="@+id/radioPartnerCH"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="لا"
+                                    android:textSize="@dimen/_8ssp" />
+
+                                <RadioButton
+                                    android:id="@+id/radioPartnerCH2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="نعم"
+                                    android:textSize="@dimen/_8ssp" />
+
+
+                            </RadioGroup>
+
+
+                        </LinearLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/NumberOfPartnervispley"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/_4sdp"
+                            android:hint="عدد الشركاء"
+                            android:textColorHint="@color/nearGreen"
+                            android:textSize="@dimen/_9ssp"
+                            android:visibility="gone"
+                            app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
+                            app:boxCornerRadiusBottomStart="@dimen/_12sdp"
+                            app:boxCornerRadiusTopEnd="@dimen/_12sdp"
+                            app:boxCornerRadiusTopStart="@dimen/_12sdp"
+                            app:boxStrokeColor="@color/outlined_storke"
+                            app:boxStrokeWidth="@dimen/_2sdp"
+                            app:boxStrokeWidthFocused="@dimen/_2sdp"
+                            app:hintTextColor="#A8A8A8">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/NumberOfPartner"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="number"
+                                android:textSize="@dimen/_9ssp" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/PartnerPersangeVispily"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/_4sdp"
+
+                            android:hint="حصة العميل بالنشاط"
+                            android:textColorHint="@color/nearGreen"
+                            android:textSize="@dimen/_9ssp"
+                            android:visibility="gone"
+                            app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
+                            app:boxCornerRadiusBottomStart="@dimen/_12sdp"
+                            app:boxCornerRadiusTopEnd="@dimen/_12sdp"
+                            app:boxCornerRadiusTopStart="@dimen/_12sdp"
+                            app:boxStrokeColor="@color/outlined_storke"
+                            app:boxStrokeWidth="@dimen/_2sdp"
+                            app:boxStrokeWidthFocused="@dimen/_2sdp"
+                            app:hintTextColor="#A8A8A8">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/PartnerPersange"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="number"
+                                android:textSize="@dimen/_9ssp" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <LinearLayout
+                            android:id="@+id/Choiess"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/_4sdp"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:visibility="gone">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/MagmegmentPayedTrue"
+                                android:maxWidth="@dimen/_80sdp"
+                                android:text="يتقاضي مقابل للإدارة"
+                                android:textColor="@color/nearGreen"
+
+                                android:textSize="@dimen/_9ssp"
+                                android:textStyle="bold" />
+
+                            <RadioGroup
+                                android:id="@+id/radioPartnerMangment"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="right"
+                                android:orientation="horizontal"
+                                android:padding="@dimen/_4sdp">
+
+                                <RadioButton
+                                    android:id="@+id/radioPartnerMangmentCH"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="لا"
+                                    android:textSize="@dimen/_8ssp" />
+
+                                <RadioButton
+                                    android:id="@+id/radioPartnerMangmentCH2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="نعم"
+                                    android:textSize="@dimen/_8ssp" />
+
+
+                            </RadioGroup>
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/_4sdp"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/ResonOfMoneeyTrue"
+                                android:maxWidth="@dimen/_80sdp"
+                                android:text="الغرض من التمويل"
+                                android:textColor="@color/nearGreen"
+
+                                android:textSize="@dimen/_9ssp"
+                                android:textStyle="bold" />
+
+                            <RadioGroup
+                                android:id="@+id/radioInvestment"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="right"
+                                android:orientation="horizontal"
+                                android:padding="@dimen/_4sdp">
+
+                                <RadioButton
+                                    android:id="@+id/radioInvestmentCH3"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="أخري"
+                                    android:textSize="@dimen/_8ssp" />
+
+                                <RadioButton
+                                    android:id="@+id/radioInvestmenttCH2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="أصول ثابتة"
+                                    android:textSize="@dimen/_8ssp" />
+
+                                <RadioButton
+                                    android:id="@+id/radioInvestmenttCH"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="رأس مال عامل"
+                                    android:textSize="@dimen/_8ssp" />
+
+
+                            </RadioGroup>
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/billsInfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+
+                    <TextView
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_5sdp"
+
+                        android:gravity="center"
+                        android:text="بيانات تجارية"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_15ssp" />
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:layout_margin="@dimen/_4sdp"
+                        android:hint="رقم السجل التجاري"
+                        android:textColorHint="@color/nearGreen"
+                        android:textSize="@dimen/_9ssp"
+                        app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
+                        app:boxCornerRadiusBottomStart="@dimen/_12sdp"
+                        app:boxCornerRadiusTopEnd="@dimen/_12sdp"
+                        app:boxCornerRadiusTopStart="@dimen/_12sdp"
+                        app:boxStrokeColor="@color/outlined_storke"
+                        app:boxStrokeWidth="@dimen/_2sdp"
+                        app:boxStrokeWidthFocused="@dimen/_2sdp"
+                        app:hintTextColor="#A8A8A8">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="number"
+                            android:id="@+id/CommercialRegistrationNo"
+                            android:textSize="@dimen/_9ssp" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:layout_margin="@dimen/_4sdp"
+                        android:hint="رقم البطاقة الضريبية"
+                        android:textColorHint="@color/nearGreen"
+                        android:textSize="@dimen/_9ssp"
+                        app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
+                        app:boxCornerRadiusBottomStart="@dimen/_12sdp"
+                        app:boxCornerRadiusTopEnd="@dimen/_12sdp"
+                        app:boxCornerRadiusTopStart="@dimen/_12sdp"
+                        app:boxStrokeColor="@color/outlined_storke"
+                        app:boxStrokeWidth="@dimen/_2sdp"
+                        app:boxStrokeWidthFocused="@dimen/_2sdp"
+                        app:hintTextColor="#A8A8A8">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/tax_card_number"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="number"
+                            android:textSize="@dimen/_9ssp" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:layout_margin="@dimen/_4sdp"
+                        android:hint="مأمورية ضرائب"
+                        android:textColorHint="@color/nearGreen"
+                        android:textSize="@dimen/_9ssp"
+                        app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
+                        app:boxCornerRadiusBottomStart="@dimen/_12sdp"
+                        app:boxCornerRadiusTopEnd="@dimen/_12sdp"
+                        app:boxCornerRadiusTopStart="@dimen/_12sdp"
+                        app:boxStrokeColor="@color/outlined_storke"
+                        app:boxStrokeWidth="@dimen/_2sdp"
+                        app:boxStrokeWidthFocused="@dimen/_2sdp"
+                        app:hintTextColor="#A8A8A8">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/Taxes_errand"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="text"
+                            android:textSize="@dimen/_9ssp" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:layout_margin="@dimen/_4sdp"
+                        android:hint="تاريخ الاصدار"
+                        android:textColorHint="@color/nearGreen"
+                        android:textSize="@dimen/_9ssp"
+                        app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
+                        app:boxCornerRadiusBottomStart="@dimen/_12sdp"
+                        app:boxCornerRadiusTopEnd="@dimen/_12sdp"
+                        app:boxCornerRadiusTopStart="@dimen/_12sdp"
+                        app:boxStrokeColor="@color/outlined_storke"
+                        app:boxStrokeWidth="@dimen/_2sdp"
+                        app:boxStrokeWidthFocused="@dimen/_2sdp"
+                        android:clickable="false"
+                        android:cursorVisible="false"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"
+                        app:hintTextColor="#A8A8A8">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/ReleaseDateComarial"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="date"
+                            android:clickable="false"
+                            android:cursorVisible="false"
+                            android:focusable="false"
+                            android:focusableInTouchMode="false"
+                            android:textSize="@dimen/_9ssp" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:layout_margin="@dimen/_4sdp"
+                        android:hint="تاريخ الانتهاء"
+                        android:textColorHint="@color/nearGreen"
+                        android:textSize="@dimen/_9ssp"
+                        app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
+                        app:boxCornerRadiusBottomStart="@dimen/_12sdp"
+                        app:boxCornerRadiusTopEnd="@dimen/_12sdp"
+                        app:boxCornerRadiusTopStart="@dimen/_12sdp"
+                        app:boxStrokeColor="@color/outlined_storke"
+                        app:boxStrokeWidth="@dimen/_2sdp"
+                        app:boxStrokeWidthFocused="@dimen/_2sdp"
+                        android:clickable="false"
+                        android:cursorVisible="false"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"
+                        app:hintTextColor="#A8A8A8">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/Expiry_date"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="date"
+                            android:clickable="false"
+                            android:cursorVisible="false"
+                            android:focusable="false"
+                            android:focusableInTouchMode="false"
+                            android:textSize="@dimen/_9ssp" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_10sdp"
+                        android:fontFamily="@font/gstb"
+                        android:gravity="center"
+                        android:text="بيانات مقر النشاط"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:textSize="@dimen/_15ssp" />
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/_5sdp"
+                            android:id="@+id/PostionTypeTrue"
+                            android:text="نوع الحيازة"
+                            android:textColor="@color/nearGreen"
+                            android:textSize="@dimen/_13ssp" />
+
+                        <RadioGroup
+                            android:id="@+id/Radioe"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1" />
+
+                                    <RadioButton
+                                        android:id="@+id/radioButton2"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+
+                                        android:fontFamily="@font/gstb"
+                                        android:layoutDirection="rtl"
+                                        android:padding="@dimen/_5sdp"
+                                        android:text="تمليك"
+                                        android:textSize="@dimen/_10ssp" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1" />
+
+                                    <RadioButton
+                                        android:id="@+id/radioButton"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+
+
+                                        android:fontFamily="@font/gstb"
+                                        android:layoutDirection="rtl"
+                                        android:padding="@dimen/_5sdp"
+                                        android:text="عائلي"
+                                        android:textSize="@dimen/_10ssp" />
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1" />
+
+                                    <RadioButton
+                                        android:id="@+id/radioButton5"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:fontFamily="@font/gstb"
+                                        android:layoutDirection="rtl"
+                                        android:padding="@dimen/_5sdp"
+                                        android:text="اخري"
+                                        android:textSize="@dimen/_10ssp" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1" />
+
+                                    <RadioButton
+                                        android:id="@+id/radioButton4"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:fontFamily="@font/gstb"
+                                        android:layoutDirection="rtl"
+                                        android:padding="@dimen/_5sdp"
+                                        android:text="ايجار جديد"
+                                        android:textSize="@dimen/_10ssp" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1" />
+
+                                    <RadioButton
+                                        android:id="@+id/radioButton3"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:fontFamily="@font/gstb"
+                                        android:layoutDirection="rtl"
+                                        android:padding="@dimen/_5sdp"
+                                        android:text="ايجار قديم"
+                                        android:textSize="@dimen/_10ssp" />
+                                </LinearLayout>
+
+                            </LinearLayout>
+                        </RadioGroup>
+
+                        <LinearLayout
+                            android:id="@+id/RentColaet"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:visibility="gone"
+                            android:layout_marginBottom="@dimen/_10sdp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="@dimen/_5sdp"
+                                android:text="الايجار"
+                                android:textAlignment="center"
+                                android:textColor="@color/nearGreen"
+                                android:textSize="@dimen/_13ssp" />
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+
+                                android:layout_margin="@dimen/_4sdp"
+                                android:hint="إسم المالك"
+                                android:textColorHint="@color/nearGreen"
+                                android:textSize="@dimen/_9ssp"
+                                app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
+                                app:boxCornerRadiusBottomStart="@dimen/_12sdp"
+                                app:boxCornerRadiusTopEnd="@dimen/_12sdp"
+                                app:boxCornerRadiusTopStart="@dimen/_12sdp"
+                                app:boxStrokeColor="@color/outlined_storke"
+                                app:boxStrokeWidth="@dimen/_2sdp"
+                                app:boxStrokeWidthFocused="@dimen/_2sdp"
+                                app:hintTextColor="#A8A8A8">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/OwnerName"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:inputType="text"
+                                    android:textSize="@dimen/_9ssp" />
+
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                            <com.google.android.material.textfield.TextInputLayout
+
+                                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+
+                                android:layout_margin="@dimen/_4sdp"
+                                android:hint="صلته بالعميل"
+                                android:textColorHint="@color/nearGreen"
+                                android:textSize="@dimen/_9ssp"
+                                app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
+                                app:boxCornerRadiusBottomStart="@dimen/_12sdp"
+                                app:boxCornerRadiusTopEnd="@dimen/_12sdp"
+                                app:boxCornerRadiusTopStart="@dimen/_12sdp"
+                                app:boxStrokeColor="@color/outlined_storke"
+                                app:boxStrokeWidth="@dimen/_2sdp"
+                                app:boxStrokeWidthFocused="@dimen/_2sdp"
+                                app:hintTextColor="#A8A8A8">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/Relationship_client"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:inputType="text"
+                                    android:textSize="@dimen/_9ssp" />
+
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                            <com.google.android.material.textfield.TextInputLayout
+
+                                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+
+                                android:layout_margin="@dimen/_4sdp"
+                                android:hint="نهاية العقد"
+                                android:textColorHint="@color/nearGreen"
+                                android:textSize="@dimen/_9ssp"
+                                app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
+                                app:boxCornerRadiusBottomStart="@dimen/_12sdp"
+                                app:boxCornerRadiusTopEnd="@dimen/_12sdp"
+                                app:boxCornerRadiusTopStart="@dimen/_12sdp"
+                                app:boxStrokeColor="@color/outlined_storke"
+                                app:boxStrokeWidth="@dimen/_2sdp"
+                                app:boxStrokeWidthFocused="@dimen/_2sdp"
+                                android:clickable="false"
+                                android:cursorVisible="false"
+                                android:focusable="false"
+                                android:focusableInTouchMode="false"
+                                app:hintTextColor="#A8A8A8">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/DataeOfending"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:inputType="date"
+                                    android:clickable="false"
+                                    android:cursorVisible="false"
+                                    android:focusable="false"
+                                    android:focusableInTouchMode="false"
+                                    android:textSize="@dimen/_9ssp" />
+
+                            </com.google.android.material.textfield.TextInputLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="@dimen/_5sdp"
+                                android:text="عنوان مقر النشاط"
+                                android:textAlignment="center"
+                                android:textColor="@color/nearGreen"
+                                android:textSize="@dimen/_16ssp" />
+
+                            <com.google.android.material.textfield.TextInputLayout
+
+                                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+
+                                android:layout_margin="@dimen/_4sdp"
+                                android:hint="رقم المبني"
+                                android:textColorHint="@color/nearGreen"
+                                android:textSize="@dimen/_9ssp"
+                                app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
+                                app:boxCornerRadiusBottomStart="@dimen/_12sdp"
+                                app:boxCornerRadiusTopEnd="@dimen/_12sdp"
+                                app:boxCornerRadiusTopStart="@dimen/_12sdp"
+                                app:boxStrokeColor="@color/outlined_storke"
+                                app:boxStrokeWidth="@dimen/_2sdp"
+                                app:boxStrokeWidthFocused="@dimen/_2sdp"
+                                app:hintTextColor="#A8A8A8">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/buildingnumber"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:inputType="number"
+                                    android:textSize="@dimen/_9ssp" />
+
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                            <com.google.android.material.textfield.TextInputLayout
+
+                                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+
+                                android:layout_margin="@dimen/_4sdp"
+                                android:hint="إسم الشارع"
+                                android:textColorHint="@color/nearGreen"
+                                android:textSize="@dimen/_9ssp"
+                                app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
+                                app:boxCornerRadiusBottomStart="@dimen/_12sdp"
+                                app:boxCornerRadiusTopEnd="@dimen/_12sdp"
+                                app:boxCornerRadiusTopStart="@dimen/_12sdp"
+                                app:boxStrokeColor="@color/outlined_storke"
+                                app:boxStrokeWidth="@dimen/_2sdp"
+                                app:boxStrokeWidthFocused="@dimen/_2sdp"
+                                app:hintTextColor="#A8A8A8">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/StreatName"
+                                    android:inputType="text"
+                                    android:textSize="@dimen/_9ssp" />
+
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                            <com.google.android.material.textfield.TextInputLayout
+
+                                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+
+                                android:layout_margin="@dimen/_4sdp"
+                                android:hint="حي/قرية"
+                                android:textColorHint="@color/nearGreen"
+                                android:textSize="@dimen/_9ssp"
+                                app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
+                                app:boxCornerRadiusBottomStart="@dimen/_12sdp"
+                                app:boxCornerRadiusTopEnd="@dimen/_12sdp"
+                                app:boxCornerRadiusTopStart="@dimen/_12sdp"
+                                app:boxStrokeColor="@color/outlined_storke"
+                                app:boxStrokeWidth="@dimen/_2sdp"
+                                app:boxStrokeWidthFocused="@dimen/_2sdp"
+                                app:hintTextColor="#A8A8A8">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/Nieporehod"
+                                    android:inputType="text"
+                                    android:textSize="@dimen/_9ssp" />
+
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                            <com.google.android.material.textfield.TextInputLayout
+
+                                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+
+                                android:layout_margin="@dimen/_4sdp"
+                                android:hint="مدينة/مركز"
+                                android:textColorHint="@color/nearGreen"
+                                android:textSize="@dimen/_9ssp"
+                                app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
+                                app:boxCornerRadiusBottomStart="@dimen/_12sdp"
+                                app:boxCornerRadiusTopEnd="@dimen/_12sdp"
+                                app:boxCornerRadiusTopStart="@dimen/_12sdp"
+                                app:boxStrokeColor="@color/outlined_storke"
+                                app:boxStrokeWidth="@dimen/_2sdp"
+                                app:boxStrokeWidthFocused="@dimen/_2sdp"
+                                app:hintTextColor="#A8A8A8">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/Ciety"
+                                    android:inputType="text"
+                                    android:textSize="@dimen/_9ssp" />
+
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                            <com.google.android.material.textfield.TextInputLayout
+
+                                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+
+                                android:layout_margin="@dimen/_4sdp"
+                                android:hint="محافظة"
+                                android:textColorHint="@color/nearGreen"
+                                android:textSize="@dimen/_9ssp"
+                                app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
+                                app:boxCornerRadiusBottomStart="@dimen/_12sdp"
+                                app:boxCornerRadiusTopEnd="@dimen/_12sdp"
+                                app:boxCornerRadiusTopStart="@dimen/_12sdp"
+                                app:boxStrokeColor="@color/outlined_storke"
+                                app:boxStrokeWidth="@dimen/_2sdp"
+                                app:boxStrokeWidthFocused="@dimen/_2sdp"
+                                app:hintTextColor="#A8A8A8">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/Twon"
+                                    android:inputType="text"
+                                    android:textSize="@dimen/_9ssp" />
+
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                            <com.google.android.material.textfield.TextInputLayout
+
+                                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+
+                                android:layout_margin="@dimen/_4sdp"
+                                android:hint="علامة مميزة"
+                                android:textColorHint="@color/nearGreen"
+                                android:textSize="@dimen/_9ssp"
+                                app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
+                                app:boxCornerRadiusBottomStart="@dimen/_12sdp"
+                                app:boxCornerRadiusTopEnd="@dimen/_12sdp"
+                                app:boxCornerRadiusTopStart="@dimen/_12sdp"
+                                app:boxStrokeColor="@color/outlined_storke"
+                                app:boxStrokeWidth="@dimen/_2sdp"
+                                app:boxStrokeWidthFocused="@dimen/_2sdp"
+                                app:hintTextColor="#A8A8A8">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/SpeiclSine"
+                                    android:inputType="text"
+                                    android:textSize="@dimen/_9ssp" />
+
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                            <com.google.android.material.textfield.TextInputLayout
+
+                                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+
+                                android:layout_margin="@dimen/_4sdp"
+                                android:hint="مساحة المقر"
+                                android:textColorHint="@color/nearGreen"
+                                android:textSize="@dimen/_9ssp"
+                                app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
+                                app:boxCornerRadiusBottomStart="@dimen/_12sdp"
+                                app:boxCornerRadiusTopEnd="@dimen/_12sdp"
+                                app:boxCornerRadiusTopStart="@dimen/_12sdp"
+                                app:boxStrokeColor="@color/outlined_storke"
+                                app:boxStrokeWidth="@dimen/_2sdp"
+                                app:boxStrokeWidthFocused="@dimen/_2sdp"
+                                app:hintTextColor="#A8A8A8">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/Headquarters_area"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:inputType="number"
+                                    android:textSize="@dimen/_9ssp" />
+
+                            </com.google.android.material.textfield.TextInputLayout>
+                        </LinearLayout>
+
+
+
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_10sdp"
+
+                        android:gravity="center"
+                        android:text="بيانات مرافق النشاط"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:textSize="@dimen/_15ssp" />
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/_4sdp"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/ResietTrue"
+                                android:maxWidth="@dimen/_80sdp"
+                                android:text="نوع ايصال المرافق"
+                                android:textColor="@color/nearGreen"
+
+                                android:textSize="@dimen/_9ssp"
+                                android:textStyle="bold" />
+
+                            <RadioGroup
+                                android:id="@+id/radioUtility_receipt"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="right"
+                                android:orientation="horizontal"
+                                android:padding="@dimen/_4sdp">
+
+                                <RadioButton
+                                    android:id="@+id/radioUtilityReceiptCH3"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="غاز"
+                                    android:textSize="@dimen/_8ssp" />
+
+                                <RadioButton
+                                    android:id="@+id/radioUtilityReceiptCH2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="مياه"
+                                    android:textSize="@dimen/_8ssp" />
+
+                                <RadioButton
+                                    android:id="@+id/radioUtilityReceiptCH"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="كهرباء"
+                                    android:textSize="@dimen/_8ssp" />
+
+
+                            </RadioGroup>
+
+
+                        </LinearLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+
+                            android:layout_margin="@dimen/_4sdp"
+                            android:hint="رقم العداد"
+                            android:textColorHint="@color/nearGreen"
+                            android:textSize="@dimen/_9ssp"
+                            app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
+                            app:boxCornerRadiusBottomStart="@dimen/_12sdp"
+                            app:boxCornerRadiusTopEnd="@dimen/_12sdp"
+                            app:boxCornerRadiusTopStart="@dimen/_12sdp"
+                            app:boxStrokeColor="@color/outlined_storke"
+                            app:boxStrokeWidth="@dimen/_2sdp"
+                            app:boxStrokeWidthFocused="@dimen/_2sdp"
+                            app:hintTextColor="#A8A8A8">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/counter_number"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="number"
+                                android:textSize="@dimen/_9ssp" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+
+                            android:layout_margin="@dimen/_4sdp"
+                            android:hint="رقم اللوحة"
+                            android:textColorHint="@color/nearGreen"
+                            android:textSize="@dimen/_9ssp"
+                            app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
+                            app:boxCornerRadiusBottomStart="@dimen/_12sdp"
+                            app:boxCornerRadiusTopEnd="@dimen/_12sdp"
+                            app:boxCornerRadiusTopStart="@dimen/_12sdp"
+                            app:boxStrokeColor="@color/outlined_storke"
+                            app:boxStrokeWidth="@dimen/_2sdp"
+                            app:boxStrokeWidthFocused="@dimen/_2sdp"
+                            app:hintTextColor="#A8A8A8">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/PlateNumber"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="number"
+                                android:textSize="@dimen/_9ssp" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+
+                            android:layout_margin="@dimen/_4sdp"
+                            android:hint="متوسط الاستهلاك شهرياً"
+                            android:textColorHint="@color/nearGreen"
+                            android:textSize="@dimen/_9ssp"
+                            app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
+                            app:boxCornerRadiusBottomStart="@dimen/_12sdp"
+                            app:boxCornerRadiusTopEnd="@dimen/_12sdp"
+                            app:boxCornerRadiusTopStart="@dimen/_12sdp"
+                            app:boxStrokeColor="@color/outlined_storke"
+                            app:boxStrokeWidth="@dimen/_2sdp"
+                            app:boxStrokeWidthFocused="@dimen/_2sdp"
+                            app:hintTextColor="#A8A8A8">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/Average_monthly"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="number"
+                                android:textSize="@dimen/_9ssp" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/_4sdp"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/NameResietTrue"
+                                android:maxWidth="@dimen/_80sdp"
+                                android:text="إسم المستفيد بالإيصال "
+                                android:textColor="@color/nearGreen"
+
+                                android:textSize="@dimen/_9ssp"
+                                android:textStyle="bold" />
+
+                            <RadioGroup
+                                android:id="@+id/radioNameOfRecipient"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="right"
+                                android:orientation="horizontal"
+                                android:padding="@dimen/_4sdp">
+
+                                <RadioButton
+                                    android:id="@+id/radioNameOfRecipientCH3"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="أخري"
+                                    android:textSize="@dimen/_8ssp" />
+
+                                <RadioButton
+                                    android:id="@+id/radioNameOfRecipientCH2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="مستأحر"
+                                    android:textSize="@dimen/_8ssp" />
+
+                                <RadioButton
+                                    android:id="@+id/radioNameOfRecipientCH"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="مالك"
+                                    android:textSize="@dimen/_8ssp" />
+
+
+                            </RadioGroup>
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_10sdp"
+                        android:fontFamily="@font/gstb"
+                        android:gravity="center"
+                        android:text="بيانات مالك النشاط"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:textSize="@dimen/_20ssp" />
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+
+                        <com.google.android.material.textfield.TextInputLayout
+
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+
+                            android:layout_margin="@dimen/_4sdp"
+                            android:hint="الإسم وفقا للرقم القومي"
+                            android:textColorHint="@color/nearGreen"
+                            android:textSize="@dimen/_9ssp"
+                            app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
+                            app:boxCornerRadiusBottomStart="@dimen/_12sdp"
+                            app:boxCornerRadiusTopEnd="@dimen/_12sdp"
+                            app:boxCornerRadiusTopStart="@dimen/_12sdp"
+                            app:boxStrokeColor="@color/outlined_storke"
+                            app:boxStrokeWidth="@dimen/_2sdp"
+                            app:boxStrokeWidthFocused="@dimen/_2sdp"
+                            app:hintTextColor="#A8A8A8">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/fullNameForOwner"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="text"
+                                android:textSize="@dimen/_9ssp" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+
+                            android:layout_margin="@dimen/_4sdp"
+                            android:hint="إسم الشهرة (إن وجد)"
+                            android:textColorHint="@color/nearGreen"
+                            android:textSize="@dimen/_9ssp"
+                            app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
+                            app:boxCornerRadiusBottomStart="@dimen/_12sdp"
+                            app:boxCornerRadiusTopEnd="@dimen/_12sdp"
+                            app:boxCornerRadiusTopStart="@dimen/_12sdp"
+                            app:boxStrokeColor="@color/outlined_storke"
+                            app:boxStrokeWidth="@dimen/_2sdp"
+                            app:boxStrokeWidthFocused="@dimen/_2sdp"
+                            app:hintTextColor="#A8A8A8">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/NakeNameOwner"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="text"
+                                android:textSize="@dimen/_9ssp" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+
+                            android:layout_margin="@dimen/_4sdp"
+                            android:hint="الرقم القومي"
+                            android:textColorHint="@color/nearGreen"
+                            android:textSize="@dimen/_9ssp"
+                            app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
+                            app:boxCornerRadiusBottomStart="@dimen/_12sdp"
+                            app:boxCornerRadiusTopEnd="@dimen/_12sdp"
+                            app:boxCornerRadiusTopStart="@dimen/_12sdp"
+                            app:boxStrokeColor="@color/outlined_storke"
+                            app:boxStrokeWidth="@dimen/_2sdp"
+                            app:boxStrokeWidthFocused="@dimen/_2sdp"
+                            app:hintTextColor="#A8A8A8">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="number"
+                                android:id="@+id/NationalID"
+                                android:textSize="@dimen/_9ssp" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/_4sdp"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/JobAndotheTrue"
+                                android:maxWidth="@dimen/_80sdp"
+                                android:text="عمل أخر"
+                                android:textColor="@color/nearGreen"
+
+                                android:textSize="@dimen/_9ssp"
+                                android:textStyle="bold" />
+
+                            <RadioGroup
+                                android:id="@+id/radioJobAntoher"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="right"
+                                android:orientation="horizontal"
+                                android:padding="@dimen/_4sdp">
+
+                                <RadioButton
+                                    android:id="@+id/radioJobAntoherCH"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="لا"
+                                    android:textSize="@dimen/_8ssp" />
+
+                                <RadioButton
+                                    android:id="@+id/radioJobAntoherCH2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="نعم"
+                                    android:textSize="@dimen/_8ssp" />
+
+
+                            </RadioGroup>
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/_4sdp"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/JobTypeTrue"
+                                android:maxWidth="@dimen/_80sdp"
+                                android:text="نوع العمل"
+                                android:textColor="@color/nearGreen"
+
+                                android:textSize="@dimen/_9ssp"
+                                android:textStyle="bold" />
+
+                            <RadioGroup
+                                android:id="@+id/radioJobType"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="right"
+                                android:orientation="horizontal"
+                                android:padding="@dimen/_4sdp">
+
+                                <RadioButton
+                                    android:id="@+id/radioJobTypeCH"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="حكومي"
+                                    android:textSize="@dimen/_8ssp" />
+
+                                <RadioButton
+                                    android:id="@+id/radioJobTypeCH2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="خاص"
+                                    android:textSize="@dimen/_8ssp" />
+
+
+                            </RadioGroup>
+
+
+                        </LinearLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+
+                            android:layout_margin="@dimen/_4sdp"
+                            android:hint="متوسط الدخل"
+                            android:textColorHint="@color/nearGreen"
+                            android:textSize="@dimen/_9ssp"
+                            app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
+                            app:boxCornerRadiusBottomStart="@dimen/_12sdp"
+                            app:boxCornerRadiusTopEnd="@dimen/_12sdp"
+                            app:boxCornerRadiusTopStart="@dimen/_12sdp"
+                            app:boxStrokeColor="@color/outlined_storke"
+                            app:boxStrokeWidth="@dimen/_2sdp"
+                            app:boxStrokeWidthFocused="@dimen/_2sdp"
+                            app:hintTextColor="#A8A8A8">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/SalaryAverage"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="number"
+                                android:textSize="@dimen/_9ssp" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+
+
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+
+                            android:layout_margin="@dimen/_4sdp"
+                            android:hint="عدد أفراد الأسرة"
+                            android:textColorHint="@color/nearGreen"
+                            android:textSize="@dimen/_9ssp"
+                            app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
+                            app:boxCornerRadiusBottomStart="@dimen/_12sdp"
+                            app:boxCornerRadiusTopEnd="@dimen/_12sdp"
+                            app:boxCornerRadiusTopStart="@dimen/_12sdp"
+                            app:boxStrokeColor="@color/outlined_storke"
+                            app:boxStrokeWidth="@dimen/_2sdp"
+                            app:boxStrokeWidthFocused="@dimen/_2sdp"
+                            app:hintTextColor="#A8A8A8">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/FamilyMammber"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="number"
+                                android:textSize="@dimen/_9ssp" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_10sdp"
+
+                        android:gravity="center"
+                        android:text="بيانات القائم بإدارة النشاط"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:textSize="@dimen/_15ssp" />
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+
+                        <com.google.android.material.textfield.TextInputLayout
+
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+
+                            android:layout_margin="@dimen/_4sdp"
+                            android:hint="الإسم وفقا للرقم القومي"
+                            android:textColorHint="@color/nearGreen"
+                            android:textSize="@dimen/_9ssp"
+                            app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
+                            app:boxCornerRadiusBottomStart="@dimen/_12sdp"
+                            app:boxCornerRadiusTopEnd="@dimen/_12sdp"
+                            app:boxCornerRadiusTopStart="@dimen/_12sdp"
+                            app:boxStrokeColor="@color/outlined_storke"
+                            app:boxStrokeWidth="@dimen/_2sdp"
+                            app:boxStrokeWidthFocused="@dimen/_2sdp"
+                            app:hintTextColor="#A8A8A8">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/fullNameForOwnerM"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="text"
+                                android:textSize="@dimen/_9ssp" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+
+                            android:layout_margin="@dimen/_4sdp"
+                            android:hint="إسم الشهرة (إن وجد)"
+                            android:textColorHint="@color/nearGreen"
+                            android:textSize="@dimen/_9ssp"
+                            app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
+                            app:boxCornerRadiusBottomStart="@dimen/_12sdp"
+                            app:boxCornerRadiusTopEnd="@dimen/_12sdp"
+                            app:boxCornerRadiusTopStart="@dimen/_12sdp"
+                            app:boxStrokeColor="@color/outlined_storke"
+                            app:boxStrokeWidth="@dimen/_2sdp"
+                            app:boxStrokeWidthFocused="@dimen/_2sdp"
+                            app:hintTextColor="#A8A8A8">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/NakeNameOwnerM"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="text"
+                                android:textSize="@dimen/_9ssp" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+
+                            android:layout_margin="@dimen/_4sdp"
+                            android:hint="الرقم القومي"
+                            android:textColorHint="@color/nearGreen"
+                            android:textSize="@dimen/_9ssp"
+                            app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
+                            app:boxCornerRadiusBottomStart="@dimen/_12sdp"
+                            app:boxCornerRadiusTopEnd="@dimen/_12sdp"
+                            app:boxCornerRadiusTopStart="@dimen/_12sdp"
+                            app:boxStrokeColor="@color/outlined_storke"
+                            app:boxStrokeWidth="@dimen/_2sdp"
+                            app:boxStrokeWidthFocused="@dimen/_2sdp"
+                            app:hintTextColor="#A8A8A8">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/NationalIDM"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="number"
+                                android:textSize="@dimen/_9ssp" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/_4sdp"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/AnotherJobType"
+                                android:maxWidth="@dimen/_80sdp"
+                                android:text="عمل أخر"
+                                android:textColor="@color/nearGreen"
+
+                                android:textSize="@dimen/_9ssp"
+                                android:textStyle="bold" />
+
+                            <RadioGroup
+                                android:id="@+id/radioJobAntoherM"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="right"
+                                android:orientation="horizontal"
+                                android:padding="@dimen/_4sdp">
+
+                                <RadioButton
+                                    android:id="@+id/radioJobAntoherMCH"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="لا"
+                                    android:textSize="@dimen/_8ssp" />
+
+                                <RadioButton
+                                    android:id="@+id/radioJobAntoherMCH2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="نعم"
+                                    android:textSize="@dimen/_8ssp" />
+
+
+                            </RadioGroup>
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/_4sdp"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+
+                                android:id="@+id/radioJobTypeMTrue"
+                                android:maxWidth="@dimen/_80sdp"
+                                android:text="نوع العمل"
+                                android:textColor="@color/nearGreen"
+
+                                android:textSize="@dimen/_9ssp"
+                                android:textStyle="bold" />
+
+                            <RadioGroup
+                                android:id="@+id/radioJobTypeM"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="right"
+                                android:orientation="horizontal"
+                                android:padding="@dimen/_4sdp">
+
+                                <RadioButton
+                                    android:id="@+id/radioJobTypeMCH"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="حكومي"
+                                    android:textSize="@dimen/_8ssp" />
+
+                                <RadioButton
+                                    android:id="@+id/radioJobTypeMCH2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="خاص"
+                                    android:textSize="@dimen/_8ssp" />
+
+
+                            </RadioGroup>
+
+
+                        </LinearLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+
+                            android:layout_margin="@dimen/_4sdp"
+                            android:hint="متوسط الدخل"
+                            android:textColorHint="@color/nearGreen"
+                            android:textSize="@dimen/_9ssp"
+                            app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
+                            app:boxCornerRadiusBottomStart="@dimen/_12sdp"
+                            app:boxCornerRadiusTopEnd="@dimen/_12sdp"
+                            app:boxCornerRadiusTopStart="@dimen/_12sdp"
+                            app:boxStrokeColor="@color/outlined_storke"
+                            app:boxStrokeWidth="@dimen/_2sdp"
+                            app:boxStrokeWidthFocused="@dimen/_2sdp"
+                            app:hintTextColor="#A8A8A8">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/SalaryAverageM"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="number"
+                                android:textSize="@dimen/_9ssp" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/FeadBack"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+
+                    <TextView
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_5sdp"
+
+                        android:gravity="center"
+                        android:text="نتيجة الإستعلام"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_15ssp" />
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_4sdp"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/AgentTrue"
+                            android:maxWidth="@dimen/_80sdp"
+                            android:text="هل بيانات النشاط مطابقة أم لا ؟"
+                            android:textColor="@color/nearGreen"
+                            android:textSize="@dimen/_9ssp"
+                            android:textStyle="bold" />
+
+                        <RadioGroup
+                            android:id="@+id/radioLieesnas"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="right"
+                            android:orientation="horizontal"
+                            android:padding="@dimen/_4sdp">
+
+                            <RadioButton
+                                android:id="@+id/radioLieesnasCH"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="لا"
+                                android:textSize="@dimen/_8ssp" />
+
+                            <RadioButton
+                                android:id="@+id/radioLieesnasCH2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="نعم"
+                                android:textSize="@dimen/_8ssp" />
+
+
+                        </RadioGroup>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_4sdp"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/AddersTrue"
+                            android:maxWidth="@dimen/_80sdp"
+                            android:text="هل بيانات مقر النشاط مطابقة أم لا ؟"
+                            android:textColor="@color/nearGreen"
+                            android:textSize="@dimen/_9ssp"
+                            android:textStyle="bold" />
+
+                        <RadioGroup
+                            android:id="@+id/radioMachineLiesnse"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="right"
+                            android:orientation="horizontal"
+                            android:padding="@dimen/_4sdp">
+
+                            <RadioButton
+                                android:id="@+id/radioMachineLiesnseCH"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="لا"
+                                android:textSize="@dimen/_8ssp" />
+
+                            <RadioButton
+                                android:id="@+id/radioMachineLiesnseCH2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="نعم"
+                                android:textSize="@dimen/_8ssp" />
+
+
+                        </RadioGroup>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_4sdp"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/tiemCycleTrue"
+                            android:maxWidth="@dimen/_80sdp"
+                            android:text="مدي إلتزام النشاط بمواعيد العمل"
+                            android:textColor="@color/nearGreen"
+                            android:textSize="@dimen/_9ssp"
+                            android:textStyle="bold" />
+
+                        <RadioGroup
+                            android:id="@+id/radioValue"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="right"
+                            android:orientation="horizontal"
+                            android:padding="@dimen/_4sdp">
+
+                            <RadioButton
+                                android:id="@+id/radioValueCH"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="ممتاز"
+                                android:textSize="@dimen/_8ssp" />
+
+                            <RadioButton
+                                android:id="@+id/radioValueCH2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="جيد"
+                                android:textSize="@dimen/_8ssp" />
+
+                            <RadioButton
+                                android:id="@+id/radioValueCH3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="سئ"
+                                android:textSize="@dimen/_8ssp" />
+
+
+                        </RadioGroup>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_4sdp"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/OwnerTrue"
+                            android:maxWidth="@dimen/_80sdp"
+                            android:text="هل بيانات  مالك النشاط مطابقة أم لا ؟"
+                            android:textColor="@color/nearGreen"
+                            android:textSize="@dimen/_9ssp"
+                            android:textStyle="bold" />
+
+                        <RadioGroup
+                            android:id="@+id/radioOwner"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="right"
+                            android:orientation="horizontal"
+                            android:padding="@dimen/_4sdp">
+
+                            <RadioButton
+                                android:id="@+id/radioOwnerCH"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="لا"
+                                android:textSize="@dimen/_8ssp" />
+
+                            <RadioButton
+                                android:id="@+id/radioOwnerCH2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="نعم"
+                                android:textSize="@dimen/_8ssp" />
+
+
+                        </RadioGroup>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_4sdp"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/MangamentTrue"
+                            android:maxWidth="@dimen/_80sdp"
+                            android:text="هل بيانات القائم بإدارة النشاط مطابقة أم لا؟"
+                            android:textColor="@color/nearGreen"
+                            android:textSize="@dimen/_9ssp"
+                            android:textStyle="bold" />
+
+                        <RadioGroup
+                            android:id="@+id/radioRaptaion"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="right"
+                            android:orientation="horizontal"
+                            android:padding="@dimen/_4sdp">
+
+                            <RadioButton
+                                android:id="@+id/radioRaptaionCH"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="لا"
+                                android:textSize="@dimen/_8ssp" />
+
+                            <RadioButton
+                                android:id="@+id/radioRaptaionCH2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="نعم"
+                                android:textSize="@dimen/_8ssp" />
+
+
+                        </RadioGroup>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_4sdp"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:maxWidth="@dimen/_80sdp"
+                            android:id="@+id/RepartionTrue"
+                            android:text="سمعة العميل في محل النشاط"
+                            android:textColor="@color/nearGreen"
+                            android:textSize="@dimen/_9ssp"
+                            android:textStyle="bold" />
+
+                        <RadioGroup
+                            android:id="@+id/radioReputation"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="right"
+                            android:orientation="horizontal"
+                            android:padding="@dimen/_4sdp">
+
+                            <RadioButton
+                                android:id="@+id/radioReputationCH"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="ممتاز"
+                                android:textSize="@dimen/_8ssp" />
+
+                            <RadioButton
+                                android:id="@+id/radioReputationCH2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="جيد"
+                                android:textSize="@dimen/_8ssp" />
+
+                            <RadioButton
+                                android:id="@+id/radioReputationCH3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="سئ"
+                                android:textSize="@dimen/_8ssp" />
+
+
+                        </RadioGroup>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_4sdp"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/adderLoactionTrue"
+                            android:maxWidth="@dimen/_80sdp"
+                            android:text="سمعة المنشأة في المنطقة المحيطة"
+                            android:textColor="@color/nearGreen"
+                            android:textSize="@dimen/_9ssp"
+                            android:textStyle="bold" />
+
+                        <RadioGroup
+                            android:id="@+id/radioEnterprise"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="right"
+                            android:orientation="horizontal"
+                            android:padding="@dimen/_4sdp">
+
+                            <RadioButton
+                                android:id="@+id/radioEnterpriseCH"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="ممتاز"
+                                android:textSize="@dimen/_8ssp" />
+
+                            <RadioButton
+                                android:id="@+id/radioEnterpriseCH2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="جيد"
+                                android:textSize="@dimen/_8ssp" />
+
+                            <RadioButton
+                                android:id="@+id/radioEnterpriseCH3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="سئ"
+                                android:textSize="@dimen/_8ssp" />
+
+
+                        </RadioGroup>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_4sdp"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/SorursTrue"
+                            android:maxWidth="@dimen/_80sdp"
+                            android:text="مصارد الاستعلام"
+                            android:textColor="@color/nearGreen"
+
+                            android:textSize="@dimen/_9ssp"
+                            android:textStyle="bold" />
+
+                        <RadioGroup
+                            android:id="@+id/radioSourse"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="right"
+                            android:orientation="horizontal"
+                            android:padding="@dimen/_4sdp">
+
+                            <RadioButton
+                                android:id="@+id/radioSourseCH4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="اخري"
+                                android:textSize="@dimen/_8ssp" />
+
+                            <RadioButton
+                                android:id="@+id/radioSourseCH3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="منشأة مجاورة"
+                                android:textSize="@dimen/_8ssp" />
+
+                            <RadioButton
+                                android:id="@+id/radioSourseCH2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="قريب"
+                                android:textSize="@dimen/_8ssp" />
+
+                            <RadioButton
+                                android:id="@+id/radioSourseCH"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="جار"
+                                android:textSize="@dimen/_8ssp" />
+                        </RadioGroup>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_4sdp"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+
+
+                            android:maxWidth="@dimen/_80sdp"
+                            android:text="المرفقات"
+                            android:textColor="@color/nearGreen"
+
+                            android:textSize="@dimen/_9ssp"
+                            android:textStyle="bold" />
+
+                        <LinearLayout
+                            android:id="@+id/radioFiels"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+
+                            android:orientation="vertical"
+                            android:padding="@dimen/_4sdp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="right"
+                                android:orientation="horizontal">
+
+                                <CheckBox
+                                    android:id="@+id/radioFielsCH"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="سند الملكية"
+                                    android:textSize="@dimen/_8ssp" />
+
+                                <CheckBox
+                                    android:id="@+id/radioFielsCH2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="ايصال المرفق"
+                                    android:textSize="@dimen/_8ssp" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="right"
+                                android:orientation="horizontal">
+
+                                <CheckBox
+                                    android:id="@+id/radioFielsCH3"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="مستخرج سجل التجاري"
+                                    android:textSize="@dimen/_8ssp" />
+
+                                <CheckBox
+                                    android:id="@+id/radioFielsCH4"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="بطاقة ضربية"
+                                    android:textSize="@dimen/_8ssp" />
+
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="right"
+                                android:orientation="horizontal">
+
+                                <CheckBox
+                                    android:id="@+id/radioFielsCH5"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="رخصة النشاط"
+                                    android:textSize="@dimen/_8ssp" />
+
+                                <CheckBox
+                                    android:id="@+id/radioFielsCH6"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="صورة الرقم القومي للشركاء"
+                                    android:textSize="@dimen/_8ssp" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:id="@+id/Sumbit"
+                        android:fontFamily="@font/gstb"
+                        android:paddingLeft="@dimen/_20sdp"
+                        android:paddingRight="@dimen/_20sdp"
+                        android:text="تسليم"
+                        android:textSize="@dimen/_12ssp" />
+                    <Space
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"/>
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/NearRed"
+                        android:id="@+id/DeletSumbit"
+                        android:visibility="gone"
+                        android:paddingLeft="@dimen/_15sdp"
+                        android:paddingRight="@dimen/_15sdp"
+                        android:text="حذف الاستعلام"
+                        android:textSize="@dimen/_12ssp" />
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

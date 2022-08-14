@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Screens.Fragment.NotesAddsFragment">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/Parent">
+        <LinearLayout
+            android:id="@+id/CLientHadder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+app:layout_constraintBottom_toTopOf="@+id/Content"
+            android:background="@color/nearGreen"
+            android:orientation="horizontal"
+            android:padding="@dimen/_10sdp"
+
+            app:layout_constraintEnd_toEndOf="@id/Parent"
+            app:layout_constraintStart_toStartOf="@id/Parent"
+            app:layout_constraintTop_toTopOf="@id/Parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+
+                android:gravity="center"
+                android:text="إضافة الملاحظات"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_11ssp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <ImageView
+                android:id="@+id/goBack"
+                android:layout_width="wrap_content"
+
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:gravity="right"
+                android:src="@drawable/ic_arrowbackline" />
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/CLientHadder"
+            app:layout_constraintStart_toStartOf="@id/Parent"
+            app:layout_constraintEnd_toEndOf="@id/Parent"
+            app:layout_constraintBottom_toBottomOf="@id/Parent"
+            android:id="@+id/Content"
+            android:orientation="vertical"
+            >
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_4sdp"
+                android:hint="اضاف الملاحظة"
+                android:id="@+id/textInputNote"
+                android:textColorHint="@color/nearGreen"
+                android:textSize="@dimen/_9ssp"
+
+                app:boxCornerRadiusBottomEnd="@dimen/_10sdp"
+                app:boxCornerRadiusBottomStart="@dimen/_10sdp"
+                app:boxCornerRadiusTopEnd="@dimen/_10sdp"
+                app:boxCornerRadiusTopStart="@dimen/_10sdp"
+                app:boxStrokeColor="@color/outlined_storke"
+                app:boxStrokeWidth="@dimen/_2sdp"
+                app:boxStrokeWidthFocused="@dimen/_2sdp"
+                app:hintTextColor="#A8A8A8">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/NoteAdd"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="@dimen/_90sdp"
+                    android:textSize="@dimen/_9ssp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/_10sdp"
+android:orientation="horizontal">
+
+    <Button
+        android:id="@+id/ButtonCoremit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+
+        android:textSize="@dimen/_10sdp"
+        android:text="اضافة الملاحظة"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        app:strokeColor="@color/nearGreen"
+        app:strokeWidth="@dimen/_1sdp"/>
+    <Space
+    android:layout_width="0dp"
+    android:layout_height="0dp"
+    android:layout_weight="1"/>
+    <Button
+        android:id="@+id/ButtonDiel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+
+
+        android:textSize="@dimen/_10sdp"
+        android:text="حذف الاستعلام"
+        android:textColor="@color/NearRed"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        app:strokeColor="@color/NearRed"
+        app:strokeWidth="@dimen/_1sdp"/>
+</LinearLayout>
+            <com.google.android.material.textfield.TextInputLayout
+
+                android:id="@+id/TextInputDenyResson"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_4sdp"
+                android:hint="سبب الرفض"
+                android:textColorHint="@color/NearRed"
+                android:textSize="@dimen/_9ssp"
+android:visibility="gone"
+                app:boxCornerRadiusBottomEnd="@dimen/_10sdp"
+                app:boxCornerRadiusBottomStart="@dimen/_10sdp"
+                app:boxCornerRadiusTopEnd="@dimen/_10sdp"
+                app:boxCornerRadiusTopStart="@dimen/_10sdp"
+                app:boxStrokeColor="@color/outlined_red_stroke"
+                app:boxStrokeWidth="@dimen/_2sdp"
+                app:boxStrokeWidthFocused="@dimen/_2sdp"
+                app:hintTextColor="#A8A8A8">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/DeletAnsewer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="@dimen/_60sdp"
+                    android:textSize="@dimen/_9ssp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/ButtonCoremitDiel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_margin="@dimen/_15sdp"
+                android:visibility="gone"
+                android:textSize="@dimen/_10sdp"
+                android:text="تأكيد"
+                android:textColor="@color/NearRed"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                app:strokeColor="@color/NearRed"
+                app:strokeWidth="@dimen/_1sdp"/>
+            <Button
+                android:id="@+id/ButtonGotoForm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+android:layout_margin="@dimen/_30sdp"
+
+                android:textSize="@dimen/_10sdp"
+                android:text="انهاء الاستعلام"
+                android:textColor="@color/nearGreen"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                app:strokeColor="@color/nearGreen"
+                app:strokeWidth="@dimen/_1sdp"/>
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

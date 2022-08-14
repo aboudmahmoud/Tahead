@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Screens.Fragment.ProfileFrgament">
+
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+
+    android:id="@+id/cons">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/ImageCard"
+     android:minHeight="@dimen/_150sdp"
+        android:minWidth="@dimen/_150sdp"
+        android:layout_width="@dimen/_150sdp"
+        android:layout_height="@dimen/_150sdp"
+
+android:layout_margin="@dimen/_10sdp"
+        android:scaleType="fitCenter"
+        
+        app:layout_constraintBottom_toTopOf="@id/NameProfile"
+
+        app:layout_constraintEnd_toEndOf="@id/cons"
+
+
+
+
+        app:layout_constraintStart_toStartOf="@id/cons"
+        app:layout_constraintTop_toTopOf="@id/cons"
+        app:shapeAppearanceOverlay="@style/roundedImageView2"
+        app:strokeColor="@color/nearGreen"
+        app:strokeWidth="@dimen/_1sdp" />
+
+    <TextView
+        android:id="@+id/ProgfilJob"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="المدير العام"
+        android:textColor="@color/nearGreen"
+        android:textSize="@dimen/_13ssp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/TextEmail"
+        app:layout_constraintEnd_toEndOf="@id/cons"
+
+
+        app:layout_constraintStart_toStartOf="@id/cons"
+        app:layout_constraintTop_toBottomOf="@id/NameProfile" />
+
+    <TextView
+        android:id="@+id/NameProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="احمد المحمدي"
+        android:textColor="@color/nearGreen"
+        android:textSize="@dimen/_15ssp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/ProgfilJob"
+        app:layout_constraintEnd_toEndOf="@id/cons"
+
+
+        app:layout_constraintStart_toStartOf="@id/cons"
+        app:layout_constraintTop_toBottomOf="@id/ImageCard"
+       />
+
+    <TextView
+        android:id="@+id/TextEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+
+        android:text="Ahmed1@Gmail.Com"
+        android:textAlignment="center"
+        android:textColor="@color/nearGreen"
+        android:textSize="@dimen/_10ssp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/TextCansel"
+
+        app:layout_constraintEnd_toEndOf="@id/cons"
+
+
+
+        app:layout_constraintStart_toStartOf="@+id/cons"
+
+        app:layout_constraintTop_toBottomOf="@id/ProgfilJob"
+        app:layout_constraintVertical_bias="0.166" />
+
+    <TextView
+        android:id="@+id/TextCansel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="@dimen/_20sdp"
+
+        android:gravity="start"
+        android:text="الالغاء"
+        android:textAlignment="center"
+        android:textColor="@color/NearRed"
+        android:textSize="@dimen/_10ssp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/cons"
+        app:layout_constraintEnd_toEndOf="@id/cons"
+
+        app:layout_constraintHorizontal_bias="0.042"
+        app:layout_constraintStart_toStartOf="@id/cons"
+        app:layout_constraintTop_toBottomOf="@id/TextEmail"
+        app:layout_constraintVertical_bias="1.0" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>
