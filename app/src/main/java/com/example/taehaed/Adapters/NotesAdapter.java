@@ -1,5 +1,6 @@
 package com.example.taehaed.Adapters;
 
+import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +16,21 @@ import java.util.ArrayList;
 
 public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NoteHolder> {
     private ArrayList<Note> notes;
+    public NotesAdapter()
+    {
+        this.notes=new ArrayList<>();
+    }
+@SuppressLint("NotifyDataSetChanged")
+public void refReash(){
+    notifyDataSetChanged();
+}
+
+    @SuppressLint("NotifyDataSetChanged")
+    public void setNotes(ArrayList<Note> notes) {
+        this.notes = notes;
+        notifyDataSetChanged();
+    }
+
     public NotesAdapter(ArrayList<Note> notes)
     {
      this.notes=notes;

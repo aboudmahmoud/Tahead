@@ -17,6 +17,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.CompoundButton;
 import android.widget.Toast;
 
 import com.example.taehaed.Constans;
@@ -76,68 +77,62 @@ public class ServiersFragment extends DialogFragment {
         binding.ServieName.setText(SeriverName);
 
         binding.RadioDiel.setOnCheckedChangeListener((compoundButton, b) -> {
-            if (binding.RadioDiel.isChecked()) {
-                binding.ButtonCoremitDiel.setVisibility(View.VISIBLE);
-                binding.TextInputDenyResson.setVisibility(View.VISIBLE);
-                binding.ButtonCoremit.setVisibility(View.GONE);
-
-
-
-            }
-
+   if (  binding.RadioDiel.isChecked())
+   {
+       binding.Noteanser.setVisibility(View.VISIBLE);
+   }
         });
-
         binding.rdioAccept.setOnCheckedChangeListener((compoundButton, b) -> {
-            if (binding.rdioAccept.isChecked()) {
-                binding.ButtonCoremitDiel.setVisibility(View.GONE);
-                binding.TextInputDenyResson.setVisibility(View.GONE);
-                binding.ButtonCoremit.setVisibility(View.VISIBLE);
-
-
-
+            if (  binding.rdioAccept.isChecked())
+            {
+                binding.Noteanser.setVisibility(View.GONE);
             }
         });
-        binding.ButtonCoremitDiel.setOnClickListener(view1 -> {
-            if(binding.DeletAnsewer.getText().toString().equals(""))
-            {
-                binding.TextInputDenyResson.setError("ارجو منك كتابة سبب الرفض");
-            }else
-            {
-                binding.TextInputDenyResson.setError(null);
-                alertDialog= setAlertMeaage("جاري حذف الطلب",getContext());
-                alertDialog.show();
-                noteBodey = new NoteBodey();
-                noteBodey.setRequest_service_id(id);
-                noteBodey.setReport(binding.DeletAnsewer.getText().toString());
-                taehaedVModel.CancelRequstNote(noteBodey, status -> {
-                    if (status) {
-                        alertDialog.dismiss();
-                        getActivity().getSupportFragmentManager().beginTransaction().remove(this).commit();
-                        getActivity().recreate();
-                        //   Toast.makeText(getContext(), "تم + " + id, Toast.LENGTH_LONG).show();
 
-                    } else {
-                        alertDialog.dismiss();
-                        Toast.makeText(getContext(), "يبدو ان هنأك خطأ ما", Toast.LENGTH_LONG).show();
-                    }
-                });
-
-            }
-
-        });
         binding.ButtonCoremit.setOnClickListener(view1 ->{
-            alertDialog= setAlertMeaage("جاري قبول الطلب",getContext());
-            alertDialog.show();
-            taehaedVModel.ConverNoteToAccept(id, status -> {
-                if (status)
-                { alertDialog.dismiss();
-                    getActivity().getSupportFragmentManager().beginTransaction().remove(this).commit();
-                    getActivity().recreate();
+
+            if (binding.RadioDiel.isChecked()) {
+                if(binding.Noteanser.getText().toString().equals("")) {
+                    binding.TextInputDenyResson.setError("ارجو منك كتابة سبب الرفض");
                 }
                 else {
-                    Toast.makeText(getContext(), "يبدو ان هناك خطأ ما", Toast.LENGTH_SHORT).show();
+                    binding.TextInputDenyResson.setError(null);
+                    alertDialog= setAlertMeaage("جاري حذف الطلب",getContext());
+                    alertDialog.show();
+                    noteBodey = new NoteBodey();
+                    noteBodey.setRequest_service_id(id);
+                    noteBodey.setReport(binding.Noteanser.getText().toString());
+                    taehaedVModel.CancelRequstNote(noteBodey, status -> {
+                        if (status) {
+                            alertDialog.dismiss();
+                            getActivity().getSupportFragmentManager().beginTransaction().remove(this).commit();
+                            getActivity().recreate();
+                            //   Toast.makeText(getContext(), "تم + " + id, Toast.LENGTH_LONG).show();
+
+                        } else {
+                            alertDialog.dismiss();
+                            Toast.makeText(getContext(), "يبدو ان هنأك خطأ ما", Toast.LENGTH_LONG).show();
+                        }
+                    });
+
                 }
-            });
+            }
+            else if(binding.rdioAccept.isChecked()) {
+                alertDialog= setAlertMeaage(getString(R.string.RequseRescipt),getContext());
+                alertDialog.show();
+                taehaedVModel.ConverNoteToAccept(id, status -> {
+                    if (status)
+                    { alertDialog.dismiss();
+                        Toast.makeText(getContext(),getString( R.string.AssigmentAccept), Toast.LENGTH_SHORT).show();
+                        getActivity().getSupportFragmentManager().beginTransaction().remove(this).commit();
+                        getActivity().recreate();
+                    }
+                    else {
+                        Toast.makeText(getContext(), getString(R.string.SometingError), Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+
         });
 
     }

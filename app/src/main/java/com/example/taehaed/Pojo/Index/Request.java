@@ -16,7 +16,6 @@ public class Request implements Serializable {
     private Object actual_job;
     private Object card_job;
     private String gender;
-
     private String identity_card_photo_front;
     private String identity_card_photo_back;
     private String created_at;

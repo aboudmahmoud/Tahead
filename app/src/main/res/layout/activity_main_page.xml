@@ -36,7 +36,7 @@
                     android:layout_height="wrap_content"
                     android:text="الرئيسية"
 
-                    android:gravity="start"
+                    android:gravity="end"
                     android:textStyle="bold"
                     android:textSize="@dimen/_15ssp"
                     android:layout_gravity="start"
@@ -55,21 +55,31 @@
                  android:layout_marginEnd="@dimen/_10sdp"
 android:layout_gravity="center"
 
+
                     android:src="@drawable/ic_threelinees" />
 
 
             </LinearLayout>
         </androidx.appcompat.widget.Toolbar>
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/listOfData"
-            android:visibility="gone"
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+
+            android:id="@+id/swiperefresh"
             android:layout_width="match_parent"
+
             android:layout_height="0dp"
             app:layout_constraintTop_toBottomOf="@id/CLientHadder"
 
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            app:layout_constraintBottom_toBottomOf="parent"
+            >
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/listOfData"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+          />
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
         <com.google.android.material.progressindicator.CircularProgressIndicator
             android:id="@+id/ProgeesPar"
@@ -81,17 +91,30 @@ android:layout_gravity="center"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"/>
+        <TextView
+            android:id="@+id/Tv_Message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+      android:visibility="gone"
+        android:textColor="@color/nearGreen"
+            android:text="لاتوجد وظائف"
+            android:textSize="@dimen/_15sdp"
+            app:layout_constraintTop_toBottomOf="@id/CLientHadder"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/Fg"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_gravity="end"
 
+android:layout_gravity="end"
 android:layout_marginTop="@dimen/_25sdp"
         android:visibility="invisible"
         app:menu="@menu/nav_content">
+
 
     </com.google.android.material.navigation.NavigationView>
 </androidx.drawerlayout.widget.DrawerLayout>

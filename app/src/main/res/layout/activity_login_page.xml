@@ -60,7 +60,7 @@ app:layout_constraintBottom_toTopOf="@id/ForgetPassword"
             android:layout_height="wrap_content"
             android:hint="البريد الالكتروني"
 
-            android:textColor="@color/nearGreen"
+
             android:textSize="@dimen/_12ssp"
             android:inputType="textEmailAddress"
 
@@ -85,7 +85,7 @@ app:layout_constraintBottom_toTopOf="@id/ForgetPassword"
        android:textSize="@dimen/_12ssp"
        android:padding="@dimen/_10sdp"
        android:background="@drawable/edit_text_back"
-       android:textColorHint="@color/nearGreen"
+
 
        android:textStyle="bold"
        android:layout_marginBottom="@dimen/_10sdp"

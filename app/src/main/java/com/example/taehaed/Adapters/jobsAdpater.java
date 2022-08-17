@@ -54,7 +54,7 @@ public class jobsAdpater extends RecyclerView.Adapter<jobsAdpater.JobsHolder> {
 
         void BindData(Request indexRoot)
         {
-
+            binding.IDOrgnaization.setText(indexRoot.getOrganization().getId()+"");
             binding.ClinetName.setText(indexRoot.getFullname());
             binding.Adders.setText(indexRoot.getActual_address());
             binding.Pranstger.setText("%"+indexRoot.getPercentage());

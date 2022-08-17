@@ -6,6 +6,7 @@ import static com.example.taehaed.Constans.getValue;
 import static com.example.taehaed.Constans.getValueOfboleaan;
 import static com.example.taehaed.Constans.itsNotNull;
 import static com.example.taehaed.Constans.setAlertMeaage;
+import static com.example.taehaed.Constans.setDateForInputText;
 import static com.example.taehaed.Constans.setErrorTextView;
 
 import android.app.DatePickerDialog;
@@ -139,10 +140,10 @@ public class FifithEnquiryComarialFragment extends Fragment {
     }
 
     private void SetDate() {
-        Constans.setDateForInputText(binding.PerathData,getContext());
-        Constans.setDateForInputText(binding.ComarialDate,getContext());
-        Constans.setDateForInputText(binding.ReleaseDateComarial,getContext());
-        Constans.setDateForInputText(binding.ExpiryDate,getContext());
+         setDateForInputText(binding.PerathData,getContext());
+        setDateForInputText(binding.ComarialDate,getContext());
+        setDateForInputText(binding.ReleaseDateComarial,getContext());
+       setDateForInputText(binding.ExpiryDate,getContext());
     }
 
 

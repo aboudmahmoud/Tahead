@@ -136,7 +136,7 @@ public class SevenSevriesFragment extends Fragment {
         if(getAgentDataValdion()) return true;
 
         //بيانات النشاط
-        if(  getActvityDataValdion()) return true;
+        if(getActvityDataValdion()) return true;
 
         //نتيجة الاستعلام
         if(getAskingData());
@@ -243,14 +243,6 @@ public class SevenSevriesFragment extends Fragment {
             return true;
         }
 
-        formdata.service_activity_result_attachments = new ArrayList<>();
-        if (binding.radioFielsCH.isChecked()) {
-            formdata.service_activity_result_attachments.add("1");
-
-        }
-        if (binding.radioFielsCH2.isChecked()) {
-            formdata.service_activity_result_attachments.add("2");
-        }
 
         return false;
     }

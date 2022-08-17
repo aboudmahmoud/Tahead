@@ -5,7 +5,6 @@ import com.example.taehaed.Pojo.FormReuest.FormData;
 import com.example.taehaed.Pojo.FormReuest.FormRoot;
 import com.example.taehaed.Pojo.Index.IndexRoot;
 import com.example.taehaed.Pojo.LogIn.LoginRoot;
-
 import com.example.taehaed.Pojo.LogoOut.StatusRoot;
 import com.example.taehaed.Pojo.NoteBodey;
 import com.example.taehaed.Pojo.NoteToShow.NotesRoot;
@@ -13,18 +12,21 @@ import com.example.taehaed.Pojo.Request.RequsetRoot;
 import com.example.taehaed.Pojo.UserData;
 import com.example.taehaed.Pojo.home.HomeRoot;
 
-
+import java.io.File;
 import java.io.IOException;
 
-import okhttp3.Interceptor;
+import io.reactivex.rxjava3.core.Observable;
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
+import okhttp3.RequestBody;
 import okhttp3.Response;
 import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
-import retrofit2.http.Body;
+
 
 public class TaahiedImplements {
 
@@ -38,13 +40,17 @@ public class TaahiedImplements {
                             Request.Builder builder = chain.request().newBuilder();
 
                             builder.addHeader("Authorization", "Bearer " + Constans.Token);
+                            builder.addHeader("Content-Type", "multipart/form-data");
+
                             Request request = builder.build();
 
                             Response response = chain.proceed(request);
+
                             return response;
                         }).build()).baseUrl(baseUrl)
                 .addConverterFactory(GsonConverterFactory.create()).
                 addCallAdapterFactory(RxJava3CallAdapterFactory.create()).build();
+
         taaheidMathod = retrofit.create(TaaheidMathod.class);
     }
     public static TaahiedImplements getInstanse() {
@@ -107,4 +113,16 @@ public class TaahiedImplements {
     public Call<StatusRoot>  ConvertDoneToAccept( NoteBodey noteBodey){
         return taaheidMathod.ConvertDoneToAccept(noteBodey);
     }
+
+    public Observable<NotesRoot> ObesrveNotes( int request_service_id)
+    {
+        return taaheidMathod.ObesrveNotes(request_service_id);
+    }
+
+    public Call<StatusRoot> setDoneserviesWithFiels(MultipartBody.Part[] file, RequestBody json){
+        return taaheidMathod.setDoneserviesWithFiels(file,json);
+    }
+
+
+
 }

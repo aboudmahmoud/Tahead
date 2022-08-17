@@ -13,13 +13,13 @@ import com.example.taehaed.Model.ListenersForRespone.HomeRouteLisnter;
 import com.example.taehaed.Model.ListenersForRespone.LoginStatus;
 import com.example.taehaed.Model.ListenersForRespone.LogouStatus;
 import com.example.taehaed.Model.ListenersForRespone.NoteStateListner;
+import com.example.taehaed.Model.ListenersForRespone.OberverTheError;
 import com.example.taehaed.Model.ListenersForRespone.OperationRequsetLisnet;
 import com.example.taehaed.Model.ListenersForRespone.RequsetOberttionListner;
 import com.example.taehaed.Model.ListenersForRespone.StatusApi;
 import com.example.taehaed.Pojo.FormReuest.FormData;
 import com.example.taehaed.Pojo.FormReuest.FormRoot;
 import com.example.taehaed.Pojo.Index.IndexRoot;
-
 import com.example.taehaed.Pojo.LogIn.LoginRoot;
 import com.example.taehaed.Pojo.LogoOut.StatusRoot;
 import com.example.taehaed.Pojo.NoteBodey;
@@ -28,7 +28,11 @@ import com.example.taehaed.Pojo.Request.RequsetRoot;
 import com.example.taehaed.Pojo.UserData;
 import com.example.taehaed.Pojo.home.HomeRoot;
 
-
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.core.Observable;
+import io.reactivex.rxjava3.schedulers.Schedulers;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -310,6 +314,48 @@ public class TaehaedVModel extends ViewModel {
                 statusApi.SetStatus(false);
             }
         });
+    }
+
+    public void ObesverNotes(int request_service_id, OberverTheError oberverTheError)
+    {
+        Observable<NotesRoot> notesRootObservable= resportry.ObesrveNotes(request_service_id)
+                .subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
+        notesRootObservable.subscribe(o->{
+                    notesRootMutableLiveData.setValue(o);
+                    if (!o.isSuccessful())
+                    {
+                        oberverTheError.errormessage(true,o.getMessage());
+                    }
+                }
+            ,error-> {
+                    oberverTheError.errormessage(true,error.getMessage());
+
+                });
+
+    }
+
+    public void setDoneserviesWithFiels(MultipartBody.Part[] file, RequestBody json, OberverTheError oberverTheError)
+    {
+        resportry.setDoneserviesWithFiels(file,json).enqueue(new Callback<StatusRoot>() {
+            @Override
+            public void onResponse(Call<StatusRoot> call, Response<StatusRoot> response) {
+                if(!response.isSuccessful())
+                {
+                    oberverTheError.errormessage(true,"responseScuues "+response.message());
+                }else if(!response.body().isSuccessful())
+                {
+                    oberverTheError.errormessage(true,"responseFailed "+response.body().getMessage());
+                }
+
+                oberverTheError.errormessage(false,null);
+            }
+
+            @Override
+            public void onFailure(Call<StatusRoot> call, Throwable t) {
+                oberverTheError.errormessage(true,"onFailure "+t.getMessage());
+            }
+        });
+
     }
 
 }

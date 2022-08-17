@@ -3,17 +3,19 @@ package com.example.taehaed.Model;
 import com.example.taehaed.Model.ListenersForRespone.LoginStatus;
 import com.example.taehaed.Pojo.FormReuest.FormData;
 import com.example.taehaed.Pojo.FormReuest.FormRoot;
+import com.example.taehaed.Pojo.Index.IndexRoot;
+import com.example.taehaed.Pojo.LogIn.LoginRoot;
 import com.example.taehaed.Pojo.LogoOut.StatusRoot;
 import com.example.taehaed.Pojo.NoteBodey;
 import com.example.taehaed.Pojo.NoteToShow.NotesRoot;
-import com.example.taehaed.data.TaahiedImplements;
-import com.example.taehaed.Pojo.Index.IndexRoot;
-import com.example.taehaed.Pojo.LogIn.LoginRoot;
 import com.example.taehaed.Pojo.Request.RequsetRoot;
 import com.example.taehaed.Pojo.UserData;
 import com.example.taehaed.Pojo.home.HomeRoot;
+import com.example.taehaed.data.TaahiedImplements;
 
-
+import io.reactivex.rxjava3.core.Observable;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 import retrofit2.Call;
 
 
@@ -100,5 +102,13 @@ public class Resportry {
 
     public Call<StatusRoot>  ConvertDoneToAccept( NoteBodey noteBodey){
         return TaahiedImplements.getInstanse().ConvertDoneToAccept(noteBodey);
+    }
+    public Observable<NotesRoot> ObesrveNotes( int request_service_id)
+    {
+return TaahiedImplements.getInstanse().ObesrveNotes(request_service_id);
+    }
+
+    public Call<StatusRoot> setDoneserviesWithFiels(MultipartBody.Part[] file, RequestBody json){
+        return TaahiedImplements.getInstanse().setDoneserviesWithFiels(file,json);
     }
 }

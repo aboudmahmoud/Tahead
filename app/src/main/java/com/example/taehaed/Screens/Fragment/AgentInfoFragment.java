@@ -1,10 +1,12 @@
 package com.example.taehaed.Screens.Fragment;
 
 import static com.example.taehaed.Constans.getValue;
+import static com.example.taehaed.Constans.showMap;
 
 import static java.lang.String.valueOf;
 
 import android.graphics.Point;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -79,7 +81,25 @@ public class AgentInfoFragment extends DialogFragment {
         binding.PhonNumber3.setText(getValue(request.getPhone()));
         binding.Job.setText(getValue(request.getActual_job()));
         binding.JobCard.setText(getValue(request.getCard_job()));
-        binding.DateTaske.setText(getValue(request.getCreated_at()));
+
+
+        binding.Adders.setOnClickListener(view1 -> {
+            if(!binding.Adders.getText().toString().isEmpty())
+            {
+
+
+                showMap(Uri.parse("geo:0,0?q="+request.getActual_address()),getContext());
+            }
+        });
+
+        binding.AddersCard.setOnClickListener(view1 -> {
+            if(!binding.AddersCard.getText().toString().isEmpty())
+            {
+
+
+                showMap(Uri.parse("geo:0,0?q="+request.getCard_address()),getContext());
+            }
+        });
     }
 
     @Override

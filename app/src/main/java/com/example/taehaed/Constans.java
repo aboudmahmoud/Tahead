@@ -1,7 +1,11 @@
 package com.example.taehaed;
 
 import android.app.DatePickerDialog;
+import android.content.ContentResolver;
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import android.webkit.MimeTypeMap;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -38,7 +42,7 @@ public class Constans {
     public final static String  FormNumbrActvity="Abdelrhman3";
     public final static String  ServisIDFtoA="Abdelrhman4";
     public final static String  IdkeyFrgment="Abdelrhman5";
-    public final static String EmailKey="Abdelrhman6";
+    public final static String  ProfilekeyFragmen="Abdelrhman6";
     public final static String ReuestToFramgent="Abdelrhman7";
     public final static String RequsetIDSend="Abdelrhman8";
     public final static String FormNumberSend="Abdelrhman9";
@@ -105,5 +109,22 @@ public class Constans {
             return true;
         }
         return false;
+    }
+
+    public static   void showMap(Uri geoLocation,Context context) {
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setData(geoLocation); //lat lng or address query
+        if (intent.resolveActivity(context.getPackageManager()) != null) {
+            context.startActivity(intent);
+        }
+    }
+
+    public static String getFileExtension(Uri mUri,Context  context) {
+
+        ContentResolver cr = context.getContentResolver();
+        MimeTypeMap mime = MimeTypeMap.getSingleton();
+        return mime.getExtensionFromMimeType(cr.getType(mUri));
+
+
     }
 }

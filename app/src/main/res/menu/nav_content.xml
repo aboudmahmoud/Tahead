@@ -5,15 +5,11 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/pofile"
-
             android:icon="@drawable/ic_userinfo"
-
-            android:title="الملف الشخصي" />
+            android:title="الملف الشخصي"/>
         <item
             android:id="@+id/Logout"
-
             android:icon="@drawable/ic_log_out_svgrepo_com"
-
             android:title="تسجيل خروج" />
 
 

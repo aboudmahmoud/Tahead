@@ -9,4 +9,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="nearGreen">#27A394</color>
     <color name="NearRed">#FC0047</color>
+    <color name="yello">#673AB7</color>
+    <color name="noColor">#00000000</color>
+    <color name="blue">#F44336</color>
 </resources>

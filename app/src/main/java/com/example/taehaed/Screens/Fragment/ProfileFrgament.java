@@ -35,7 +35,7 @@ private LoginRoot loginRoot;
     public static ProfileFrgament newInstance(LoginRoot loginRoot) {
         ProfileFrgament fragment = new ProfileFrgament();
         Bundle args = new Bundle();
-        args.putSerializable("Loge",loginRoot);
+        args.putSerializable(Constans.ProfilekeyFragmen,loginRoot);
         fragment.setArguments(args);
         return fragment;
     }
@@ -51,7 +51,7 @@ private LoginRoot loginRoot;
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         binding = FragmentProfileFrgamentBinding.inflate(inflater);
-        loginRoot= (LoginRoot) getArguments().getSerializable("Loge");
+        loginRoot= (LoginRoot) getArguments().getSerializable(Constans.ProfilekeyFragmen);
         return binding.getRoot();
     }
 

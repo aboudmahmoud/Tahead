@@ -6,17 +6,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Screens.Fragment.AgentInfoFragment">
 
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
+
     <androidx.cardview.widget.CardView
 
         android:id="@+id/PersnolInformation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
-android:layout_margin="@dimen/_5sdp"
+
 
 
 
@@ -62,15 +59,16 @@ android:layout_margin="@dimen/_5sdp"
                         android:id="@+id/ClinetNam"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textIsSelectable="true"
                         android:text="سيد احمد السيد عوضين"
-                        android:textColor="@color/nearGreen"
+                        android:textColor="@color/black"
                         android:textSize="@dimen/_12ssp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="الاسم: "
-                        android:textColor="#000000"
+                        android:text="@string/name"
+                        android:textColor="@color/nearGreen"
                         android:textSize="@dimen/_12ssp"
                         android:textStyle="bold" />
                 </LinearLayout>
@@ -87,14 +85,14 @@ android:layout_margin="@dimen/_5sdp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="سيد احمد السيد عوضين"
-                        android:textColor="@color/nearGreen"
+                        android:textColor="@color/black"
                         android:textSize="@dimen/_12ssp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="اللقب : "
-                        android:textColor="#000000"
+                        android:text="@string/NickName"
+                        android:textColor="@color/nearGreen"
                         android:textSize="@dimen/_12ssp"
                         android:textStyle="bold" />
                 </LinearLayout>
@@ -107,18 +105,19 @@ android:layout_margin="@dimen/_5sdp"
 
                     <TextView
                         android:id="@+id/Adders"
+                        android:textIsSelectable="true"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="31 ش 66 مدينة نصر"
-                        android:textColor="@color/nearGreen"
+                        android:textColor="@color/black"
                         android:textSize="@dimen/_12ssp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
 
-                        android:text="العنوان: "
-                        android:textColor="#000000"
+                        android:text="@string/acualAdders"
+                        android:textColor="@color/nearGreen"
                         android:textSize="@dimen/_12ssp"
                         android:textStyle="bold" />
                 </LinearLayout>
@@ -135,15 +134,16 @@ android:layout_margin="@dimen/_5sdp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="31 ش 66 مدينة نصر"
-                        android:textColor="@color/nearGreen"
+                        android:textIsSelectable="true"
+                        android:textColor="@color/black"
                         android:textSize="@dimen/_12ssp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
 
-                        android:text="العنوان في البطاقة :  "
-                        android:textColor="#000000"
+                        android:text="@string/AddersOnCard"
+                        android:textColor="@color/nearGreen"
                         android:textSize="@dimen/_12ssp"
                         android:textStyle="bold" />
                 </LinearLayout>
@@ -159,16 +159,16 @@ android:layout_margin="@dimen/_5sdp"
                         android:id="@+id/CardNumber"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-
+                        android:textIsSelectable="true"
                         android:text="01220000000"
-                        android:textColor="@color/nearGreen"
+                        android:textColor="@color/black"
                         android:textSize="@dimen/_12ssp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="الرقم القومي : "
-                        android:textColor="#000000"
+                        android:text="@string/NailnolityNumber"
+                        android:textColor="@color/nearGreen"
                         android:textSize="@dimen/_12ssp"
                         android:textStyle="bold" />
                 </LinearLayout>
@@ -184,16 +184,21 @@ android:layout_margin="@dimen/_5sdp"
                         android:id="@+id/PhonNumber"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-
+                        android:textIsSelectable="true"
+                        android:textColorHighlight="@color/white"
+                        android:textColorLink="@android:color/black"
+                        android:linksClickable="true"
+                        android:autoLink="phone"
+                        android:shadowColor="@color/noColor"
                         android:text="01220000000"
-                        android:textColor="@color/nearGreen"
+                        android:textColor="@color/black"
                         android:textSize="@dimen/_12ssp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="رقم الموبيل: "
-                        android:textColor="#000000"
+                        android:text="@string/PhoneNumber"
+                        android:textColor="@color/nearGreen"
                         android:textSize="@dimen/_12ssp"
                         android:textStyle="bold" />
                 </LinearLayout>
@@ -209,16 +214,22 @@ android:layout_margin="@dimen/_5sdp"
                         android:id="@+id/PhonNumber2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-
+                        android:textIsSelectable="true"
+                        android:textColorHighlight="@color/white"
+                        android:textColorLink="@android:color/black"
+                        android:linksClickable="true"
+                        android:autoLink="phone"
+                        android:shadowColor="@color/noColor"
                         android:text="01220000000"
-                        android:textColor="@color/nearGreen"
+                        android:textColor="@color/black"
                         android:textSize="@dimen/_12ssp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="رقم الموبيل 2 : "
-                        android:textColor="#000000"
+                        android:text="@string/PhoneNumber2"
+
+                        android:textColor="@color/nearGreen"
                         android:textSize="@dimen/_12ssp"
                         android:textStyle="bold" />
                 </LinearLayout>
@@ -234,16 +245,16 @@ android:layout_margin="@dimen/_5sdp"
                         android:id="@+id/PhonNumber3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-
+                        android:textIsSelectable="true"
                         android:text="01220000000"
-                        android:textColor="@color/nearGreen"
+                        android:textColor="@color/black"
                         android:textSize="@dimen/_12ssp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="الرقم الارضي : "
-                        android:textColor="#000000"
+                        android:text="@string/ErthNumber"
+                        android:textColor="@color/nearGreen"
                         android:textSize="@dimen/_12ssp"
                         android:textStyle="bold" />
                 </LinearLayout>
@@ -285,16 +296,16 @@ android:layout_margin="@dimen/_5sdp"
                         android:id="@+id/Job"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-
+android:textIsSelectable="true"
                         android:text="مونتير"
-                        android:textColor="@color/nearGreen"
+                        android:textColor="@color/black"
                         android:textSize="@dimen/_12ssp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="الوظفية : "
-                        android:textColor="#000000"
+                        android:text="@string/Job"
+                        android:textColor="@color/nearGreen"
                         android:textSize="@dimen/_12ssp"
                         android:textStyle="bold" />
                 </LinearLayout>
@@ -310,29 +321,24 @@ android:layout_margin="@dimen/_5sdp"
                         android:id="@+id/JobCard"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-
+                        android:textIsSelectable="true"
                         android:text="مونتير"
-                        android:textColor="@color/nearGreen"
+                        android:textColor="@color/black"
                         android:textSize="@dimen/_12ssp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="الوظفية في البطاقة: "
-                        android:textColor="#000000"
+                        android:text="@string/JobIncard"
+                        android:textColor="@color/nearGreen"
                         android:textSize="@dimen/_12ssp"
                         android:textStyle="bold" />
                 </LinearLayout>
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/DateTaske"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="06/07/2022"
-                android:textSize="@dimen/_10ssp" />
+
         </LinearLayout>
     </androidx.cardview.widget.CardView>
-</LinearLayout>
+
 
 </FrameLayout>

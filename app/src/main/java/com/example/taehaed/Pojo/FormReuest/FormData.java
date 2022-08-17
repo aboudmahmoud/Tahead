@@ -1,10 +1,14 @@
 package com.example.taehaed.Pojo.FormReuest;
 
+import com.google.gson.annotations.SerializedName;
+
+import java.io.File;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 public class FormData  implements Serializable {
+
     public int id;
     public int request_service_id;
     public String client_name;
@@ -46,7 +50,8 @@ public class FormData  implements Serializable {
     public Object result_family_data;
     public Object result_client_reputation;
     public Object result_sources;
-    public ArrayList<Object> result_attached;
+    public ArrayList<File> result_attached_utilities_receipt;
+    public ArrayList<File> result_attached_husband_national_id;
     public Object work_name;
     public Object work_building_number;
     public Object work_street_name;
@@ -87,7 +92,10 @@ public class FormData  implements Serializable {
     public Object vehicle_result_condition;
     public Object vehicle_result_value;
     public Object vehicle_result_sources;
-    public ArrayList<Object> vehicle_result_attachments;
+    public ArrayList<File> vehicle_result_attachments_national_id;
+    public ArrayList<File> vehicle_result_attachments_driving_license;
+    public ArrayList<File> vehicle_result_attachments_vehicle_license;
+    public ArrayList<File> vehicle_result_attachments_purchase_contract;
     public Object business_name;
     public Object business_common_name;
     public Object business_start_date;
@@ -141,7 +149,12 @@ public class FormData  implements Serializable {
     public Object business_result_ustomer_heard;
     public Object business_result_origin_reputation;
     public Object business_result_sources;
-    public Object business_result_attachment;
+    public ArrayList<File> business_result_attachment_owner;
+    public ArrayList<File> business_result_attachment_amenities_receipt;
+    public ArrayList<File> business_result_attachment_commercial_record;
+    public ArrayList<File> business_result_attachment_tax_card;
+    public ArrayList<File> business_result_attachment_activity_license;
+    public ArrayList<File> business_result_attachment_partner_national_id;
     public Object home_activity_type;
     public Object home_activity_area;
     public Object home_activity_front_room_1;
@@ -160,7 +173,11 @@ public class FormData  implements Serializable {
     public Object home_activity_result_manager;
     public Object home_activity_result_customer_heard;
     public Object home_activity_result_sources;
-    public Object home_activity_result_attachments;
+    public ArrayList<File> home_activity_result_attachments_owner;
+    public ArrayList<File> home_activity_result_attachments_amenities_receipt;
+    public ArrayList<File> home_activity_result_attachments_supplier_invoices;
+    public ArrayList<File> home_activity_result_attachments_sales_statements;
+
     public Object service_activity_type;
     public Object service_activity_from;
     public Object service_activity_workers_number;
@@ -182,6 +199,8 @@ public class FormData  implements Serializable {
     public Object service_activity_result_customer_heard;
     public Object service_activity_result_sources;
     public ArrayList<String>  service_activity_result_attachments;
+    public ArrayList<String> service_activity_result_attachments_owner;
+    public ArrayList<String> service_activity_result_attachments_amenities_receipt;
     public Object property_type;
     public Object property_name;
     public Object property_build_date;

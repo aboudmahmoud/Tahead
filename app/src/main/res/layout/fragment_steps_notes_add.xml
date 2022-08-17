@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Screens.Fragment.StepsNotesAdd">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <LinearLayout
+            android:id="@+id/CLientHadder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+          android:gravity="center"
+            android:background="@color/nearGreen"
+            android:orientation="horizontal"
+            android:padding="@dimen/_10sdp"
+
+        >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+
+                android:gravity="center"
+               android:text="@string/addSteps"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_11ssp" />
+
+
+
+
+        </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/_15sdp"
+        android:padding="@dimen/_15sdp"
+        android:orientation="vertical">
+        <com.google.android.material.textfield.TextInputLayout
+
+            android:id="@+id/TextInputDenyResson"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_gravity="center"
+
+            android:hint="@string/entarThetextHere"
+
+            android:textSize="@dimen/_12ssp"
+
+            app:boxCornerRadiusBottomEnd="@dimen/_10sdp"
+            app:boxCornerRadiusBottomStart="@dimen/_10sdp"
+            app:boxCornerRadiusTopEnd="@dimen/_10sdp"
+            app:boxCornerRadiusTopStart="@dimen/_10sdp"
+
+            app:boxStrokeWidth="@dimen/_2sdp"
+            app:boxStrokeWidthFocused="@dimen/_2sdp"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/Noteanser"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="@dimen/_60sdp"
+                android:textSize="@dimen/_12ssp" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <Button
+            android:id="@+id/ButtonCoremit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+
+
+            android:textSize="@dimen/_11ssp"
+            android:text="@string/SaveAndSent"
+            android:textColor="@color/black"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            app:strokeColor="@color/black"
+            app:strokeWidth="@dimen/_1sdp"/>
+    </LinearLayout>
+    </LinearLayout>
+
+</FrameLayout>

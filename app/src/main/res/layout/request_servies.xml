@@ -44,13 +44,14 @@
                    <TextView
 
                        android:id="@+id/ServeText"
-                       android:layout_width="match_parent"
+                       android:layout_width="wrap_content"
                        android:layout_height="wrap_content"
-android:gravity="center"
+
+                       android:layout_margin="@dimen/_2sdp"
                        android:text="استعلام محل الاقامة"
                        android:textColor="@color/nearGreen"
-
-                       android:textSize="@dimen/_9ssp" />
+                       android:textStyle="bold"
+                       android:textSize="@dimen/_13ssp" />
                </LinearLayout>
 
                <ImageView
@@ -64,14 +65,15 @@ android:gravity="center"
               android:layout_height="wrap_content"
               android:orientation="horizontal">
               <TextView
-                  android:id="@+id/Notes"
+                  android:id="@+id/StatuseOFServies"
                   android:layout_width="wrap_content"
                   android:layout_height="wrap_content"
-                  android:text="الملاحظات"
                   android:layout_margin="@dimen/_5sdp"
-                  android:textSize="@dimen/_10sdp"
-                  android:textColor="@color/NearRed"
-                  />
+                  android:text="(الوضع)"
+
+                  android:textColor="@color/nearGreen"
+
+                  android:textSize="@dimen/_10ssp" />
               <Space
                   android:layout_width="0dp"
                   android:layout_height="0dp"
@@ -83,7 +85,7 @@ android:gravity="center"
                   android:text="0"
                   android:layout_margin="@dimen/_5sdp"
                   android:textSize="@dimen/_10sdp"
-                  android:textColor="@color/NearRed"/>
+                  android:textColor="@color/black"/>
           </LinearLayout>
 
        </LinearLayout>

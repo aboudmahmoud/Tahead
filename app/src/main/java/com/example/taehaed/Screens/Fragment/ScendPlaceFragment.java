@@ -8,29 +8,36 @@ import static com.example.taehaed.Constans.getValueOfboleaan;
 import static com.example.taehaed.Constans.itsNotNull;
 import static com.example.taehaed.Constans.setAlertMeaage;
 
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
-import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
-
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AlertDialog;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
+
 import com.example.taehaed.Constans;
-import com.example.taehaed.Model.ListenersForRespone.StatusApi;
 import com.example.taehaed.Model.TaehaedVModel;
 import com.example.taehaed.Pojo.FormReuest.FormData;
 import com.example.taehaed.Pojo.NoteBodey;
-import com.example.taehaed.Pojo.NoteToShow.Note;
-import com.example.taehaed.Pojo.Request.RequestService;
-import com.example.taehaed.R;
 import com.example.taehaed.databinding.FragmentPlaceBinding;
+import com.google.gson.Gson;
+
+import java.io.File;
+import java.util.ArrayList;
+
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 
 public class ScendPlaceFragment extends Fragment {
     private FormData formdata;
@@ -38,7 +45,11 @@ public class ScendPlaceFragment extends Fragment {
     private AlertDialog alertDialog;
     private TaehaedVModel taehaedVModel;
     private int servier_id;
-
+    String filename;  Uri imageuri;
+    boolean imageSeltcted = false;
+    ArrayList<File>files =new ArrayList<>();
+    File fileamged,file,aboudfile;
+    ActivityResultLauncher<String> activityResultLauncher;
     private boolean homeType;
 
     public ScendPlaceFragment() {
@@ -81,6 +92,7 @@ public class ScendPlaceFragment extends Fragment {
         return binding.getRoot();
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -89,15 +101,92 @@ public class ScendPlaceFragment extends Fragment {
 
         SetDate();
         //Here We set the Data if From data is send it
-        SetDataUi();
-
-        binding.Sumbit.setOnClickListener(view1 -> {
+        if(SetDataUi()){
             formdata = new FormData();
-            if (getFromUiData()) return;
+        }
 
+        binding.radioFileCH.setOnCheckedChangeListener((compoundButton, b) -> {
+            if(b)
+            {
+                binding.fileaTtach.setVisibility(View.VISIBLE);
+            }
+            else{
+                binding.fileaTtach.setVisibility(View.GONE);
+            }
+        });
+        binding.radioFileCH2.setOnCheckedChangeListener((compoundButton, b) -> {
+            if(b)
+            {
+                binding.PhotoEdittext.setVisibility(View.VISIBLE);
+            }
+            else{
+                binding.PhotoEdittext.setVisibility(View.GONE);
+            }
+        });
+
+      formdata.result_attached_utilities_receipt = new ArrayList<>();
+formdata.result_attached_utilities_receipt.add(new File("/sdcard/Download/Eng.Abdelrhman-MahmoudSE.pdf"));
+     /*   activityResultLauncher=registerForActivityResult(new ActivityResultContracts.GetMultipleContents()
+                , result -> {
+            if (result != null) {
+
+                for(int i=0 ; i <result.size();i++)
+                {
+                    String extenion = "."+ getFileExtension(result.get(i),getContext());
+                    imageuri=result.get(i);
+                    fileamged = new File(result.get(i).getPath());
+                    aboudfile= FileUtils.getFile(result.get(i).getPath());
+                    formdata.result_attached_utilities_receipt.add(aboudfile);
+                    //                    files.add(new File(result.get(i).getPath()));
+                }
+                File fpathe=Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
+                file= new File(fpathe,fileamged.getName());
+                binding.PhotoFile.setText(aboudfile.getName().toString());
+                imageSeltcted = true;
+            }
+        });*/
+
+        binding.PhotoFile.setOnClickListener(view1 -> {
+            SelectImage();
+        });
+        binding.Sumbit.setOnClickListener(view1 -> {
+
+            if (getFromUiData())   ;
+            String json = new Gson().toJson(new FormData());
+            RequestBody jsonBody=
+                    RequestBody.create(
+                            MediaType.parse("multipart/form-data"), json);
+
+
+
+
+            MultipartBody.Part[] bodes = new MultipartBody.Part[formdata.result_attached_utilities_receipt.size()];
+            for (int index = 0; index <formdata.result_attached_utilities_receipt.size();index++)
+            {
+                File file = new File(formdata.result_attached_utilities_receipt
+                        .get(index)
+                        .getPath());
+                RequestBody surveyBody = RequestBody.create(MediaType.parse("image/*"),
+                        file);
+                bodes[index] = MultipartBody.Part.createFormData("SurveyImage",
+                        file.getName(),
+                        surveyBody);
+            }
             alertDialog = setAlertMeaage("جاري ارسال البيانات", getContext());
             alertDialog.show();
-            taehaedVModel.setDoneservies(formdata, status -> {
+            taehaedVModel.setDoneserviesWithFiels(bodes, jsonBody, (status, Message) -> {
+                if(status)
+                {
+                    Log.d("Aboud", "Error in setDoneserviesWithFiels is: "+ Message);
+                    alertDialog.dismiss();
+                }
+                else{
+                    Log.d("Aboud", "Done in setDoneserviesWithFiels is: "+ "Succes");
+                    alertDialog.dismiss();
+                }
+            });
+
+        /*    taehaedVModel.setDoneservies(formdata, status -> {
                 if (status) {
                     alertDialog.dismiss();
                     Toast.makeText(getContext(), "تم", Toast.LENGTH_SHORT).show();
@@ -106,7 +195,7 @@ public class ScendPlaceFragment extends Fragment {
                     alertDialog.dismiss();
                     Toast.makeText(getContext(), "يبدو ان هناك خطأ ما", Toast.LENGTH_SHORT).show();
                 }
-            });
+            });*/
 
 
         });
@@ -132,7 +221,7 @@ public class ScendPlaceFragment extends Fragment {
     }
 
 
-    private void SetDataUi() {
+    private boolean SetDataUi() {
         if (formdata != null) {
             binding.Sumbit.setVisibility(View.GONE);
             binding.DeletSumbit.setVisibility(View.VISIBLE);
@@ -146,9 +235,12 @@ public class ScendPlaceFragment extends Fragment {
             SetWHData();
             // الاستعلامات
             SetAskingInfoData();
+            return false;
 
-
+        }else{
+            return true;
         }
+
     }
 
 
@@ -329,7 +421,6 @@ public class ScendPlaceFragment extends Fragment {
 
         formdata.request_service_id = servier_id;
         //بيانات العميل
-
         setErrorNullForTextView();
         
         if (getAgentDataValdion()) {
@@ -723,5 +814,9 @@ public class ScendPlaceFragment extends Fragment {
         Constans.setDateForInputText(binding.DataeOfending, getContext());
     }
 
+    private void SelectImage() {
 
+        activityResultLauncher.launch("image/*");
+
+    }
 }
