@@ -45,8 +45,8 @@
         android:id="@+id/listOfData"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:visibility="invisible"
         app:layout_constraintTop_toBottomOf="@id/CLientHadder"
-
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
        app:layout_constraintBottom_toBottomOf="parent"/>
@@ -58,15 +58,25 @@
         android:gravity="center"
         android:textSize="@dimen/_19ssp"
         android:textColor="@color/NearRed"
-        android:visibility="gone"
+    android:visibility="gone"
         app:layout_constraintTop_toBottomOf="@id/CLientHadder"
 android:textAlignment="center"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
 
         />
 
-
+    <com.google.android.material.progressindicator.CircularProgressIndicator
+        android:id="@+id/ProgeesPar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        app:trackThickness="@dimen/_4sdp"
+        app:layout_constraintTop_toBottomOf="@id/CLientHadder"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floatingButton"
         android:layout_width="wrap_content"

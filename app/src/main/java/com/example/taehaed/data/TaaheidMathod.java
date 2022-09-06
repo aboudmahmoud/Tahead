@@ -11,15 +11,19 @@ import com.example.taehaed.Pojo.Request.RequsetRoot;
 import com.example.taehaed.Pojo.UserData;
 import com.example.taehaed.Pojo.home.HomeRoot;
 
+import java.util.Map;
+
 import io.reactivex.rxjava3.core.Observable;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
+import retrofit2.http.Headers;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.Part;
+import retrofit2.http.PartMap;
 import retrofit2.http.Query;
 
 public interface TaaheidMathod {
@@ -46,7 +50,16 @@ public interface TaaheidMathod {
 
     @Multipart
     @POST("request_services/done")
-    public Call<StatusRoot> setDoneserviesWithFiels(@Part MultipartBody.Part[] file,@Part("json") RequestBody json);
+    public Call<StatusRoot> setDoneserviesWithFiels(@Part(value = "form") FormData formData,@Part MultipartBody.Part[] file);
+
+    @POST("request_services/done")
+    public Call<StatusRoot> setDoneserviesWithFiels2(@Body RequestBody form);
+
+    @Headers({ "Content-Type: application/json;charset=UTF-8"})
+    @Multipart
+    @POST("request_services/done")
+    public Call<StatusRoot> setDoneserviesWithFiels3(@PartMap Map<String, RequestBody> params);
+
 
     @POST("request_services/done/cancel")
     public Call<StatusRoot>  ConvertDoneToAccept(@Body NoteBodey noteBodey);

@@ -1,148 +1,130 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".Screens.Fragment.ServiersFragment">
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:id="@+id/Parent">
+    tools:context=".Screens.Fragment.DelegateCycle.ServiersFragment">
 
-    <LinearLayout
-        android:id="@+id/CLientHadder"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/Parent"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="wrap_content">
 
-        android:background="@color/nearGreen"
-        android:orientation="horizontal"
-        android:padding="@dimen/_10sdp"
-        app:layout_constraintBottom_toTopOf="@id/Content"
-        app:layout_constraintEnd_toEndOf="@id/Parent"
-        app:layout_constraintStart_toStartOf="@id/Parent"
-        app:layout_constraintTop_toTopOf="@id/Parent">
-
-        <TextView
-            android:id="@+id/ServieName"
+        <LinearLayout
+            android:id="@+id/CLientHadder"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:text="servies"
-            android:textColor="@color/white"
-            android:textSize="@dimen/_11ssp" />
+            android:background="@color/nearGreen"
+            android:orientation="horizontal"
+            android:padding="@dimen/_10sdp"
+            app:layout_constraintBottom_toTopOf="@id/Content"
+            app:layout_constraintEnd_toEndOf="@id/Parent"
+            app:layout_constraintStart_toStartOf="@id/Parent"
+            app:layout_constraintTop_toTopOf="@id/Parent">
 
-
-
-
-
-
-    </LinearLayout>
-
-    <LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    app:layout_constraintTop_toBottomOf="@id/CLientHadder"
-    app:layout_constraintStart_toStartOf="@id/Parent"
-    app:layout_constraintEnd_toEndOf="@id/Parent"
-    app:layout_constraintBottom_toBottomOf="@id/Parent"
-        android:id="@+id/Content"
-    android:orientation="vertical"
-    >
-
-        <RadioGroup
-            android:id="@+id/Rgroub"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/_5sdp"
-            android:gravity="end"
-
-            android:orientation="vertical">
-
-            <RadioButton
-                android:id="@+id/rdioAccept"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
-                android:buttonTint="@color/radiobutton"
-                android:button="@null"
-                android:drawableRight="?android:attr/listChoiceIndicatorSingle"
-                android:text="@string/Accepts"
-
-
-                android:textColor="@color/nearGreen"
-                android:textSize="@dimen/_10ssp" />
-
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-
-            <RadioButton
-                android:id="@+id/RadioDiel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
-                android:text="@string/Rejacet"
-                android:button="@null"
-                android:drawableTint="@color/redbutton"
-                android:drawableRight="?android:attr/listChoiceIndicatorSingle"
-                android:textColor="@color/black"
-                android:textSize="@dimen/_10ssp" />
-
-        </RadioGroup>
-
-
-
-
-
-        <com.google.android.material.textfield.TextInputLayout
-
-            android:id="@+id/TextInputDenyResson"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/_4sdp"
-            android:hint="@string/RjectResson"
-
-            android:textColorHint="@color/black"
-            android:textSize="@dimen/_9ssp"
-
-            app:boxCornerRadiusBottomEnd="@dimen/_10sdp"
-            app:boxCornerRadiusBottomStart="@dimen/_10sdp"
-            app:boxCornerRadiusTopEnd="@dimen/_10sdp"
-            app:boxCornerRadiusTopStart="@dimen/_10sdp"
-            app:boxStrokeColor="@color/black"
-            app:boxStrokeWidth="@dimen/_2sdp"
-            app:boxStrokeWidthFocused="@dimen/_2sdp"
-            app:hintTextColor="#A8A8A8">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/Noteanser"
+            <TextView
+                android:id="@+id/ServieName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-android:visibility="gone"
-                android:textColor="@color/black"
-                android:textColorHint="@color/black"
-                android:textSize="@dimen/_9ssp" />
-        </com.google.android.material.textfield.TextInputLayout>
+
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="servies"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_11ssp" />
 
 
-        <Button
-            android:id="@+id/ButtonCoremit"
-            android:layout_width="@dimen/_80sdp"
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/Content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="@id/Parent"
+            app:layout_constraintEnd_toEndOf="@id/Parent"
+            app:layout_constraintStart_toStartOf="@id/Parent"
+            app:layout_constraintTop_toBottomOf="@id/CLientHadder">
 
-         android:layout_margin="@dimen/_15sdp"
+            <RadioGroup
+                android:id="@+id/Rgroub"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_5sdp"
+                android:gravity="end"
+                android:orientation="vertical">
 
-            android:textSize="@dimen/_10sdp"
-            android:text="@string/Confrmation"
-            style="@style/Widget.MaterialComponents.Button.TextButton"
-            app:strokeColor="@color/nearGreen"
-            app:strokeWidth="@dimen/_1sdp"/>
-</LinearLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+                <RadioButton
+                    android:id="@+id/rdioAccept"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:button="@null"
+                    android:buttonTint="@color/radiobutton"
+                    android:checked="true"
+                    android:drawableRight="?android:attr/listChoiceIndicatorSingle"
+                    android:text="@string/Accepts"
+                    android:textColor="@color/nearGreen"
+                    android:textSize="@dimen/_10ssp" />
+
+                <RadioButton
+                    android:id="@+id/RadioDiel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:button="@null"
+                    android:drawableRight="?android:attr/listChoiceIndicatorSingle"
+                    android:drawableTint="@color/redbutton"
+                    android:text="@string/Rejacet"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10ssp" />
+
+            </RadioGroup>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+
+                android:id="@+id/TextInputDenyResson"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_5sdp"
+                android:hint="@string/RjectResson"
+                android:visibility="gone"
+                android:textSize="@dimen/_9ssp"
+
+                app:boxCornerRadiusBottomEnd="@dimen/_10sdp"
+                app:boxCornerRadiusBottomStart="@dimen/_10sdp"
+                app:boxCornerRadiusTopEnd="@dimen/_10sdp"
+                app:boxCornerRadiusTopStart="@dimen/_10sdp"
+                app:boxStrokeColor="@color/black"
+                app:boxStrokeWidth="@dimen/_2sdp"
+                app:boxStrokeWidthFocused="@dimen/_2sdp"
+                app:hintTextColor="#A8A8A8">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/Noteanser"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_9ssp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <Button
+                android:id="@+id/ButtonCoremit"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="wrap_content"
+
+                android:layout_height="wrap_content"
+
+                android:layout_margin="@dimen/_6sdp"
+                android:text="@string/Confrmation"
+                android:textSize="@dimen/_10ssp"
+                app:strokeColor="@color/nearGreen"
+                app:strokeWidth="@dimen/_1sdp" />
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>

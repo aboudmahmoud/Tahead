@@ -1,24 +1,22 @@
-package com.example.taehaed.Screens.Fragment;
+package com.example.taehaed.Screens.Fragment.DelegateCycle;
 
 import static com.example.taehaed.Constans.setAlertMeaage;
 
 import android.graphics.Point;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
-import androidx.fragment.app.DialogFragment;
-import androidx.lifecycle.ViewModelProvider;
-
 import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.CompoundButton;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
+import androidx.fragment.app.DialogFragment;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.example.taehaed.Constans;
 import com.example.taehaed.Model.TaehaedVModel;
@@ -79,13 +77,13 @@ public class ServiersFragment extends DialogFragment {
         binding.RadioDiel.setOnCheckedChangeListener((compoundButton, b) -> {
    if (  binding.RadioDiel.isChecked())
    {
-       binding.Noteanser.setVisibility(View.VISIBLE);
+       binding.TextInputDenyResson.setVisibility(View.VISIBLE);
    }
         });
         binding.rdioAccept.setOnCheckedChangeListener((compoundButton, b) -> {
             if (  binding.rdioAccept.isChecked())
             {
-                binding.Noteanser.setVisibility(View.GONE);
+                binding.TextInputDenyResson.setVisibility(View.GONE);
             }
         });
 

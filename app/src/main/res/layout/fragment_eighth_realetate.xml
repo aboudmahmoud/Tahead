@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Screens.Fragment.EighthRealetateFragment">
+    tools:context=".Screens.Fragment.Forms.EighthRealetateFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/Parent"
@@ -59,7 +59,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
+                android:id="@id/TopBoss"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -1918,14 +1918,64 @@
 
                             android:textSize="@dimen/_9ssp"
                             android:textStyle="bold" />
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:id="@+id/coms7"
+                            android:layout_height="wrap_content">
 
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/RescView7"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="right"
+                                app:layout_constraintTop_toTopOf="@+id/coms7"
+                                app:layout_constraintStart_toStartOf="@+id/coms7"
+                                app:layout_constraintEnd_toEndOf="@id/coms7"
+                                app:layout_constraintBottom_toBottomOf="@+id/coms7"
+                                android:layout_weight="1" />
+
+
+                            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/fobutton3"
+                                android:src="@drawable/ic_blus"
+
+                                android:layout_margin="@dimen/_2sdp"
+                                app:layout_constraintTop_toTopOf="@+id/coms7"
+
+                                app:layout_constraintEnd_toEndOf="@id/coms7"
+                                app:layout_constraintBottom_toBottomOf="@+id/coms7"
+
+                                android:padding="@dimen/_4sdp"/>
+                        </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 
                     </LinearLayout>
 
                 </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:gravity="end"
+                    android:orientation="horizontal">
 
+
+                    <Button
+                        android:id="@+id/DisplayPDf"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_5sdp"
+                        android:visibility="gone"
+
+                        android:text="@string/downlodAllFile"
+                        android:textSize="@dimen/_7ssp" />
+
+
+
+                </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -1937,24 +1987,26 @@
                         android:id="@+id/Sumbit"
                         android:fontFamily="@font/gstb"
                         android:paddingLeft="@dimen/_20sdp"
+                        android:visibility="gone"
                         android:paddingRight="@dimen/_20sdp"
-                        android:text="تسليم"
+                        android:text="@string/Done"
                         android:textSize="@dimen/_12ssp" />
                     <Space
                         android:layout_width="0dp"
                         android:layout_height="0dp"
                         android:layout_weight="1"/>
-
                     <Button
+                        android:id="@+id/Location"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:backgroundTint="@color/NearRed"
-                        android:id="@+id/DeletSumbit"
-                        android:visibility="gone"
-                        android:paddingLeft="@dimen/_15sdp"
-                        android:paddingRight="@dimen/_15sdp"
-                        android:text="حذف الاستعلام"
+                        android:layout_gravity="left"
+                        android:fontFamily="@font/gstb"
+                        android:paddingLeft="@dimen/_20sdp"
+                        android:paddingRight="@dimen/_20sdp"
+                        android:text="@string/Locationdetacter"
                         android:textSize="@dimen/_12ssp" />
+
+
                 </LinearLayout>
             </LinearLayout>
         </ScrollView>

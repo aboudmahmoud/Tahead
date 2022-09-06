@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Screens.Fragment.PopAttachmentFragment">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/TextName"
+        android:text="صورة البطاقة"
+        android:background="@color/nearGreen"
+        android:padding="@dimen/_15sdp"
+        android:textSize="@dimen/_15ssp"
+        />
+    <com.denzcoskun.imageslider.ImageSlider
+        android:id="@+id/imageSlider"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:iss_auto_cycle="true"
+        app:iss_period="6000"
+        app:iss_delay="6000"/>
+
+</LinearLayout>
+
+</FrameLayout>

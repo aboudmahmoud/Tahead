@@ -3,17 +3,9 @@ package com.example.taehaed.Screens.Fragment;
 import static com.example.taehaed.Constans.getValue;
 import static com.example.taehaed.Constans.showMap;
 
-import static java.lang.String.valueOf;
-
 import android.graphics.Point;
 import android.net.Uri;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.DialogFragment;
-
-
 import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,11 +13,15 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.DialogFragment;
+
 import com.denzcoskun.imageslider.constants.ScaleTypes;
 import com.denzcoskun.imageslider.models.SlideModel;
 import com.example.taehaed.Constans;
 import com.example.taehaed.Pojo.Index.Request;
-
+import com.example.taehaed.R;
 import com.example.taehaed.databinding.FragmentAgentInfoBinding;
 
 import java.util.ArrayList;
@@ -81,7 +77,15 @@ public class AgentInfoFragment extends DialogFragment {
         binding.PhonNumber3.setText(getValue(request.getPhone()));
         binding.Job.setText(getValue(request.getActual_job()));
         binding.JobCard.setText(getValue(request.getCard_job()));
-
+        if(request.getGender().equals("0"))
+        {
+            binding.Gander.setText(R.string.female);
+        }else if (request.getGender().equals("1"))
+        {
+            binding.Gander.setText(R.string.male);
+        }else{
+            binding.Gander.setText(" ");
+        }
 
         binding.Adders.setOnClickListener(view1 -> {
             if(!binding.Adders.getText().toString().isEmpty())

@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".Screens.Fragment.StepsNotesAdd">
+    tools:context=".Screens.Fragment.DelegateCycle.StepsNotesAdd">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -37,7 +37,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="@dimen/_15sdp"
+
         android:padding="@dimen/_15sdp"
         android:orientation="vertical">
         <com.google.android.material.textfield.TextInputLayout
@@ -75,7 +75,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
 
-
+android:layout_margin="@dimen/_10sdp"
             android:textSize="@dimen/_11ssp"
             android:text="@string/SaveAndSent"
             android:textColor="@color/black"

@@ -38,8 +38,5 @@
     </style>
 
 
-    <style name="rtlstule" parent="">
-        <item name="android:layoutDirection">rtl</item>
-    </style>
 
 </resources>

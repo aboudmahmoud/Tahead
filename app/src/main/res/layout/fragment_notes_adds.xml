@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".Screens.Fragment.NotesAddsFragment">
+    tools:context=".Screens.Fragment.DelegateCycle.NotesAddsFragment">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -58,10 +58,11 @@
 
                 <Button
                     android:id="@+id/ButtonCoremit"
-                    android:layout_width="@dimen/_120sdp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
 
-
+android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_marginEnd="@dimen/_15sdp"
                     android:textSize="@dimen/_10sdp"
                     android:text="@string/StepsOperation"
                     style="@style/Widget.MaterialComponents.Button.TextButton"
@@ -70,20 +71,23 @@
 
                 <Button
                     android:id="@+id/ButtonGotoForm"
-                    android:layout_width="@dimen/_120sdp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textSize="@dimen/_10sdp"
                     android:text="@string/startOpraation"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_marginEnd="@dimen/_15sdp"
                     android:textColor="@color/nearGreen"
                     style="@style/Widget.MaterialComponents.Button.TextButton"
                     app:strokeColor="@color/nearGreen"
                     app:strokeWidth="@dimen/_1sdp"/>
                 <Button
                     android:id="@+id/ButtonDiel"
-                    android:layout_width="@dimen/_120sdp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:strokeColor="@color/nearGreen"
-
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_marginEnd="@dimen/_15sdp"
 
                     android:textSize="@dimen/_10sdp"
                     android:text="@string/retrunOperan"
@@ -94,7 +98,7 @@
                 <com.google.android.material.textfield.TextInputLayout
 
                     android:id="@+id/TextInputDenyResson"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/_4sdp"
@@ -111,6 +115,36 @@ android:visibility="gone"
                     app:boxStrokeWidthFocused="@dimen/_2sdp"
                    >
 
+                    <AutoCompleteTextView
+                        android:id="@+id/autotext"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="none"
+                        android:textSize="@dimen/_10ssp"
+
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+
+                    android:id="@+id/TextInputDenyResson1"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_4sdp"
+                    android:hint="@string/why"
+                    android:visibility="gone"
+                    android:textSize="@dimen/_12ssp"
+
+                    app:boxCornerRadiusBottomEnd="@dimen/_10sdp"
+                    app:boxCornerRadiusBottomStart="@dimen/_10sdp"
+                    app:boxCornerRadiusTopEnd="@dimen/_10sdp"
+                    app:boxCornerRadiusTopStart="@dimen/_10sdp"
+
+                    app:boxStrokeWidth="@dimen/_2sdp"
+                    app:boxStrokeWidthFocused="@dimen/_2sdp"
+                    >
+
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/Noteanser"
                         android:layout_width="match_parent"
@@ -118,7 +152,6 @@ android:visibility="gone"
                         android:minHeight="@dimen/_60sdp"
                         android:textSize="@dimen/_12ssp" />
                 </com.google.android.material.textfield.TextInputLayout>
-
                 <Button
                     android:id="@+id/ButtonCoremitDiel"
                     android:layout_width="wrap_content"

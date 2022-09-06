@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".Screens.Fragment.NinthSuppliersFragment">
+    tools:context=".Screens.Fragment.Forms.NinthSuppliersFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/Parent"
@@ -30,7 +30,7 @@
                 android:layout_gravity="center"
 
                 android:gravity="center"
-                android:text="إستعلام موردين"
+                android:text="@string/SuppliersAsking"
                 android:textColor="@color/white"
                 android:textSize="@dimen/_11ssp" />
 
@@ -57,9 +57,9 @@
             >
 
             <LinearLayout
+                android:id="@+id/TopBoss"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -74,9 +74,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="@dimen/_5sdp"
-                        android:fontFamily="@font/gstb"
+
                         android:gravity="center"
-                        android:text="بيانات العميل"
+                        android:text="@string/agentData"
                         android:textAlignment="center"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_15ssp" />
@@ -88,7 +88,7 @@
                         android:layout_height="wrap_content"
 
                         android:layout_margin="@dimen/_4sdp"
-                        android:hint="الإسم بالكامل - وفقاً للرقم القومي"
+                        android:hint="@string/FullName"
                         android:textColorHint="@color/nearGreen"
                         android:textSize="@dimen/_9ssp"
                         app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
@@ -104,6 +104,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:id="@+id/FullName"
+                            android:inputType="text"
                             android:textSize="@dimen/_9ssp" />
 
                     </com.google.android.material.textfield.TextInputLayout>
@@ -115,7 +116,7 @@
                         android:layout_height="wrap_content"
 
                         android:layout_margin="@dimen/_4sdp"
-                        android:hint="إسم الشهرة (إن وجد)"
+                        android:hint="@string/NakeNameFound"
                         android:textColorHint="@color/nearGreen"
                         android:textSize="@dimen/_9ssp"
                         app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
@@ -131,6 +132,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:id="@+id/NakeName"
+                            android:inputType="text"
                             android:textSize="@dimen/_9ssp" />
 
                     </com.google.android.material.textfield.TextInputLayout>
@@ -142,7 +144,7 @@
                         android:layout_height="wrap_content"
 
                         android:layout_margin="@dimen/_4sdp"
-                        android:hint="الرقم القومي "
+                        android:hint="@string/Idnoltue"
                         android:textColorHint="@color/nearGreen"
                         android:textSize="@dimen/_9ssp"
                         app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
@@ -164,13 +166,13 @@
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <com.google.android.material.textfield.TextInputLayout
-
+                        android:id="@+id/dataPiker"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
 
                         android:layout_margin="@dimen/_4sdp"
-                        android:hint="تاريخ الميلاد"
+                        android:hint="@string/DataOfparthe"
                         android:textColorHint="@color/nearGreen"
                         android:textSize="@dimen/_9ssp"
                         app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
@@ -179,22 +181,22 @@
                         app:boxCornerRadiusTopStart="@dimen/_12sdp"
                         app:boxStrokeColor="@color/outlined_storke"
                         app:boxStrokeWidth="@dimen/_2sdp"
-                        app:boxStrokeWidthFocused="@dimen/_2sdp"
                         android:clickable="false"
                         android:cursorVisible="false"
                         android:focusable="false"
                         android:focusableInTouchMode="false"
+                        app:boxStrokeWidthFocused="@dimen/_2sdp"
                         app:hintTextColor="#A8A8A8">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:inputType="date"
-                            android:id="@+id/PerathData"
                             android:clickable="false"
                             android:cursorVisible="false"
                             android:focusable="false"
                             android:focusableInTouchMode="false"
+                            android:id="@+id/PerathData"
                             android:textSize="@dimen/_9ssp" />
 
                     </com.google.android.material.textfield.TextInputLayout>
@@ -206,7 +208,7 @@
                         android:layout_height="wrap_content"
 
                         android:layout_margin="@dimen/_4sdp"
-                        android:hint="رقم المحمول 1"
+                        android:hint="@string/NumberPhone1"
                         android:textColorHint="@color/nearGreen"
                         android:textSize="@dimen/_9ssp"
                         app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
@@ -234,7 +236,7 @@
                         android:layout_height="wrap_content"
 
                         android:layout_margin="@dimen/_4sdp"
-                        android:hint="رقم المحمول 2"
+                        android:hint="@string/PhoneNumber_2"
                         android:textColorHint="@color/nearGreen"
                         android:textSize="@dimen/_9ssp"
                         app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
@@ -263,7 +265,7 @@
                         android:layout_height="wrap_content"
 
                         android:layout_margin="@dimen/_4sdp"
-                        android:hint="الرقم الارضي"
+                        android:hint="@string/phone"
                         android:textColorHint="@color/nearGreen"
                         android:textSize="@dimen/_9ssp"
                         app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
@@ -297,7 +299,7 @@
                         android:layout_margin="@dimen/_10sdp"
 
                         android:gravity="center"
-                        android:text="بيانات النشاط "
+                        android:text="@string/ActivityData"
                         android:textAlignment="center"
                         android:textColor="#000000"
                         android:textSize="@dimen/_15ssp" />
@@ -316,7 +318,7 @@
                             android:layout_height="wrap_content"
 
                             android:layout_margin="@dimen/_4sdp"
-                            android:hint="الإسم التجاري"
+                            android:hint="@string/CommerialName"
                             android:textColorHint="@color/nearGreen"
                             android:textSize="@dimen/_9ssp"
                             app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
@@ -332,6 +334,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:id="@+id/ComarialName"
+                                android:inputType="text"
                                 android:textSize="@dimen/_9ssp" />
 
                         </com.google.android.material.textfield.TextInputLayout>
@@ -343,7 +346,7 @@
                             android:layout_height="wrap_content"
 
                             android:layout_margin="@dimen/_4sdp"
-                            android:hint="الإسم الشائع"
+                            android:hint="@string/CommanName"
                             android:textColorHint="@color/nearGreen"
                             android:textSize="@dimen/_9ssp"
                             app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
@@ -358,6 +361,7 @@
                             <com.google.android.material.textfield.TextInputEditText
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:inputType="text"
                                 android:id="@+id/ComaanName"
                                 android:textSize="@dimen/_9ssp" />
 
@@ -370,7 +374,7 @@
                             android:layout_height="wrap_content"
 
                             android:layout_margin="@dimen/_4sdp"
-                            android:hint="تاريخ بدء النشاط الفعلي"
+                            android:hint="@string/hestoyactiviyt"
                             android:textColorHint="@color/nearGreen"
                             android:textSize="@dimen/_9ssp"
                             app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
@@ -406,7 +410,7 @@
                             android:layout_height="wrap_content"
 
                             android:layout_margin="@dimen/_4sdp"
-                            android:hint="نوع النشاط"
+                            android:hint="@string/ActivityType"
                             android:textColorHint="@color/nearGreen"
                             android:textSize="@dimen/_9ssp"
                             app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
@@ -422,6 +426,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:id="@+id/ComarialType"
+                                android:inputType="text"
                                 android:textSize="@dimen/_9ssp" />
 
                         </com.google.android.material.textfield.TextInputLayout>
@@ -433,7 +438,7 @@
                             android:layout_height="wrap_content"
 
                             android:layout_margin="@dimen/_4sdp"
-                            android:hint="عدد الفروع (إن وجد)"
+                            android:hint="@string/NumberOfBranhs"
                             android:textColorHint="@color/nearGreen"
                             android:textSize="@dimen/_9ssp"
                             app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
@@ -449,16 +454,93 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:id="@+id/NumberOfBransh"
+                                android:inputType="number"
                                 android:textSize="@dimen/_9ssp" />
 
                         </com.google.android.material.textfield.TextInputLayout>
+                        <com.google.android.material.textfield.TextInputLayout
+
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+
+                            android:layout_margin="@dimen/_4sdp"
+                            android:hint="@string/NumberOwWorker"
+                            android:textColorHint="@color/nearGreen"
+                            android:textSize="@dimen/_9ssp"
+                            app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
+                            app:boxCornerRadiusBottomStart="@dimen/_12sdp"
+                            app:boxCornerRadiusTopEnd="@dimen/_12sdp"
+                            app:boxCornerRadiusTopStart="@dimen/_12sdp"
+                            app:boxStrokeColor="@color/outlined_storke"
+                            app:boxStrokeWidth="@dimen/_2sdp"
+                            app:boxStrokeWidthFocused="@dimen/_2sdp"
+                            app:hintTextColor="#A8A8A8">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="number"
+                                android:id="@+id/NumberOfEmployers"
+                                android:textSize="@dimen/_9ssp" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/_4sdp"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/PathnerTrue"
+                                android:maxWidth="@dimen/_80sdp"
+                                android:text="@string/IsTherePathner"
+                                android:textColor="@color/nearGreen"
+                                android:textSize="@dimen/_9ssp"
+                                android:textStyle="bold" />
+
+                            <RadioGroup
+                                android:id="@+id/radioPartner"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="right"
+                                android:orientation="horizontal"
+                                android:padding="@dimen/_4sdp">
+
+                                <RadioButton
+                                    android:id="@+id/radioPartnerCH"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/no"
+                                    android:textSize="@dimen/_8ssp" />
+
+                                <RadioButton
+                                    android:id="@+id/radioPartnerCH2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/yes"
+                                    android:textSize="@dimen/_8ssp" />
+
+
+                            </RadioGroup>
+
+
+                        </LinearLayout>
+
                         <com.google.android.material.textfield.TextInputLayout
                             android:id="@+id/NumberOfPartnervispley"
                             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_margin="@dimen/_4sdp"
-                            android:hint="عدد الشركاء"
+                            android:visibility="gone"
+                            android:hint="@string/NumberOfBathner"
                             android:textColorHint="@color/nearGreen"
                             android:textSize="@dimen/_9ssp"
 
@@ -480,88 +562,15 @@
 
                         </com.google.android.material.textfield.TextInputLayout>
 
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="@dimen/_4sdp"
-                            android:gravity="center"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:id="@+id/PathnerTrue"
-                                android:maxWidth="@dimen/_80sdp"
-                                android:text="يوجد شركاء بالنشاط"
-                                android:textColor="@color/nearGreen"
-                                android:textSize="@dimen/_9ssp"
-                                android:textStyle="bold" />
-
-                            <RadioGroup
-                                android:id="@+id/radioPartner"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:gravity="right"
-                                android:orientation="horizontal"
-                                android:padding="@dimen/_4sdp">
-
-                                <RadioButton
-                                    android:id="@+id/radioPartnerCH"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="لا"
-                                    android:textSize="@dimen/_8ssp" />
-
-                                <RadioButton
-                                    android:id="@+id/radioPartnerCH2"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="نعم"
-                                    android:textSize="@dimen/_8ssp" />
-
-
-                            </RadioGroup>
-
-
-                        </LinearLayout>
-
-                        <com.google.android.material.textfield.TextInputLayout
-
-                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-
-                            android:layout_margin="@dimen/_4sdp"
-                            android:hint="عدد العمالة"
-                            android:textColorHint="@color/nearGreen"
-                            android:textSize="@dimen/_9ssp"
-                            app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
-                            app:boxCornerRadiusBottomStart="@dimen/_12sdp"
-                            app:boxCornerRadiusTopEnd="@dimen/_12sdp"
-                            app:boxCornerRadiusTopStart="@dimen/_12sdp"
-                            app:boxStrokeColor="@color/outlined_storke"
-                            app:boxStrokeWidth="@dimen/_2sdp"
-                            app:boxStrokeWidthFocused="@dimen/_2sdp"
-                            app:hintTextColor="#A8A8A8">
-
-                            <com.google.android.material.textfield.TextInputEditText
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:inputType="number"
-                                android:id="@+id/NumberOfEmployers"
-                                android:textSize="@dimen/_9ssp" />
-
-                        </com.google.android.material.textfield.TextInputLayout>
-
                         <com.google.android.material.textfield.TextInputLayout
                             android:id="@+id/PartnerPersangeVispily"
+                            android:visibility="gone"
                             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_margin="@dimen/_4sdp"
 
-                            android:hint="حصة العميل بالنشاط"
+                            android:hint="@string/patherPresantge"
                             android:textColorHint="@color/nearGreen"
                             android:textSize="@dimen/_9ssp"
 
@@ -585,6 +594,7 @@
 
                         <LinearLayout
                             android:id="@+id/Choiess"
+                            android:visibility="gone"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_margin="@dimen/_4sdp"
@@ -597,7 +607,7 @@
                                 android:layout_height="wrap_content"
                                 android:id="@+id/getingPayTrue"
                                 android:maxWidth="@dimen/_80sdp"
-                                android:text="يتقاضي مقابل للإدارة"
+                                android:text="@string/MangemtBaying"
                                 android:textColor="@color/nearGreen"
                                 android:textSize="@dimen/_9ssp"
                                 android:textStyle="bold" />
@@ -614,14 +624,14 @@
                                     android:id="@+id/radioPartnerMangmentCH"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="لا"
+                                    android:text="@string/no"
                                     android:textSize="@dimen/_8ssp" />
 
                                 <RadioButton
                                     android:id="@+id/radioPartnerMangmentCH2"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="نعم"
+                                    android:text="@string/yes"
                                     android:textSize="@dimen/_8ssp" />
 
 
@@ -629,7 +639,35 @@
 
 
                         </LinearLayout>
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/CostRentVispily"
+                            android:visibility="gone"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/_4sdp"
 
+                            android:hint="@string/CostRent"
+                            android:textColorHint="@color/nearGreen"
+                            android:textSize="@dimen/_9ssp"
+
+                            app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
+                            app:boxCornerRadiusBottomStart="@dimen/_12sdp"
+                            app:boxCornerRadiusTopEnd="@dimen/_12sdp"
+                            app:boxCornerRadiusTopStart="@dimen/_12sdp"
+                            app:boxStrokeColor="@color/outlined_storke"
+                            app:boxStrokeWidth="@dimen/_2sdp"
+                            app:boxStrokeWidthFocused="@dimen/_2sdp"
+                            app:hintTextColor="#A8A8A8">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/CostRent"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="number"
+                                android:textSize="@dimen/_9ssp" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -642,7 +680,7 @@
                                 android:layout_height="wrap_content"
                                 android:id="@+id/PoruberOFfoundingTrue"
                                 android:maxWidth="@dimen/_80sdp"
-                                android:text="الغرض من التمويل"
+                                android:text="@string/RessonOfPay"
                                 android:textColor="@color/nearGreen"
                                 android:textSize="@dimen/_9ssp"
                                 android:textStyle="bold" />
@@ -659,21 +697,21 @@
                                     android:id="@+id/radioInvestmentCH3"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="أخري"
+                                    android:text="@string/other"
                                     android:textSize="@dimen/_8ssp" />
 
                                 <RadioButton
                                     android:id="@+id/radioInvestmenttCH2"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="أصول ثابتة"
+                                    android:text="@string/OrgnilStil"
                                     android:textSize="@dimen/_8ssp" />
 
                                 <RadioButton
                                     android:id="@+id/radioInvestmenttCH"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="رأس مال عامل"
+                                    android:text="@string/TheHeadOFpublciMoney"
                                     android:textSize="@dimen/_8ssp" />
 
 
@@ -701,7 +739,7 @@
                         android:layout_margin="@dimen/_5sdp"
 
                         android:gravity="center"
-                        android:text="بيانات تجارية"
+                        android:text="@string/CommerData"
                         android:textAlignment="center"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_15ssp" />
@@ -714,7 +752,7 @@
                         android:layout_height="wrap_content"
 
                         android:layout_margin="@dimen/_4sdp"
-                        android:hint="رقم السجل التجاري"
+                        android:hint="@string/Numberhesstory"
                         android:textColorHint="@color/nearGreen"
                         android:textSize="@dimen/_9ssp"
                         app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
@@ -735,32 +773,7 @@
 
                     </com.google.android.material.textfield.TextInputLayout>
 
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/ReleaseDate"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
 
-                        android:layout_margin="@dimen/_4sdp"
-                        android:hint="تاريخ الاصدار"
-                        android:textColorHint="@color/nearGreen"
-                        android:textSize="@dimen/_9ssp"
-                        app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
-                        app:boxCornerRadiusBottomStart="@dimen/_12sdp"
-                        app:boxCornerRadiusTopEnd="@dimen/_12sdp"
-                        app:boxCornerRadiusTopStart="@dimen/_12sdp"
-                        app:boxStrokeColor="@color/outlined_storke"
-                        app:boxStrokeWidth="@dimen/_2sdp"
-                        app:boxStrokeWidthFocused="@dimen/_2sdp"
-                        app:hintTextColor="#A8A8A8">
-
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:inputType="date"
-                            android:textSize="@dimen/_9ssp" />
-
-                    </com.google.android.material.textfield.TextInputLayout>
 
                     <com.google.android.material.textfield.TextInputLayout
 
@@ -769,7 +782,7 @@
                         android:layout_height="wrap_content"
 
                         android:layout_margin="@dimen/_4sdp"
-                        android:hint="رقم البطاقة الضريبية"
+                        android:hint="@string/NumberOfPayCard"
                         android:textColorHint="@color/nearGreen"
                         android:textSize="@dimen/_9ssp"
                         app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
@@ -797,7 +810,7 @@
                         android:layout_height="wrap_content"
 
                         android:layout_margin="@dimen/_4sdp"
-                        android:hint="مأمورية ضرائب"
+                        android:hint="@string/PaymentPAy"
                         android:textColorHint="@color/nearGreen"
                         android:textSize="@dimen/_9ssp"
                         app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
@@ -810,7 +823,7 @@
                         app:hintTextColor="#A8A8A8">
 
                         <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/Taxes_errand"
+                            android:id="@+id/TaxesErrand"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textSize="@dimen/_9ssp" />
@@ -824,7 +837,7 @@
                         android:layout_height="wrap_content"
 
                         android:layout_margin="@dimen/_4sdp"
-                        android:hint="تاريخ الاصدار"
+                        android:hint="@string/alasador"
                         android:textColorHint="@color/nearGreen"
                         android:textSize="@dimen/_9ssp"
                         app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
@@ -860,7 +873,7 @@
                         android:layout_height="wrap_content"
 
                         android:layout_margin="@dimen/_4sdp"
-                        android:hint="تاريخ الانتهاء"
+                        android:hint="@string/endData"
                         android:textColorHint="@color/nearGreen"
                         android:textSize="@dimen/_9ssp"
                         app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
@@ -903,7 +916,7 @@
                         android:fontFamily="@font/gstb"
                         android:gravity="center"
                         android:id="@+id/DatatOfPlaceActivitrue"
-                        android:text="بيانات مقر النشاط"
+                        android:text="@string/acvtiBulding"
                         android:textAlignment="center"
                         android:textColor="#000000"
                         android:textSize="@dimen/_15ssp" />
@@ -919,7 +932,7 @@
                             android:layout_height="wrap_content"
                             android:layout_margin="@dimen/_5sdp"
 
-                            android:text="نوع الحيازة"
+                            android:text="@string/postiontype"
                             android:textColor="@color/nearGreen"
                             android:textSize="@dimen/_13ssp" />
 
@@ -952,7 +965,7 @@
                                         android:fontFamily="@font/gstb"
                                         android:layoutDirection="rtl"
                                         android:padding="@dimen/_5sdp"
-                                        android:text="تمليك"
+                                        android:text="@string/Owned"
                                         android:textSize="@dimen/_10ssp" />
                                 </LinearLayout>
 
@@ -977,7 +990,7 @@
                                         android:fontFamily="@font/gstb"
                                         android:layoutDirection="rtl"
                                         android:padding="@dimen/_5sdp"
-                                        android:text="عائلي"
+                                        android:text="@string/Family"
                                         android:textSize="@dimen/_10ssp" />
                                 </LinearLayout>
 
@@ -1007,7 +1020,7 @@
                                         android:fontFamily="@font/gstb"
                                         android:layoutDirection="rtl"
                                         android:padding="@dimen/_5sdp"
-                                        android:text="اخري"
+                                        android:text="@string/other"
                                         android:textSize="@dimen/_10ssp" />
                                 </LinearLayout>
 
@@ -1030,7 +1043,7 @@
                                         android:fontFamily="@font/gstb"
                                         android:layoutDirection="rtl"
                                         android:padding="@dimen/_5sdp"
-                                        android:text="ايجار جديد"
+                                        android:text="@string/newRent"
                                         android:textSize="@dimen/_10ssp" />
                                 </LinearLayout>
 
@@ -1053,7 +1066,7 @@
                                         android:fontFamily="@font/gstb"
                                         android:layoutDirection="rtl"
                                         android:padding="@dimen/_5sdp"
-                                        android:text="ايجار قديم"
+                                        android:text="@string/oldeRent"
                                         android:textSize="@dimen/_10ssp" />
                                 </LinearLayout>
 
@@ -1064,6 +1077,7 @@
                             android:id="@+id/RentColaet"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:visibility="gone"
                             android:layout_marginTop="@dimen/_10sdp"
                             android:layout_marginBottom="@dimen/_10sdp"
                             android:orientation="vertical">
@@ -1072,7 +1086,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_margin="@dimen/_5sdp"
-                                android:text="الايجار"
+                                android:text="@string/rent"
                                 android:textAlignment="center"
                                 android:textColor="@color/nearGreen"
                                 android:textSize="@dimen/_13ssp" />
@@ -1083,7 +1097,7 @@
                                 android:layout_height="wrap_content"
 
                                 android:layout_margin="@dimen/_4sdp"
-                                android:hint="إسم المالك"
+                                android:hint="@string/OwnerName"
                                 android:textColorHint="@color/nearGreen"
                                 android:textSize="@dimen/_9ssp"
                                 app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
@@ -1099,7 +1113,7 @@
                                     android:id="@+id/OwnerName"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-
+android:inputType="text"
                                     android:textSize="@dimen/_9ssp" />
 
                             </com.google.android.material.textfield.TextInputLayout>
@@ -1111,7 +1125,7 @@
                                 android:layout_height="wrap_content"
 
                                 android:layout_margin="@dimen/_4sdp"
-                                android:hint="صلته بالعميل"
+                                android:hint="@string/Relationship"
                                 android:textColorHint="@color/nearGreen"
                                 android:textSize="@dimen/_9ssp"
                                 app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
@@ -1127,7 +1141,7 @@
                                     android:id="@+id/Relationship_client"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-
+                                    android:inputType="text"
                                     android:textSize="@dimen/_9ssp" />
 
                             </com.google.android.material.textfield.TextInputLayout>
@@ -1139,7 +1153,7 @@
                                 android:layout_height="wrap_content"
 
                                 android:layout_margin="@dimen/_4sdp"
-                                android:hint="نهاية العقد"
+                                android:hint="@string/agrremEnd"
                                 android:textColorHint="@color/nearGreen"
                                 android:textSize="@dimen/_9ssp"
                                 app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
@@ -1149,6 +1163,10 @@
                                 app:boxStrokeColor="@color/outlined_storke"
                                 app:boxStrokeWidth="@dimen/_2sdp"
                                 app:boxStrokeWidthFocused="@dimen/_2sdp"
+                                android:clickable="false"
+                                android:cursorVisible="false"
+                                android:focusable="false"
+                                android:focusableInTouchMode="false"
                                 app:hintTextColor="#A8A8A8">
 
                                 <com.google.android.material.textfield.TextInputEditText
@@ -1156,6 +1174,10 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:inputType="date"
+                                    android:clickable="false"
+                                    android:cursorVisible="false"
+                                    android:focusable="false"
+                                    android:focusableInTouchMode="false"
                                     android:textSize="@dimen/_9ssp" />
 
                             </com.google.android.material.textfield.TextInputLayout>
@@ -1170,7 +1192,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_margin="@dimen/_5sdp"
-                                android:text="عنوان مقر النشاط"
+                                android:text="@string/activityadders"
                                 android:textAlignment="center"
                                 android:textColor="@color/nearGreen"
                                 android:textSize="@dimen/_13ssp" />
@@ -1182,7 +1204,7 @@
                                 android:layout_height="wrap_content"
 
                                 android:layout_margin="@dimen/_4sdp"
-                                android:hint="رقم المبني"
+                                android:hint="@string/buldingNumber"
                                 android:textColorHint="@color/nearGreen"
                                 android:textSize="@dimen/_9ssp"
                                 app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
@@ -1210,7 +1232,7 @@
                                 android:layout_height="wrap_content"
 
                                 android:layout_margin="@dimen/_4sdp"
-                                android:hint="إسم الشارع"
+                                android:hint="@string/stratName"
                                 android:textColorHint="@color/nearGreen"
                                 android:textSize="@dimen/_9ssp"
                                 app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
@@ -1226,6 +1248,7 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:id="@+id/StreatName"
+                                    android:inputType="text"
                                     android:textSize="@dimen/_9ssp" />
 
                             </com.google.android.material.textfield.TextInputLayout>
@@ -1237,7 +1260,7 @@
                                 android:layout_height="wrap_content"
 
                                 android:layout_margin="@dimen/_4sdp"
-                                android:hint="حي/قرية"
+                                android:hint="@string/nebored"
                                 android:textColorHint="@color/nearGreen"
                                 android:textSize="@dimen/_9ssp"
                                 app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
@@ -1253,6 +1276,7 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:id="@+id/Nieporehod"
+                                    android:inputType="text"
                                     android:textSize="@dimen/_9ssp" />
 
                             </com.google.android.material.textfield.TextInputLayout>
@@ -1264,7 +1288,7 @@
                                 android:layout_height="wrap_content"
 
                                 android:layout_margin="@dimen/_4sdp"
-                                android:hint="مدينة/مركز"
+                                android:hint="@string/Ciety"
                                 android:textColorHint="@color/nearGreen"
                                 android:textSize="@dimen/_9ssp"
                                 app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
@@ -1280,6 +1304,7 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:id="@+id/Ciety"
+                                    android:inputType="text"
                                     android:textSize="@dimen/_9ssp" />
 
                             </com.google.android.material.textfield.TextInputLayout>
@@ -1291,7 +1316,7 @@
                                 android:layout_height="wrap_content"
 
                                 android:layout_margin="@dimen/_4sdp"
-                                android:hint="محافظة"
+                                android:hint="@string/Gonvremt"
                                 android:textColorHint="@color/nearGreen"
                                 android:textSize="@dimen/_9ssp"
                                 app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
@@ -1307,6 +1332,7 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:id="@+id/Twon"
+                                    android:inputType="text"
                                     android:textSize="@dimen/_9ssp" />
 
                             </com.google.android.material.textfield.TextInputLayout>
@@ -1318,7 +1344,7 @@
                                 android:layout_height="wrap_content"
 
                                 android:layout_margin="@dimen/_4sdp"
-                                android:hint="علامة مميزة"
+                                android:hint="@string/SpeiaclSiend"
                                 android:textColorHint="@color/nearGreen"
                                 android:textSize="@dimen/_9ssp"
                                 app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
@@ -1334,36 +1360,11 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:id="@+id/SpeiclSine"
+                                    android:inputType="text"
                                     android:textSize="@dimen/_9ssp" />
 
                             </com.google.android.material.textfield.TextInputLayout>
 
-                            <com.google.android.material.textfield.TextInputLayout
-                                android:id="@+id/TimeOfStaing"
-                                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-
-                                android:layout_margin="@dimen/_4sdp"
-                                android:hint="مدة الإقامة في السكن الحالي"
-                                android:textColorHint="@color/nearGreen"
-                                android:textSize="@dimen/_9ssp"
-                                app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
-                                app:boxCornerRadiusBottomStart="@dimen/_12sdp"
-                                app:boxCornerRadiusTopEnd="@dimen/_12sdp"
-                                app:boxCornerRadiusTopStart="@dimen/_12sdp"
-                                app:boxStrokeColor="@color/outlined_storke"
-                                app:boxStrokeWidth="@dimen/_2sdp"
-                                app:boxStrokeWidthFocused="@dimen/_2sdp"
-                                app:hintTextColor="#A8A8A8">
-
-                                <com.google.android.material.textfield.TextInputEditText
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:inputType="number"
-                                    android:textSize="@dimen/_9ssp" />
-
-                            </com.google.android.material.textfield.TextInputLayout>
                         </LinearLayout>
 
                         <com.google.android.material.textfield.TextInputLayout
@@ -1373,7 +1374,7 @@
                             android:layout_height="wrap_content"
 
                             android:layout_margin="@dimen/_4sdp"
-                            android:hint="مساحة المقر"
+                            android:hint="@string/SpacePlace"
                             android:textColorHint="@color/nearGreen"
                             android:textSize="@dimen/_9ssp"
                             app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
@@ -1413,7 +1414,7 @@
                         android:layout_margin="@dimen/_10sdp"
 
                         android:gravity="center"
-                        android:text="بيانات مرافق النشاط"
+                        android:text="@string/dataattach"
                         android:textAlignment="center"
                         android:textColor="#000000"
                         android:textSize="@dimen/_15ssp" />
@@ -1437,7 +1438,7 @@
                                 android:layout_height="wrap_content"
                                 android:id="@+id/ReaisetTrue"
                                 android:maxWidth="@dimen/_80sdp"
-                                android:text="نوع ايصال المرافق"
+                                android:text="@string/typeRecit"
                                 android:textColor="@color/nearGreen"
                                 android:textSize="@dimen/_9ssp"
                                 android:textStyle="bold" />
@@ -1454,21 +1455,21 @@
                                     android:id="@+id/radioUtility_receiptCH"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="غاز"
+                                    android:text="@string/Gas"
                                     android:textSize="@dimen/_8ssp" />
 
                                 <RadioButton
                                     android:id="@+id/radioUtility_receiptCH2"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="مياه"
+                                    android:text="@string/Wataer"
                                     android:textSize="@dimen/_8ssp" />
 
                                 <RadioButton
                                     android:id="@+id/radioUtility_receiptCH3"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="كهرباء"
+                                    android:text="@string/Electeicy"
                                     android:textSize="@dimen/_8ssp" />
 
 
@@ -1484,7 +1485,7 @@
                             android:layout_height="wrap_content"
 
                             android:layout_margin="@dimen/_4sdp"
-                            android:hint="رقم العداد"
+                            android:hint="@string/CounterNumber"
                             android:textColorHint="@color/nearGreen"
                             android:textSize="@dimen/_9ssp"
                             app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
@@ -1512,7 +1513,7 @@
                             android:layout_height="wrap_content"
 
                             android:layout_margin="@dimen/_4sdp"
-                            android:hint="رقم اللوحة"
+                            android:hint="@string/BorderNumber"
                             android:textColorHint="@color/nearGreen"
                             android:textSize="@dimen/_9ssp"
                             app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
@@ -1540,7 +1541,7 @@
                             android:layout_height="wrap_content"
 
                             android:layout_margin="@dimen/_4sdp"
-                            android:hint="متوسط الاستهلاك شهرياً"
+                            android:hint="@string/AvergcostMoth"
                             android:textColorHint="@color/nearGreen"
                             android:textSize="@dimen/_9ssp"
                             app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
@@ -1574,7 +1575,7 @@
                                 android:layout_height="wrap_content"
                                 android:id="@+id/OwnerMoneyNameTrue"
                                 android:maxWidth="@dimen/_80sdp"
-                                android:text="إسم المستفيد بالإيصال "
+                                android:text="@string/nameOfOwnerReciat"
                                 android:textColor="@color/nearGreen"
 
                                 android:textSize="@dimen/_9ssp"
@@ -1592,21 +1593,21 @@
                                     android:id="@+id/radioNameOfRecipientCH"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="أخري"
+                                    android:text="@string/other"
                                     android:textSize="@dimen/_8ssp" />
 
                                 <RadioButton
                                     android:id="@+id/radioNameOfRecipientCH2"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="مستأحر"
+                                    android:text="@string/Rentar"
                                     android:textSize="@dimen/_8ssp" />
 
                                 <RadioButton
                                     android:id="@+id/radioNameOfRecipientCH3"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="مالك"
+                                    android:text="@string/Ownerd"
                                     android:textSize="@dimen/_8ssp" />
 
 
@@ -1631,7 +1632,7 @@
                         android:layout_margin="@dimen/_10sdp"
                         android:fontFamily="@font/gstb"
                         android:gravity="center"
-                        android:text="بيانات مالك النشاط"
+                        android:text="@string/OwnerData"
                         android:textAlignment="center"
                         android:textColor="#000000"
                         android:textSize="@dimen/_15ssp" />
@@ -1650,7 +1651,7 @@
                             android:layout_height="wrap_content"
 
                             android:layout_margin="@dimen/_4sdp"
-                            android:hint="الإسم وفقا للرقم القومي"
+                            android:hint="@string/Name"
                             android:textColorHint="@color/nearGreen"
                             android:textSize="@dimen/_9ssp"
                             app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
@@ -1666,6 +1667,7 @@
                                 android:id="@+id/fullNameForOwner"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:inputType="text"
                                 android:textSize="@dimen/_9ssp" />
 
                         </com.google.android.material.textfield.TextInputLayout>
@@ -1677,7 +1679,7 @@
                             android:layout_height="wrap_content"
 
                             android:layout_margin="@dimen/_4sdp"
-                            android:hint="إسم الشهرة (إن وجد)"
+                            android:hint="@string/NakeNameFound"
                             android:textColorHint="@color/nearGreen"
                             android:textSize="@dimen/_9ssp"
                             app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
@@ -1693,6 +1695,7 @@
                                 android:id="@+id/NakeNameOwner"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:inputType="text"
                                 android:textSize="@dimen/_9ssp" />
 
                         </com.google.android.material.textfield.TextInputLayout>
@@ -1704,7 +1707,7 @@
                             android:layout_height="wrap_content"
 
                             android:layout_margin="@dimen/_4sdp"
-                            android:hint="الرقم القومي"
+                            android:hint="@string/Idnoltue"
                             android:textColorHint="@color/nearGreen"
                             android:textSize="@dimen/_9ssp"
                             app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
@@ -1738,7 +1741,7 @@
                                 android:layout_height="wrap_content"
                                 android:id="@+id/AnotherJobTrue"
                                 android:maxWidth="@dimen/_80sdp"
-                                android:text="عمل أخر"
+                                android:text="@string/anotherjob"
                                 android:textColor="@color/nearGreen"
                                 android:textSize="@dimen/_9ssp"
                                 android:textStyle="bold" />
@@ -1755,14 +1758,14 @@
                                     android:id="@+id/radioJobAntoherCH"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="لا"
+                                    android:text="@string/no"
                                     android:textSize="@dimen/_8ssp" />
 
                                 <RadioButton
                                     android:id="@+id/radioJobAntoherCH2"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="نعم"
+                                    android:text="@string/yes"
                                     android:textSize="@dimen/_8ssp" />
 
 
@@ -1783,7 +1786,7 @@
                                 android:layout_height="wrap_content"
                                 android:id="@+id/JobTypeTrue"
                                 android:maxWidth="@dimen/_80sdp"
-                                android:text="نوع العمل"
+                                android:text="@string/jobtype"
                                 android:textColor="@color/nearGreen"
                                 android:textSize="@dimen/_9ssp"
                                 android:textStyle="bold" />
@@ -1800,14 +1803,14 @@
                                     android:id="@+id/radioJobTypeCH"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="لا"
+                                    android:text="@string/no"
                                     android:textSize="@dimen/_8ssp" />
 
                                 <RadioButton
                                     android:id="@+id/radioJobTypeCH2"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="نعم"
+                                    android:text="@string/yes"
                                     android:textSize="@dimen/_8ssp" />
 
 
@@ -1823,7 +1826,7 @@
                             android:layout_height="wrap_content"
 
                             android:layout_margin="@dimen/_4sdp"
-                            android:hint="متوسط الدخل"
+                            android:hint="@string/salaryAvaerag"
                             android:textColorHint="@color/nearGreen"
                             android:textSize="@dimen/_9ssp"
                             app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
@@ -1852,7 +1855,7 @@
                             android:layout_height="wrap_content"
 
                             android:layout_margin="@dimen/_4sdp"
-                            android:hint="عدد أفراد الأسرة"
+                            android:hint="@string/NumberOfFamily"
                             android:textColorHint="@color/nearGreen"
                             android:textSize="@dimen/_9ssp"
                             app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
@@ -1892,7 +1895,7 @@
                         android:layout_margin="@dimen/_5sdp"
 
                         android:gravity="center"
-                        android:text="تقيم المورد"
+                        android:text="@string/RateResoures"
                         android:textAlignment="center"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_15ssp" />
@@ -1910,7 +1913,7 @@
                             android:layout_height="wrap_content"
                             android:id="@+id/PriceTrue"
                             android:maxWidth="@dimen/_80sdp"
-                            android:text="السعر الصافي"
+                            android:text="@string/BurePrices"
                             android:textColor="@color/nearGreen"
                             android:textSize="@dimen/_9ssp"
                             android:textStyle="bold" />
@@ -1927,20 +1930,20 @@
                                 android:id="@+id/radioLieesnasCH3"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="أخري"
+                                android:text="@string/other"
                                 android:textSize="@dimen/_8ssp" />
 
                             <RadioButton
                                 android:id="@+id/radioLieesnasCH2"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="غير مناسب"
+                                android:text="@string/notfie"
                                 android:textSize="@dimen/_8ssp" />
                             <RadioButton
                                 android:id="@+id/radioLieesnasCH"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="مناسب"
+                                android:text="@string/fit"
                                 android:textSize="@dimen/_8ssp" />
 
 
@@ -1960,7 +1963,7 @@
                             android:layout_height="wrap_content"
                             android:id="@+id/TimeDilerdTrue"
                             android:maxWidth="@dimen/_80sdp"
-                            android:text="وقت التسليم"
+                            android:text="@string/DilverTime"
                             android:textColor="@color/nearGreen"
                             android:textSize="@dimen/_9ssp"
                             android:textStyle="bold" />
@@ -1977,14 +1980,14 @@
                                 android:id="@+id/radioMachineLiesnseCH2"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="غير ذلك"
+                                android:text="@string/NoOfTheAboue"
                                 android:textSize="@dimen/_8ssp" />
 
                             <RadioButton
                                 android:id="@+id/radioMachineLiesnseCH"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="في الوقت المحدد"
+                                android:text="@string/InTiem"
                                 android:textSize="@dimen/_8ssp" />
 
 
@@ -2004,7 +2007,7 @@
                             android:layout_height="wrap_content"
                             android:id="@+id/QulatyTrue"
                             android:maxWidth="@dimen/_80sdp"
-                            android:text="مستوي الجودة"
+                            android:text="@string/QutitRate"
                             android:textColor="@color/nearGreen"
                             android:textSize="@dimen/_9ssp"
                             android:textStyle="bold" />
@@ -2021,27 +2024,27 @@
                                 android:id="@+id/radioValueCH"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="ممتاز"
+                                android:text="@string/Prfcit"
                                 android:textSize="@dimen/_8ssp" />
 
                             <RadioButton
                                 android:id="@+id/radioValueCH2"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="جيد"
+                                android:text="@string/good"
                                 android:textSize="@dimen/_8ssp" />
 
                             <RadioButton
                                 android:id="@+id/radioValueCH3"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="متوسط"
+                                android:text="@string/Middle"
                                 android:textSize="@dimen/_8ssp" />
                             <RadioButton
                                 android:id="@+id/radioValueCH4"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="سئ"
+                                android:text="@string/worst"
                                 android:textSize="@dimen/_8ssp" />
 
                         </RadioGroup>
@@ -2060,7 +2063,7 @@
                             android:layout_height="wrap_content"
                             android:id="@+id/ToolsTrue"
                             android:maxWidth="@dimen/_80sdp"
-                            android:text="القدرات والتجهيزات الإنتاجية"
+                            android:text="@string/apiletandq"
                             android:textColor="@color/nearGreen"
 
                             android:textSize="@dimen/_9ssp"
@@ -2078,14 +2081,14 @@
                                 android:id="@+id/radioOwnerCH2"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="غير ذلك"
+                                android:text="@string/NoOfTheAboue"
                                 android:textSize="@dimen/_8ssp" />
 
                             <RadioButton
                                 android:id="@+id/radioOwnerCH"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="أعلي قدر من الكفاءة"
+                                android:text="@string/Abovethe"
                                 android:textSize="@dimen/_8ssp" />
 
 
@@ -2105,7 +2108,7 @@
                             android:layout_height="wrap_content"
                             android:id="@+id/AddersTrue"
                             android:maxWidth="@dimen/_80sdp"
-                            android:text="الموقع الجغرافي"
+                            android:text="@string/LoactionGrg"
                             android:textColor="@color/nearGreen"
                             android:textSize="@dimen/_9ssp"
                             android:textStyle="bold" />
@@ -2122,20 +2125,20 @@
                                 android:id="@+id/radioRaptaionCH3"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="غير ذلك"
+                                android:text="@string/NoOfTheAboue"
                                 android:textSize="@dimen/_8ssp" />
 
                             <RadioButton
                                 android:id="@+id/radioRaptaionCH2"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="متوسط"
+                                android:text=""
                                 android:textSize="@dimen/_8ssp" />
                             <RadioButton
                                 android:id="@+id/radioRaptaionCH"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="جيد"
+                                android:text="@string/good"
                                 android:textSize="@dimen/_8ssp" />
 
 
@@ -2155,7 +2158,7 @@
                             android:layout_height="wrap_content"
                             android:id="@+id/AppiltyTrue"
                             android:maxWidth="@dimen/_80sdp"
-                            android:text="الإمكانيات والقدرات الفنية"
+                            android:text="@string/apillanddis"
                             android:textColor="@color/nearGreen"
                             android:textSize="@dimen/_9ssp"
                             android:textStyle="bold" />
@@ -2172,14 +2175,14 @@
                                 android:id="@+id/radioReputationCH2"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="غير ذلك"
+                                android:text="@string/NoOfTheAboue"
                                 android:textSize="@dimen/_8ssp" />
 
                             <RadioButton
                                 android:id="@+id/radioReputationCH"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="أعلي قدر من الكفاءة"
+                                android:text="@string/Abovethe"
                                 android:textSize="@dimen/_8ssp" />
 
 
@@ -2200,7 +2203,7 @@
                             android:layout_height="wrap_content"
                             android:id="@+id/MangemntTimeTrue"
                             android:maxWidth="@dimen/_80sdp"
-                            android:text="الإدارة والتنظيم"
+                            android:text="@string/MangmentAndOrg"
                             android:textColor="@color/nearGreen"
                             android:textSize="@dimen/_9ssp"
                             android:textStyle="bold" />
@@ -2217,27 +2220,27 @@
                                 android:id="@+id/radioEnterpriseCH"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="ممتاز"
+                                android:text="@string/Prfcit"
                                 android:textSize="@dimen/_8ssp" />
 
                             <RadioButton
                                 android:id="@+id/radioEnterpriseCH2"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="جيد"
+                                android:text="@string/good"
                                 android:textSize="@dimen/_8ssp" />
 
                             <RadioButton
                                 android:id="@+id/radioEnterpriseCH3"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="متوسط"
+                                android:text="@string/Middle"
                                 android:textSize="@dimen/_8ssp" />
                             <RadioButton
                                 android:id="@+id/radioEnterpriseCH4"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="سئ"
+                                android:text="@string/worst"
                                 android:textSize="@dimen/_8ssp" />
 
 
@@ -2257,7 +2260,7 @@
                             android:layout_height="wrap_content"
                             android:id="@+id/RepartionTrue"
                             android:maxWidth="@dimen/_80sdp"
-                            android:text="سمعة المورد في السوق"
+                            android:text="@string/repation"
                             android:textColor="@color/nearGreen"
                             android:textSize="@dimen/_9ssp"
                             android:textStyle="bold" />
@@ -2274,21 +2277,21 @@
                                 android:id="@+id/radioSupplierCH"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="ممتاز"
+                                android:text="@string/Prfcit"
                                 android:textSize="@dimen/_8ssp" />
 
                             <RadioButton
                                 android:id="@+id/radioSupplierCH2"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="جيد"
+                                android:text="@string/good"
                                 android:textSize="@dimen/_8ssp" />
 
                             <RadioButton
                                 android:id="@+id/radioSupplierCH3"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="سيئ"
+                                android:text="@string/worst"
                                 android:textSize="@dimen/_8ssp" />
 
 
@@ -2309,7 +2312,7 @@
                             android:layout_height="wrap_content"
                             android:id="@+id/SalaryStwaionTrue"
                             android:maxWidth="@dimen/_80sdp"
-                            android:text="المركز والوضع المالي"
+                            android:text="@string/PostionandStateMobety"
                             android:textColor="@color/nearGreen"
                             android:textSize="@dimen/_9ssp"
                             android:textStyle="bold" />
@@ -2326,21 +2329,21 @@
                                 android:id="@+id/radioFinancialSituationCH"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="ممتاز"
+                                android:text="@string/Prfcit"
                                 android:textSize="@dimen/_8ssp" />
 
                             <RadioButton
                                 android:id="@+id/radioFinancialSituationCH2"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="جيد"
+                                android:text="@string/good"
                                 android:textSize="@dimen/_8ssp" />
 
                             <RadioButton
                                 android:id="@+id/radioFinancialSituationCH3"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="سيئ"
+                                android:text="@string/worst"
                                 android:textSize="@dimen/_8ssp" />
 
 
@@ -2361,7 +2364,7 @@
                             android:layout_height="wrap_content"
                             android:id="@+id/PformensPerivoseTrue"
                             android:maxWidth="@dimen/_80sdp"
-                            android:text="الأداء السابق"
+                            android:text="@string/OldMangemnt"
                             android:textColor="@color/nearGreen"
                             android:textSize="@dimen/_9ssp"
                             android:textStyle="bold" />
@@ -2378,21 +2381,21 @@
                                 android:id="@+id/radioPreviousPerformanceCH"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="جيد"
+                                android:text="@string/good"
                                 android:textSize="@dimen/_8ssp" />
 
                             <RadioButton
                                 android:id="@+id/radioPreviousPerformanceCH2"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="متوسط"
+                                android:text="@string/Middle"
                                 android:textSize="@dimen/_8ssp" />
 
                             <RadioButton
                                 android:id="@+id/radioPreviousPerformanceCH3"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="سيئ"
+                                android:text="@string/worst"
                                 android:textSize="@dimen/_8ssp" />
 
 
@@ -2413,7 +2416,7 @@
                             android:layout_height="wrap_content"
                             android:id="@+id/OperationTrue"
                             android:maxWidth="@dimen/_80sdp"
-                            android:text="مراقبة العمليات أو الضوابط التشغلية"
+                            android:text="@string/sd"
                             android:textColor="@color/nearGreen"
                             android:textSize="@dimen/_9ssp"
                             android:textStyle="bold" />
@@ -2430,14 +2433,14 @@
                                 android:id="@+id/customerControlCH"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="علي قدر عال من الكفاءة"
+                                android:text="@string/qualtyhight"
                                 android:textSize="@dimen/_8ssp" />
 
                             <RadioButton
                                 android:id="@+id/customerControlCH2"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="غير ذلك"
+                                android:text="@string/NoOfTheAboue"
                                 android:textSize="@dimen/_8ssp" />
 
 
@@ -2460,7 +2463,7 @@
                             android:layout_height="wrap_content"
                             android:id="@+id/BackupAndtrianTrue"
                             android:maxWidth="@dimen/_80sdp"
-                            android:text="الدعم والتدريب"
+                            android:text="@string/SupportAndtrian"
                             android:textColor="@color/nearGreen"
                             android:textSize="@dimen/_9ssp"
                             android:textStyle="bold" />
@@ -2477,14 +2480,14 @@
                                 android:id="@+id/radioObesverCH"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="بصفة مستمرة"
+                                android:text="@string/InCountuers"
                                 android:textSize="@dimen/_8ssp" />
 
                             <RadioButton
                                 android:id="@+id/radioObesverCH2"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="غير ذلك"
+                                android:text="@string/NoOfTheAboue"
                                 android:textSize="@dimen/_8ssp" />
                         </RadioGroup>
 
@@ -2502,7 +2505,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:maxWidth="@dimen/_80sdp"
-                            android:text="العلاقات الاجتماعية"
+                            android:text="@string/Relaiton"
                             android:textColor="@color/nearGreen"
                             android:textSize="@dimen/_9ssp"
                             android:textStyle="bold" />
@@ -2519,21 +2522,21 @@
                                 android:id="@+id/radioSocialCH"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="جيدة"
+                                android:text="@string/goodeh"
                                 android:textSize="@dimen/_8ssp" />
 
                             <RadioButton
                                 android:id="@+id/radioSocialCH2"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="متوسطة"
+                                android:text="@string/Milleldh"
                                 android:textSize="@dimen/_8ssp" />
 
                             <RadioButton
                                 android:id="@+id/radioSocialCH3"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="لايوجد"
+                                android:text="@string/NotThere"
                                 android:textSize="@dimen/_8ssp" />
 
 
@@ -2554,7 +2557,7 @@
                             android:layout_height="wrap_content"
                             android:id="@+id/ConnetctionTrue"
                             android:maxWidth="@dimen/_80sdp"
-                            android:text="نظام الإتصال"
+                            android:text="@string/CommunationSystem"
                             android:textColor="@color/nearGreen"
                             android:textSize="@dimen/_9ssp"
                             android:textStyle="bold" />
@@ -2571,21 +2574,21 @@
                                 android:id="@+id/radioCommunicationSystemCH"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="إلكتروني"
+                                android:text="@string/elctironic"
                                 android:textSize="@dimen/_8ssp" />
 
                             <RadioButton
                                 android:id="@+id/radioCommunicationSystemCH2"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="يدوي"
+                                android:text="@string/Hande"
                                 android:textSize="@dimen/_8ssp" />
 
                             <RadioButton
                                 android:id="@+id/radioCommunicationSystemCH3"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="غير ذلك"
+                                android:text="@string/NoOfTheAboue"
                                 android:textSize="@dimen/_8ssp" />
 
 
@@ -2606,7 +2609,7 @@
                             android:layout_height="wrap_content"
                             android:id="@+id/AboutTrue"
                             android:maxWidth="@dimen/_80sdp"
-                            android:text="الإنطباع"
+                            android:text="@string/Reaction"
                             android:textColor="@color/nearGreen"
                             android:textSize="@dimen/_9ssp"
                             android:textStyle="bold" />
@@ -2623,21 +2626,21 @@
                                 android:id="@+id/radioImpressionCH"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="جيد"
+                                android:text="@string/good"
                                 android:textSize="@dimen/_8ssp" />
 
                             <RadioButton
                                 android:id="@+id/radioImpressionCH2"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="متوسط"
+                                android:text="@string/Middle"
                                 android:textSize="@dimen/_8ssp" />
 
                             <RadioButton
                                 android:id="@+id/radioImpressionCH3"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="غير ذلك"
+                                android:text="@string/NoOfTheAboue"
                                 android:textSize="@dimen/_8ssp" />
 
 
@@ -2658,7 +2661,7 @@
                             android:layout_height="wrap_content"
                             android:id="@+id/JobInvieteTrue"
                             android:maxWidth="@dimen/_80sdp"
-                            android:text="الرغبة في القيام بالأعمال"
+                            android:text="@string/Imapation"
                             android:textColor="@color/nearGreen"
                             android:textSize="@dimen/_9ssp"
                             android:textStyle="bold" />
@@ -2675,21 +2678,21 @@
                                 android:id="@+id/radioDesireCH"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="جيد"
+                                android:text="@string/good"
                                 android:textSize="@dimen/_8ssp" />
 
                             <RadioButton
                                 android:id="@+id/radioDesireCH2"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="متوسط"
+                                android:text="@string/Middle"
                                 android:textSize="@dimen/_8ssp" />
 
                             <RadioButton
                                 android:id="@+id/radioDesireCH3"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="غير ذلك"
+                                android:text="@string/NoOfTheAboue"
                                 android:textSize="@dimen/_8ssp" />
 
 
@@ -2710,7 +2713,7 @@
                             android:layout_height="wrap_content"
                             android:id="@+id/JobPeriveisTrue"
                             android:maxWidth="@dimen/_80sdp"
-                            android:text="حجم الأعمال السابقة"
+                            android:text="@string/Capastiyworks"
                             android:textColor="@color/nearGreen"
                             android:textSize="@dimen/_9ssp"
                             android:textStyle="bold" />
@@ -2727,21 +2730,21 @@
                                 android:id="@+id/radioJobsCH"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="جيد"
+                                android:text="@string/good"
                                 android:textSize="@dimen/_8ssp" />
 
                             <RadioButton
                                 android:id="@+id/radioJobsCH2"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="متوسط"
+                                android:text="@string/Middle"
                                 android:textSize="@dimen/_8ssp" />
 
                             <RadioButton
                                 android:id="@+id/radioJobsCH3"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="غير ذلك"
+                                android:text="@string/NoOfTheAboue"
                                 android:textSize="@dimen/_8ssp" />
 
 
@@ -2763,16 +2766,68 @@
 
 
                             android:maxWidth="@dimen/_80sdp"
-                            android:text="المرفقات"
+                            android:text="@string/Attachemnt"
                             android:textColor="@color/nearGreen"
 
                             android:textSize="@dimen/_9ssp"
                             android:textStyle="bold" />
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:id="@+id/coms7"
+                            android:layout_height="wrap_content">
 
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/RescView7"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="right"
+                                app:layout_constraintTop_toTopOf="@+id/coms7"
+                                app:layout_constraintStart_toStartOf="@+id/coms7"
+                                app:layout_constraintEnd_toEndOf="@id/coms7"
+                                app:layout_constraintBottom_toBottomOf="@+id/coms7"
+                                android:layout_weight="1" />
+
+
+                            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/fobutton3"
+                                android:src="@drawable/ic_blus"
+
+                                android:layout_margin="@dimen/_2sdp"
+                                app:layout_constraintTop_toTopOf="@+id/coms7"
+
+                                app:layout_constraintEnd_toEndOf="@id/coms7"
+                                app:layout_constraintBottom_toBottomOf="@+id/coms7"
+
+                                android:padding="@dimen/_4sdp"/>
+                        </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 
                     </LinearLayout>
+
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:gravity="end"
+                    android:orientation="horizontal">
+
+
+                    <Button
+                        android:id="@+id/DisplayPDf"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_5sdp"
+                        android:visibility="gone"
+
+                        android:text="@string/downlodAllFile"
+                        android:textSize="@dimen/_7ssp" />
 
 
 
@@ -2786,10 +2841,11 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="left"
                         android:id="@+id/Sumbit"
+                        android:visibility="gone"
                         android:fontFamily="@font/gstb"
                         android:paddingLeft="@dimen/_20sdp"
                         android:paddingRight="@dimen/_20sdp"
-                        android:text="تسليم"
+                        android:text="@string/Done"
                         android:textSize="@dimen/_12ssp" />
                     <Space
                         android:layout_width="0dp"
@@ -2797,14 +2853,14 @@
                         android:layout_weight="1"/>
 
                     <Button
+                        android:id="@+id/Location"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:backgroundTint="@color/NearRed"
-                        android:id="@+id/DeletSumbit"
-                        android:visibility="gone"
-                        android:paddingLeft="@dimen/_15sdp"
-                        android:paddingRight="@dimen/_15sdp"
-                        android:text="حذف الاستعلام"
+                        android:layout_gravity="left"
+                        android:fontFamily="@font/gstb"
+                        android:paddingLeft="@dimen/_20sdp"
+                        android:paddingRight="@dimen/_20sdp"
+                        android:text="@string/Locationdetacter"
                         android:textSize="@dimen/_12ssp" />
                 </LinearLayout>
             </LinearLayout>

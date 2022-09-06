@@ -2,8 +2,10 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+
     tools:context=".Screens.Fragment.AgentInfoFragment">
 
 
@@ -22,10 +24,14 @@
         >
 
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+
             android:padding="@dimen/_8sdp">
 
             <com.denzcoskun.imageslider.ImageSlider
@@ -33,33 +39,33 @@
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/_150sdp"
 
-
                 app:iss_auto_cycle="true"
-                app:iss_period="1000"
-                app:iss_delay="1000"/>
+                app:iss_period="6000"
+                app:iss_delay="6000"/>
 
 
-            <LinearLayout
+            <TableLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="start"
-                android:gravity="center"
+
                 android:orientation="vertical"
                 android:padding="@dimen/_10sdp">
 
-                <LinearLayout
+                <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-
+                    android:padding="@dimen/_2sdp"
                     android:layout_gravity="right"
                     android:gravity="right"
                     android:orientation="horizontal">
 
                     <TextView
                         android:id="@+id/ClinetNam"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textIsSelectable="true"
+                        android:gravity="right"
+                        android:layout_margin="@dimen/_2sdp"
                         android:text="سيد احمد السيد عوضين"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_12ssp" />
@@ -70,12 +76,14 @@
                         android:text="@string/name"
                         android:textColor="@color/nearGreen"
                         android:textSize="@dimen/_12ssp"
+                        android:layout_margin="@dimen/_2sdp"
+                        android:gravity="right"
                         android:textStyle="bold" />
-                </LinearLayout>
-                <LinearLayout
+                </TableRow>
+                <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-
+                    android:padding="@dimen/_2sdp"
                     android:layout_gravity="right"
                     android:gravity="right"
                     android:orientation="horizontal">
@@ -85,6 +93,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="سيد احمد السيد عوضين"
+                        android:gravity="right"
+                        android:layout_margin="@dimen/_2sdp"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_12ssp" />
 
@@ -92,15 +102,18 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/NickName"
+                        android:layout_margin="@dimen/_2sdp"
+                        android:gravity="right"
                         android:textColor="@color/nearGreen"
                         android:textSize="@dimen/_12ssp"
                         android:textStyle="bold" />
-                </LinearLayout>
-                <LinearLayout
+                </TableRow>
+                <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="right"
                     android:gravity="right"
+                    android:padding="@dimen/_2sdp"
                     android:orientation="horizontal">
 
                     <TextView
@@ -109,24 +122,31 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="31 ش 66 مدينة نصر"
+                        android:layout_margin="@dimen/_2sdp"
+                        android:gravity="right"
+                        android:clickable="true"
+
                         android:textColor="@color/black"
                         android:textSize="@dimen/_12ssp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-
+                        android:layout_margin="@dimen/_2sdp"
+                        android:gravity="right"
                         android:text="@string/acualAdders"
+                        android:clickable="true"
                         android:textColor="@color/nearGreen"
                         android:textSize="@dimen/_12ssp"
                         android:textStyle="bold" />
-                </LinearLayout>
+                </TableRow>
 
-                <LinearLayout
+                <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="right"
                     android:gravity="right"
+                    android:padding="@dimen/_2sdp"
                     android:orientation="horizontal">
 
                     <TextView
@@ -134,6 +154,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="31 ش 66 مدينة نصر"
+                        android:gravity="right"
+                        android:layout_margin="@dimen/_2sdp"
                         android:textIsSelectable="true"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_12ssp" />
@@ -141,18 +163,19 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-
+                        android:layout_margin="@dimen/_2sdp"
+                        android:gravity="right"
                         android:text="@string/AddersOnCard"
                         android:textColor="@color/nearGreen"
                         android:textSize="@dimen/_12ssp"
                         android:textStyle="bold" />
-                </LinearLayout>
-                <LinearLayout
+                </TableRow>
+                <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="right"
                     android:gravity="right"
-
+                    android:padding="@dimen/_2sdp"
                     android:orientation="horizontal">
 
                     <TextView
@@ -160,7 +183,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textIsSelectable="true"
+                        android:layout_margin="@dimen/_2sdp"
                         android:text="01220000000"
+                        android:gravity="right"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_12ssp" />
 
@@ -168,16 +193,18 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/NailnolityNumber"
+                        android:layout_margin="@dimen/_2sdp"
+                        android:gravity="right"
                         android:textColor="@color/nearGreen"
                         android:textSize="@dimen/_12ssp"
                         android:textStyle="bold" />
-                </LinearLayout>
-                <LinearLayout
+                </TableRow>
+                <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="right"
                     android:gravity="right"
-
+                    android:padding="@dimen/_2sdp"
                     android:orientation="horizontal">
 
                     <TextView
@@ -185,10 +212,12 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textIsSelectable="true"
+                        android:gravity="right"
                         android:textColorHighlight="@color/white"
                         android:textColorLink="@android:color/black"
                         android:linksClickable="true"
                         android:autoLink="phone"
+                        android:layout_margin="@dimen/_2sdp"
                         android:shadowColor="@color/noColor"
                         android:text="01220000000"
                         android:textColor="@color/black"
@@ -198,47 +227,60 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/PhoneNumber"
+                        android:layout_margin="@dimen/_2sdp"
+                        android:gravity="right"
                         android:textColor="@color/nearGreen"
                         android:textSize="@dimen/_12ssp"
                         android:textStyle="bold" />
-                </LinearLayout>
-                <LinearLayout
+                </TableRow>
+                <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="right"
                     android:gravity="right"
-
+                    android:padding="@dimen/_2sdp"
                     android:orientation="horizontal">
 
-                    <TextView
-                        android:id="@+id/PhonNumber2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textIsSelectable="true"
-                        android:textColorHighlight="@color/white"
-                        android:textColorLink="@android:color/black"
-                        android:linksClickable="true"
-                        android:autoLink="phone"
-                        android:shadowColor="@color/noColor"
-                        android:text="01220000000"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/_12ssp" />
+
+
+                          <TextView
+                              android:id="@+id/PhonNumber2"
+                              android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              android:textIsSelectable="true"
+                              android:gravity="right"
+
+                              android:layout_margin="@dimen/_2sdp"
+                              android:textColorHighlight="@color/white"
+                              android:textColorLink="@android:color/black"
+                              android:linksClickable="true"
+                              android:autoLink="phone"
+                              android:shadowColor="@color/noColor"
+                              android:text="01220000000"
+                              android:textColor="@color/black"
+                              android:textSize="@dimen/_12ssp" />
+
+
+
+
+
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/PhoneNumber2"
-
+                        android:layout_margin="@dimen/_2sdp"
+                        android:gravity="right"
                         android:textColor="@color/nearGreen"
                         android:textSize="@dimen/_12ssp"
                         android:textStyle="bold" />
-                </LinearLayout>
-                <LinearLayout
+                </TableRow>
+                <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="right"
                     android:gravity="right"
-
+                    android:padding="@dimen/_2sdp"
                     android:orientation="horizontal">
 
                     <TextView
@@ -247,6 +289,16 @@
                         android:layout_height="wrap_content"
                         android:textIsSelectable="true"
                         android:text="01220000000"
+                        android:gravity="right"
+                        android:layout_margin="@dimen/_2sdp"
+                        android:autoLink="phone"
+                        android:linksClickable="true"
+                        android:shadowColor="@color/noColor"
+
+
+                        android:textColorHighlight="@color/white"
+                        android:textColorLink="@android:color/black"
+
                         android:textColor="@color/black"
                         android:textSize="@dimen/_12ssp" />
 
@@ -256,13 +308,14 @@
                         android:text="@string/ErthNumber"
                         android:textColor="@color/nearGreen"
                         android:textSize="@dimen/_12ssp"
+                        android:gravity="right"
+                        android:layout_margin="@dimen/_2sdp"
                         android:textStyle="bold" />
-                </LinearLayout>
-              <!--
-                <LinearLayout
+                </TableRow>
+                <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-
+                    android:padding="@dimen/_2sdp"
                     android:layout_gravity="right"
                     android:gravity="right"
                     android:orientation="horizontal">
@@ -272,49 +325,57 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="ذكر"
-                        android:textColor="@color/nearGreen"
+                        android:layout_margin="@dimen/_2sdp"
+                        android:gravity="right"
+                        android:textColor="@color/black"
                         android:textSize="@dimen/_12ssp" />
-
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="النوع : "
-                        android:textColor="#000000"
+                        android:text="@string/Gander"
+                        android:textColor="@color/nearGreen"
+                        android:gravity="right"
+                        android:layout_margin="@dimen/_2sdp"
                         android:textSize="@dimen/_12ssp"
                         android:textStyle="bold" />
-                </LinearLayout>
-                -->
-                <LinearLayout
+
+                </TableRow>
+                <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="right"
                     android:gravity="right"
-
+                    android:padding="@dimen/_2sdp"
                     android:orientation="horizontal">
 
                     <TextView
                         android:id="@+id/Job"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-android:textIsSelectable="true"
+                        android:textIsSelectable="true"
+                        android:gravity="right"
                         android:text="مونتير"
                         android:textColor="@color/black"
+                        android:layout_margin="@dimen/_2sdp"
                         android:textSize="@dimen/_12ssp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/Job"
+                        android:layout_margin="@dimen/_2sdp"
+                        android:gravity="right"
                         android:textColor="@color/nearGreen"
                         android:textSize="@dimen/_12ssp"
                         android:textStyle="bold" />
-                </LinearLayout>
-                <LinearLayout
+                </TableRow>
+                <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="right"
                     android:gravity="right"
 
+                    android:padding="@dimen/_2sdp"
                     android:orientation="horizontal">
 
                     <TextView
@@ -323,6 +384,8 @@ android:textIsSelectable="true"
                         android:layout_height="wrap_content"
                         android:textIsSelectable="true"
                         android:text="مونتير"
+                        android:layout_margin="@dimen/_2sdp"
+                        android:gravity="right"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_12ssp" />
 
@@ -330,14 +393,17 @@ android:textIsSelectable="true"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/JobIncard"
+                        android:gravity="right"
                         android:textColor="@color/nearGreen"
+                        android:layout_margin="@dimen/_2sdp"
                         android:textSize="@dimen/_12ssp"
                         android:textStyle="bold" />
-                </LinearLayout>
-            </LinearLayout>
-
-
+                </TableRow>
+            </TableLayout>
         </LinearLayout>
+    </ScrollView>
+
+
     </androidx.cardview.widget.CardView>
 
 

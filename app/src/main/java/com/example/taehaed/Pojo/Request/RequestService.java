@@ -7,6 +7,7 @@ public class RequestService implements Serializable {
     private String service;
     private int done;
     private int form;
+    private int has_form;
     private int status;
 
     public int getForm() {
@@ -18,6 +19,14 @@ public class RequestService implements Serializable {
     }
 
     public RequestService() {
+    }
+
+    public int getHas_form() {
+        return has_form;
+    }
+
+    public void setHas_form(int has_form) {
+        this.has_form = has_form;
     }
 
     public RequestService(int id, String service, int done, int status) {

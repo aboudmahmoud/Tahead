@@ -1,11 +1,6 @@
 
 package com.example.taehaed.Screens;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.ViewModelProvider;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -15,11 +10,16 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
+
 import com.example.taehaed.Constans;
 import com.example.taehaed.Model.TaehaedVModel;
+import com.example.taehaed.Pojo.UserData;
 import com.example.taehaed.R;
 import com.example.taehaed.databinding.ActivityLoginPageBinding;
-import com.example.taehaed.Pojo.UserData;
 import com.google.gson.Gson;
 
 public class LoginPage extends AppCompatActivity {
@@ -45,24 +45,26 @@ public class LoginPage extends AppCompatActivity {
         taehaedVModel = new ViewModelProvider(this).get(TaehaedVModel.class);
 
 
+
         SetFieldsGriveAndHints();
 
 
         binding.btnLogin.setOnClickListener(view -> {
+
             if(binding.Email.getText().toString().isEmpty())
             {
-               binding.Email.setError("برجاء عدم ترك الحقل فارغ");
+               binding.Email.setError(getString(R.string.DontLetEMpaty));
                return;
             }
 
             if(binding.passworded.getText().toString().isEmpty())
             {
-                binding.passworded.setError("برجاء عدم ترك الحقل فارغ");
+                binding.passworded.setError(getString(R.string.DontLetEMpaty));
                 return;
             }
 
             UserData userData = new UserData(binding.Email.getText().toString(), binding.passworded.getText().toString());
-            alertDialog =Constans.setAlertMeaage("جار تسجيل الدخول",LoginPage.this);
+            alertDialog =Constans.setAlertMeaage(getString(R.string.Login),LoginPage.this);
 
             //Here To make Display touch for User
             alertDialog.show();
@@ -70,7 +72,7 @@ public class LoginPage extends AppCompatActivity {
                     WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
 
             //Here Is The Procces Of Login
-            taehaedVModel.InsertLogin(userData, (status, Token) -> {
+            taehaedVModel.InsertLogin(userData, (status, Token, ErrorMassge) -> {
                 if (status) {
                     //Here We Store the Data InSheradPranfce
                     edit.putString(Constans.TokenKey, Token);
@@ -88,7 +90,7 @@ public class LoginPage extends AppCompatActivity {
                     startActivity(intent);
                     finish();
                 } else {
-                    Toast.makeText(getApplicationContext(), "عفوا البيانات غير صحيحه", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(),getString( R.string.error)+" \n"+ ErrorMassge , Toast.LENGTH_SHORT).show();
                     alertDialog.dismiss();
                     getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
                 }

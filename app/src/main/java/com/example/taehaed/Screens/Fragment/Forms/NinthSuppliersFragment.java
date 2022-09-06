@@ -1,40 +1,68 @@
-package com.example.taehaed.Screens.Fragment;
+package com.example.taehaed.Screens.Fragment.Forms;
 
+import static com.example.taehaed.Constans.ChechPremation;
 import static com.example.taehaed.Constans.CheckInputfield;
 import static com.example.taehaed.Constans.DESCRIBABLE_KEY;
+import static com.example.taehaed.Constans.VadlditoForIdNumber;
+import static com.example.taehaed.Constans.donlowdTheFile;
+import static com.example.taehaed.Constans.getLoaction;
+import static com.example.taehaed.Constans.getPermationForCamre;
+import static com.example.taehaed.Constans.getPermationForFiles;
+import static com.example.taehaed.Constans.getPermations;
 import static com.example.taehaed.Constans.getValue;
 import static com.example.taehaed.Constans.getValueOfboleaan;
 import static com.example.taehaed.Constans.itsNotNull;
+import static com.example.taehaed.Constans.setAdpater;
 import static com.example.taehaed.Constans.setAlertMeaage;
 import static com.example.taehaed.Constans.setErrorTextView;
+import static com.example.taehaed.Constans.setPhoneNumberValdtion;
+import static com.example.taehaed.Constans.setRes;
 
+import android.content.Intent;
+import android.location.Location;
+import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Toast;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Toast;
-
+import com.example.taehaed.Adapters.ImageFileApabter;
 import com.example.taehaed.Constans;
+import com.example.taehaed.FileUtil;
 import com.example.taehaed.Model.TaehaedVModel;
 import com.example.taehaed.Pojo.FormReuest.FormData;
+import com.example.taehaed.Pojo.ImageFileData;
 import com.example.taehaed.Pojo.NoteBodey;
+import com.example.taehaed.R;
+import com.example.taehaed.Screens.CameraActivity;
+import com.example.taehaed.Screens.Fragment.ImageTakeIt;
 import com.example.taehaed.databinding.FragmentNinthSuppliersBinding;
 
-public class NinthSuppliersFragment extends Fragment {
+import java.io.File;
+import java.util.ArrayList;
+
+public class NinthSuppliersFragment extends Fragment implements ImageTakeIt {
 
     private FragmentNinthSuppliersBinding binding;
     private FormData formdata;
     private AlertDialog alertDialog;
     private TaehaedVModel taehaedVModel;
-    private int servier_id;
-
+    private int servier_id, DoneStatus;
+    private ArrayList<ImageFileData> imageFileData;
+    private ImageFileApabter Adapter;
+    private ArrayList<File> attachments;
+    private File aboudfile;
+    ActivityResultLauncher<String> activityResultLauncher;
     public NinthSuppliersFragment() {
 
     }
@@ -48,11 +76,12 @@ public class NinthSuppliersFragment extends Fragment {
         return fragment;
     }
 
-    public static NinthSuppliersFragment newInstance(int id, FormData formData) {
+    public static NinthSuppliersFragment newInstance(int id, FormData formData, int DoneStatus) {
         NinthSuppliersFragment fragment = new NinthSuppliersFragment();
         Bundle args = new Bundle();
         args.putInt(Constans.IdkeyFrgment, id);
         args.putSerializable(DESCRIBABLE_KEY, formData);
+        args.putInt(Constans.DoneStatus, DoneStatus);
         fragment.setArguments(args);
         return fragment;
     }
@@ -63,8 +92,15 @@ public class NinthSuppliersFragment extends Fragment {
         if (getArguments() != null) {
             servier_id = getArguments().getInt(Constans.IdkeyFrgment);
             formdata = (FormData) getArguments().getSerializable(DESCRIBABLE_KEY);
+            DoneStatus = getArguments().getInt(Constans.DoneStatus);
         }
+
+        attachments= new ArrayList<>();
+        Adapter=new ImageFileApabter();
+        imageFileData = new ArrayList<>();
     }
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -81,43 +117,92 @@ public class NinthSuppliersFragment extends Fragment {
 
         SetTheRadioButton();
         SetDate();
-        SetDataUI();
+        if (SetDataUI()) {
+            //   Constans.enableDisableViewGroup(binding.TopBoss,false);
+
+        } else {
+            //هنا بنتاكد الاول هل هي كانت فيه دتا او لا
+            //لو فيه يبقا مش هيعمل حاجة
+            //لو مش فيه بيعمل اوبجيكت جديد
+            setNewFormData();
+        }
+        binding.fobutton3.setOnClickListener(view1 -> {
+
+            selectUploadType();
+
+        });
+        binding.DisplayPDf.setOnClickListener(view1 -> {
+            donlowdTheFile(formdata.attachments,getActivity(),getContext());
+
+        });
+        setRes(binding.RescView7,Adapter,getContext());
+        //ظبط الملفات لرفع
+        setTheUpload();
+        binding.Location.setOnClickListener(view1 -> {
+            setLoavtion();
+        });
         binding.Sumbit.setOnClickListener(view1 -> {
-            formdata = new FormData();
-
-
-           if( getDataUI()) return ;
-            alertDialog = setAlertMeaage("جاري ارسال البيانات", getContext());
+            if (getDataUI()) {
+                return;
+            }
+            alertDialog = setAlertMeaage(getString(R.string.getthedata), getContext());
             alertDialog.show();
-            taehaedVModel.setDoneservies(formdata, status -> {
-                if (status) {
-                    alertDialog.dismiss();
-                    Toast.makeText(getContext(), "تم", Toast.LENGTH_SHORT).show();
-                    getActivity().onBackPressed();
-                } else {
-                    alertDialog.dismiss();
-                    Toast.makeText(getContext(), "يبدو ان هناك خطأ ما", Toast.LENGTH_SHORT).show();
-                }
-            });
+
+            if (DoneStatus == 1) {
+                NoteBodey noteBodey = new NoteBodey();
+                noteBodey.setRequest_service_id(servier_id);
+                noteBodey.setReport("تم تعديل الاستعلام");
+                taehaedVModel.ConvertDoneToAccept(noteBodey, (status, errorM) -> {
+                    if (status) {
+                        DoneStatus=0;
+                        setDone();
+
+                    } else {
+                        Toast.makeText(getContext(), getString(R.string.deletProblen) + " \n " + errorM, Toast.LENGTH_SHORT).show();
+                        alertDialog.dismiss();
+                    }
+                });
+            } else {
+                setDone();
+            }
 
 
         });
-        binding.DeletSumbit.setOnClickListener(view1 -> {
-            alertDialog = setAlertMeaage("جاري حذف الاستعلام", getContext());
-            alertDialog.show();
-            NoteBodey noteBodey = new NoteBodey();
-            noteBodey.setRequest_service_id(servier_id);
-            noteBodey.setReport("تم حذف الاستعلام لوقت لاحق");
-            taehaedVModel.ConvertDoneToAccept(noteBodey, status -> {
-                if (status) {
-                    alertDialog.dismiss();
-                    getActivity().onBackPressed();
-//                        getActivity().recreate();
-                } else {
-                    alertDialog.dismiss();
-                    Toast.makeText(getContext(), "عفوا يبدو ان هناك خطأ ما", Toast.LENGTH_SHORT).show();
-                }
-            });
+
+    }
+
+    private void setNewFormData() {
+        if (DoneStatus == 0) {
+            formdata = new FormData();
+        }
+    }
+
+    private void setLoavtion() {
+        if (ChechPremation(getContext())) {
+            getPermations(getActivity());
+            Toast.makeText(getContext(), getString(R.string.hitagian), Toast.LENGTH_SHORT).show();
+            binding.Sumbit.setVisibility(View.GONE);
+        } else {
+            Toast.makeText(getContext(), getString(R.string.Loaction), Toast.LENGTH_SHORT).show();
+            Location Loaction = getLoaction(getActivity(), getContext());
+            formdata.longitude = Loaction.getLongitude();
+            formdata.latitude = Loaction.getLatitude();
+            binding.Sumbit.setVisibility(View.VISIBLE);
+        }
+    }
+
+    private void setDone() {
+        taehaedVModel.setDoneserviesWithFielsFroms(formdata, attachments, (status, Message) -> {
+            if(status)
+            {
+                alertDialog.dismiss();
+                Toast.makeText(getContext(), getString(R.string.thereWorng)+"\n "+ Message, Toast.LENGTH_SHORT).show();
+            }else{
+                alertDialog.dismiss();
+                Toast.makeText(getContext(), getString(R.string.done), Toast.LENGTH_SHORT).show();
+                getActivity().onBackPressed();
+            }
+
         });
     }
 
@@ -127,28 +212,26 @@ public class NinthSuppliersFragment extends Fragment {
 
         setErrorNullforTextView();
         //بيانات العميل
-        if(getAgentDataValdion())return true;
+        if (getAgentDataValdion()) return true;
 
         //بيانات النشاط
-        if(getActvityDataValdion())return true;
+        if (getActvityDataValdion()) return true;
 
         //بيانات تجارية
-        if(getCommerialDataValdion())return true;
+        if (getCommerialDataValdion()) return true;
 
         //بيانات مقر النشاط
-        if(getActvityPlaceValdion())return true;
+        if (getActvityPlaceValdion()) return true;
 
         //بيانات مرافق النشاط
-        if(getRacietAttachValdion()) return true;
+        if (getRacietAttachValdion()) return true;
 
         //بيانات مالك النشاط
-        if(getOwnerDataValdion())return true;
-
+        if (getOwnerDataValdion()) return true;
 
 
         //نتيجة الاستعلام
-        if(getAskingData())return true;
-        return false;
+        return getAskingData();
 
     }
 
@@ -189,8 +272,8 @@ public class NinthSuppliersFragment extends Fragment {
             formdata.supplier_result_delivery_time = 2;
         } else if (binding.radioLieesnasCH3.isChecked()) {
             formdata.supplier_result_delivery_time = 3;
-        }else{
-            setErrorTextView(binding.PriceTrue,getContext());
+        } else {
+            setErrorTextView(binding.PriceTrue, getContext());
             return true;
         }
 
@@ -198,8 +281,8 @@ public class NinthSuppliersFragment extends Fragment {
             formdata.supplier_result_net_price = 1;
         } else if (binding.radioMachineLiesnseCH2.isChecked()) {
             formdata.supplier_result_net_price = 2;
-        }else{
-            setErrorTextView(binding.TimeDilerdTrue,getContext());
+        } else {
+            setErrorTextView(binding.TimeDilerdTrue, getContext());
             return true;
         }
 
@@ -212,8 +295,8 @@ public class NinthSuppliersFragment extends Fragment {
             formdata.supplier_result_quality_level = 3;
         } else if (binding.radioValueCH4.isChecked()) {
             formdata.supplier_result_quality_level = 4;
-        }else{
-            setErrorTextView(binding.QulatyTrue,getContext());
+        } else {
+            setErrorTextView(binding.QulatyTrue, getContext());
             return true;
         }
 
@@ -221,8 +304,8 @@ public class NinthSuppliersFragment extends Fragment {
             formdata.supplier_result_ability = 1;
         } else if (binding.radioOwnerCH2.isChecked()) {
             formdata.supplier_result_ability = 2;
-        }else{
-            setErrorTextView(binding.ToolsTrue,getContext());
+        } else {
+            setErrorTextView(binding.ToolsTrue, getContext());
             return true;
         }
 
@@ -232,8 +315,8 @@ public class NinthSuppliersFragment extends Fragment {
             formdata.supplier_result_geographical_location = 2;
         } else if (binding.radioRaptaionCH3.isChecked()) {
             formdata.supplier_result_geographical_location = 3;
-        }else{
-            setErrorTextView(binding.AddersTrue,getContext());
+        } else {
+            setErrorTextView(binding.AddersTrue, getContext());
             return true;
         }
 
@@ -241,8 +324,8 @@ public class NinthSuppliersFragment extends Fragment {
             formdata.supplier_result_possibilities = 1;
         } else if (binding.radioReputationCH2.isChecked()) {
             formdata.supplier_result_possibilities = 2;
-        }else{
-            setErrorTextView(binding.AppiltyTrue,getContext());
+        } else {
+            setErrorTextView(binding.AppiltyTrue, getContext());
             return true;
         }
 
@@ -254,8 +337,8 @@ public class NinthSuppliersFragment extends Fragment {
             formdata.supplier_result_management = 3;
         } else if (binding.radioEnterpriseCH4.isChecked()) {
             formdata.supplier_result_management = 4;
-        }else{
-            setErrorTextView(binding.MangemntTimeTrue,getContext());
+        } else {
+            setErrorTextView(binding.MangemntTimeTrue, getContext());
             return true;
         }
 
@@ -265,8 +348,8 @@ public class NinthSuppliersFragment extends Fragment {
             formdata.supplier_result_reputation = 2;
         } else if (binding.radioSupplierCH3.isChecked()) {
             formdata.supplier_result_reputation = 3;
-        }else{
-            setErrorTextView(binding.RepartionTrue,getContext());
+        } else {
+            setErrorTextView(binding.RepartionTrue, getContext());
             return true;
         }
 
@@ -276,8 +359,8 @@ public class NinthSuppliersFragment extends Fragment {
             formdata.supplier_result_financial_situation = 2;
         } else if (binding.radioFinancialSituationCH3.isChecked()) {
             formdata.supplier_result_financial_situation = 3;
-        }else{
-            setErrorTextView(binding.SalaryStwaionTrue,getContext());
+        } else {
+            setErrorTextView(binding.SalaryStwaionTrue, getContext());
             return true;
         }
 
@@ -287,19 +370,18 @@ public class NinthSuppliersFragment extends Fragment {
             formdata.supplier_result_previous_performance = 2;
         } else if (binding.radioPreviousPerformanceCH3.isChecked()) {
             formdata.supplier_result_previous_performance = 3;
-        }else{
-            setErrorTextView(binding.PformensPerivoseTrue,getContext());
+        } else {
+            setErrorTextView(binding.PformensPerivoseTrue, getContext());
             return true;
         }
 
 
         if (binding.customerControlCH.isChecked()) {
             formdata.supplier_result_operations_monitor = 1;
-        }
-        else if (binding.customerControlCH2.isChecked()) {
+        } else if (binding.customerControlCH2.isChecked()) {
             formdata.supplier_result_operations_monitor = 2;
-        }else{
-            setErrorTextView(binding.OperationTrue,getContext());
+        } else {
+            setErrorTextView(binding.OperationTrue, getContext());
             return true;
         }
 
@@ -308,8 +390,8 @@ public class NinthSuppliersFragment extends Fragment {
             formdata.supplier_result_training = 1;
         } else if (binding.radioObesverCH2.isChecked()) {
             formdata.supplier_result_training = 2;
-        }else{
-            setErrorTextView(binding.BackupAndtrianTrue,getContext());
+        } else {
+            setErrorTextView(binding.BackupAndtrianTrue, getContext());
             return true;
         }
 
@@ -319,8 +401,8 @@ public class NinthSuppliersFragment extends Fragment {
             formdata.supplier_result_social_relations = 2;
         } else if (binding.radioSocialCH3.isChecked()) {
             formdata.supplier_result_social_relations = 3;
-        }else{
-            setErrorTextView(binding.RealtionTrue,getContext());
+        } else {
+            setErrorTextView(binding.RealtionTrue, getContext());
             return true;
         }
 
@@ -330,8 +412,8 @@ public class NinthSuppliersFragment extends Fragment {
             formdata.supplier_result_communication_system = 2;
         } else if (binding.radioCommunicationSystemCH3.isChecked()) {
             formdata.supplier_result_communication_system = 3;
-        }else{
-            setErrorTextView(binding.ConnetctionTrue,getContext());
+        } else {
+            setErrorTextView(binding.ConnetctionTrue, getContext());
             return true;
         }
 
@@ -342,11 +424,10 @@ public class NinthSuppliersFragment extends Fragment {
             formdata.supplier_result_impression = 2;
         } else if (binding.radioImpressionCH3.isChecked()) {
             formdata.supplier_result_impression = 3;
-        }else{
-            setErrorTextView(binding.AboutTrue,getContext());
+        } else {
+            setErrorTextView(binding.AboutTrue, getContext());
             return true;
         }
-
 
 
         if (binding.radioDesireCH.isChecked()) {
@@ -355,9 +436,8 @@ public class NinthSuppliersFragment extends Fragment {
             formdata.supplier_result_do_work = 2;
         } else if (binding.radioDesireCH3.isChecked()) {
             formdata.supplier_result_do_work = 3;
-        }
-        else{
-            setErrorTextView(binding.JobInvieteTrue,getContext());
+        } else {
+            setErrorTextView(binding.JobInvieteTrue, getContext());
             return true;
         }
 
@@ -367,28 +447,27 @@ public class NinthSuppliersFragment extends Fragment {
             formdata.supplier_result_business_volume = 2;
         } else if (binding.radioJobsCH3.isChecked()) {
             formdata.supplier_result_business_volume = 3;
-        }
-        else{
-            setErrorTextView(binding.JobPeriveisTrue,getContext());
+        } else {
+            setErrorTextView(binding.JobPeriveisTrue, getContext());
             return true;
         }
 
-return false;
+        return false;
     }
 
 
-    private boolean getOwnerDataValdion(){
+    private boolean getOwnerDataValdion() {
         if (CheckInputfield(binding.fullNameForOwner, getContext())) return true;
         if (CheckInputfield(binding.NakeNameOwner, getContext())) return true;
-        if (CheckInputfield(binding.NationalID, getContext())) return true;
+        if (VadlditoForIdNumber(binding.NationalID, getContext())) return true;
 
         //عمل أخر
         if (binding.radioJobAntoherCH.isChecked()) {
             formdata.activity_owner_another_job = 0;
         } else if (binding.radioJobAntoherCH2.isChecked()) {
             formdata.activity_owner_another_job = 1;
-        }else{
-            setErrorTextView(binding.AnotherJobTrue,getContext());
+        } else {
+            setErrorTextView(binding.AnotherJobTrue, getContext());
             return true;
         }
 
@@ -397,9 +476,8 @@ return false;
             formdata.activity_owner_employment_type = 0;
         } else if (binding.radioJobTypeCH2.isChecked()) {
             formdata.activity_owner_employment_type = 1;
-        }
-        else{
-            setErrorTextView(binding.JobTypeTrue,getContext());
+        } else {
+            setErrorTextView(binding.JobTypeTrue, getContext());
             return true;
         }
 
@@ -409,6 +487,7 @@ return false;
         getOwnerData();
         return false;
     }
+
     private void getOwnerData() {
         formdata.activity_owner_name = getValue(binding.fullNameForOwner.getText());
         formdata.activity_owner_nickname = getValue(binding.NakeNameOwner.getText());
@@ -420,7 +499,7 @@ return false;
 
     }
 
-    private boolean getRacietAttachValdion(){
+    private boolean getRacietAttachValdion() {
         //نوع إيصال المرافق
         if (binding.radioUtilityReceiptCH.isChecked()) {
             formdata.attached_type = 1;
@@ -428,11 +507,10 @@ return false;
             formdata.attached_type = 2;
         } else if (binding.radioUtilityReceiptCH3.isChecked()) {
             formdata.attached_type = 3;
-        }else{
-            setErrorTextView(binding.ReaisetTrue,getContext());
+        } else {
+            setErrorTextView(binding.ReaisetTrue, getContext());
             return true;
         }
-
 
 
         if (CheckInputfield(binding.counterNumber, getContext())) return true;
@@ -445,13 +523,14 @@ return false;
             formdata.attached_average_beneficiary_name = 2;
         } else if (binding.radioNameOfRecipientCH3.isChecked()) {
             formdata.attached_average_beneficiary_name = 3;
-        }else{
-            setErrorTextView(binding.OwnerMoneyNameTrue,getContext());
+        } else {
+            setErrorTextView(binding.OwnerMoneyNameTrue, getContext());
             return true;
         }
         getRacietAttach();
         return false;
     }
+
     private void getRacietAttach() {
 
         formdata.attached_counter_number = getValue(binding.counterNumber.getText());
@@ -462,25 +541,34 @@ return false;
     }
 
     private boolean getActvityPlaceValdion() {
+        boolean statusLive;
         //نوع الحيازة
         if (binding.radioPossession.isChecked()) {
+            statusLive = false;
             formdata.headquarters_possession_type = 1;
         } else if (binding.radioPossession2.isChecked()) {
+            statusLive = false;
             formdata.headquarters_possession_type = 2;
         } else if (binding.radioPossession3.isChecked()) {
+            statusLive = true;
             formdata.headquarters_possession_type = 3;
         } else if (binding.radioPossession4.isChecked()) {
+            statusLive = true;
             formdata.headquarters_possession_type = 4;
         } else if (binding.radioPossession5.isChecked()) {
+            statusLive = true;
             formdata.headquarters_possession_type = 5;
-        }else{
-            setErrorTextView(binding.DatatOfPlaceActivitrue,getContext());
+        } else {
+            setErrorTextView(binding.DatatOfPlaceActivitrue, getContext());
             return true;
         }
-        //في حالة الايجار
-        if (CheckInputfield(binding.OwnerName, getContext())) return true;
-        if (CheckInputfield(binding.RelationshipClient, getContext())) return true;
-        if (CheckInputfield(binding.DataeOfending, getContext())) return true;
+        if (statusLive) {
+            //في حالة الايجار
+            if (CheckInputfield(binding.OwnerName, getContext())) return true;
+            if (CheckInputfield(binding.RelationshipClient, getContext())) return true;
+            if (CheckInputfield(binding.DataeOfending, getContext())) return true;
+        }
+
 
         //عنوان مقر النشاط
         if (CheckInputfield(binding.buildingnumber, getContext())) return true;
@@ -493,6 +581,7 @@ return false;
         getActvityPlace();
         return false;
     }
+
     private void getActvityPlace() {
 
 
@@ -511,8 +600,9 @@ return false;
         formdata.headquarters_area = getValue(binding.HeadquartersArea.getText());
     }
 
-    private boolean getCommerialDataValdion(){
+    private boolean getCommerialDataValdion() {
         if (CheckInputfield(binding.CommercialRegistrationNo, getContext())) return true;
+
         if (CheckInputfield(binding.taxCardNumber, getContext())) return true;
         if (CheckInputfield(binding.TaxesErrand, getContext())) return true;
         if (CheckInputfield(binding.ReleaseDateComarial, getContext())) return true;
@@ -529,8 +619,7 @@ return false;
         formdata.commercial_to_date = getValue(binding.ExpiryDate.getText());
     }
 
-    private boolean getActvityDataValdion()
-    {
+    private boolean getActvityDataValdion() {
         if (CheckInputfield(binding.ComarialName, getContext())) return true;
         if (CheckInputfield(binding.ComaanName, getContext())) return true;
         if (CheckInputfield(binding.ComarialDate, getContext())) return true;
@@ -538,26 +627,34 @@ return false;
         if (CheckInputfield(binding.NumberOfBransh, getContext())) return true;
         if (CheckInputfield(binding.NumberOfEmployers, getContext())) return true;
 
+        boolean statuseBarthner;
         //يوجد شركاء بالنشاط
         if (binding.radioPartnerCH.isChecked()) {
             formdata.activity_supplier_partners = 0;
+            statuseBarthner = false;
         } else if (binding.radioPartnerCH2.isChecked()) {
             formdata.activity_supplier_partners = 1;
-        }
-        else{
-            setErrorTextView(binding.PathnerTrue,getContext());
+            statuseBarthner = true;
+        } else {
+            setErrorTextView(binding.PathnerTrue, getContext());
             return true;
         }
-        //يتقاضي مقابل للإدارة
-        if (binding.radioPartnerMangmentCH.isChecked()) {
-            formdata.activity_supplier_gets_paid = 0;
-        } else if (binding.radioPartnerMangmentCH2.isChecked()) {
-            formdata.activity_supplier_gets_paid = 1;
+
+        if (statuseBarthner) {
+            //يتقاضي مقابل للإدارة
+            if (binding.radioPartnerMangmentCH.isChecked()) {
+                formdata.activity_supplier_gets_paid = 0;
+            } else if (binding.radioPartnerMangmentCH2.isChecked()) {
+                formdata.activity_supplier_gets_paid = 1;
+            } else {
+                setErrorTextView(binding.getingPayTrue, getContext());
+                return true;
+            }
+            if (CheckInputfield(binding.NumberOfPartner, getContext())) return true;
+            if (CheckInputfield(binding.PartnerPersange, getContext())) return true;
+            if (CheckInputfield(binding.CostRent, getContext())) return true;
         }
-        else{
-            setErrorTextView(binding.getingPayTrue,getContext());
-            return true;
-        }
+
 
         //الغرض من التمويل
         if (binding.radioInvestmenttCH.isChecked()) {
@@ -566,16 +663,15 @@ return false;
             formdata.activity_supplier_purpose_funding = 2;
         } else if (binding.radioInvestmentCH3.isChecked()) {
             formdata.activity_supplier_purpose_funding = 3;
-        }
-        else{
-            setErrorTextView(binding.PoruberOFfoundingTrue,getContext());
+        } else {
+            setErrorTextView(binding.PoruberOFfoundingTrue, getContext());
             return true;
         }
-        if (CheckInputfield(binding.NumberOfPartner, getContext())) return true;
-        if (CheckInputfield(binding.PartnerPersange, getContext())) return true;
+
         getActvityData();
         return false;
     }
+
     private void getActvityData() {
         formdata.activity_supplier_name = getValue(binding.ComarialName.getText());
         formdata.activity_supplier_nickname = getValue(binding.ComaanName.getText());
@@ -583,16 +679,17 @@ return false;
         formdata.activity_supplier_to_type = getValue(binding.ComarialType.getText());
         formdata.activity_supplier_branches_number = getValue(binding.NumberOfBransh.getText());
         formdata.activity_supplier_workers_number = getValue(binding.NumberOfEmployers.getText());
-
+        formdata.activity_supplier_wage_value = getValue(binding.CostRent.getText());
         formdata.activity_supplier_partners_number = getValue(binding.NumberOfPartner.getText());
         formdata.activity_supplier_customer_share = getValue(binding.PartnerPersange.getText());
     }
+
     private boolean getAgentDataValdion() {
         // بيانات العميل
         if (CheckInputfield(binding.FullName, getContext())) return true;
-        if (CheckInputfield(binding.NainolIdNumber, getContext())) return true;
+        if (VadlditoForIdNumber(binding.NainolIdNumber, getContext())) return true;
         if (CheckInputfield(binding.PerathData, getContext())) return true;
-        if (CheckInputfield(binding.PhonNumber, getContext())) return true;
+        if (setPhoneNumberValdtion(binding.PhonNumber, getContext())) return true;
 
         getAgentData();
         return false;
@@ -613,12 +710,14 @@ return false;
         Constans.setDateForInputText(binding.ComarialDate, getContext());
         Constans.setDateForInputText(binding.ReleaseDateComarial, getContext());
         Constans.setDateForInputText(binding.ExpiryDate, getContext());
+        Constans.setDateForInputText(binding.DataeOfending, getContext());
+
     }
 
-    private void SetDataUI() {
+    private boolean SetDataUI() {
         if (itsNotNull(formdata)) {
-            binding.Sumbit.setVisibility(View.GONE);
-            binding.DeletSumbit.setVisibility(View.VISIBLE);
+            binding.Sumbit.setVisibility(View.VISIBLE);
+            binding.DisplayPDf.setVisibility(View.VISIBLE);
             //بيانات العميل
             SetAgentData();
 
@@ -633,11 +732,12 @@ return false;
             SetRacietAttach();
             //بيانات مالك النشاط
             setOwnerData();
-            //بيانات القائم بإدارة النشاط
-            SetactivityManager();
+
             //تقيم المورد
             SetAskingData();
-
+            return true;
+        } else {
+            return false;
         }
 
 
@@ -813,6 +913,16 @@ return false;
                 binding.radioJobsCH3.setChecked(true);
             }
         }
+
+        if (itsNotNull(formdata.attachments)) {
+            for (int i = 0; i < formdata.attachments.size(); i++) {
+                String name = getValue(formdata.attachments.get(i));
+
+                setAdpater(Uri.parse(name), Uri.parse(name).getLastPathSegment(), imageFileData, Adapter);
+
+            }
+            //
+        }
     }
 
     private void SetActvityData() {
@@ -831,7 +941,7 @@ return false;
                 binding.radioPartnerCH2.setChecked(true);
             }
         }
-
+        binding.CostRent.setText(getValue(formdata.activity_supplier_wage_value));
         binding.NumberOfPartner.setText(getValue(formdata.activity_supplier_partners_number));
         binding.PartnerPersange.setText(getValue(formdata.activity_supplier_customer_share));
 
@@ -856,31 +966,6 @@ return false;
         }
     }
 
-    private void SetactivityManager() {
-        binding.fullNameForOwner.setText(getValue(formdata.activity_manager_name));
-        binding.NakeNameOwner.setText(getValue(formdata.activity_manager_nickname));
-        binding.NationalID.setText(getValue(formdata.activity_manager_national_ID));
-        //عمل أخر
-        if (itsNotNull(formdata.activity_manager_another_job)) {
-            if (getValueOfboleaan(formdata.activity_manager_another_job) == 0) {
-                binding.radioJobAntoherCH.setChecked(true);
-            } else if (getValueOfboleaan(formdata.activity_manager_another_job) == 1) {
-                binding.radioJobAntoherCH2.setChecked(true);
-            }
-        }
-        //نوع العمل
-        if (itsNotNull(formdata.activity_manager_employment_type)) {
-            if (getValueOfboleaan(formdata.activity_manager_employment_type) == 1) {
-                binding.radioJobTypeCH.setChecked(true);
-            } else if (getValueOfboleaan(formdata.activity_manager_employment_type) == 2) {
-                binding.radioJobTypeCH2.setChecked(true);
-            }
-        }
-
-        binding.SalaryAverage.setText(getValue(formdata.activity_manager_average_income));
-        binding.FamilyMammber.setText(getValue(formdata.activity_manager_owner_relationship));
-
-    }
 
     private void setOwnerData() {
         binding.fullNameForOwner.setText(getValue(formdata.activity_owner_name));
@@ -896,9 +981,9 @@ return false;
         }
         //نوع العمل
         if (itsNotNull(formdata.activity_owner_employment_type)) {
-            if (getValueOfboleaan(formdata.activity_owner_employment_type) == 1) {
+            if (getValueOfboleaan(formdata.activity_owner_employment_type) == 0) {
                 binding.radioJobTypeCH.setChecked(true);
-            } else if (getValueOfboleaan(formdata.activity_owner_employment_type) == 2) {
+            } else if (getValueOfboleaan(formdata.activity_owner_employment_type) == 1) {
                 binding.radioJobTypeCH2.setChecked(true);
             }
         }
@@ -969,6 +1054,7 @@ return false;
         binding.Ciety.setText(getValue(formdata.headquarters_city));
         binding.Twon.setText(getValue(formdata.headquarters_governorate));
         binding.SpeiclSine.setText(getValue(formdata.headquarters_special_marque));
+
         binding.HeadquartersArea.setText(getValue(formdata.headquarters_area));
     }
 
@@ -989,11 +1075,13 @@ return false;
         binding.PhonNumber2.setText(getValue(formdata.client_mobile_number_2));
         binding.PhonNumber3.setText(getValue(formdata.client_phone));
     }
+
     private void SetTheRadioButton() {
         // All this Code to make shoure whant Radio Button is selected The other is Off
         binding.radioPossession.setOnCheckedChangeListener((compoundButton, b) -> {
 
             if (binding.radioPossession.isChecked()) {
+                binding.RentColaet.setVisibility(View.GONE);
                 if (binding.radioPossession2.isChecked() || binding.radioPossession3.isChecked() || binding.radioPossession4.isChecked()
                         || binding.radioPossession5.isChecked()) {
                     binding.radioPossession2.setChecked(false);
@@ -1007,6 +1095,7 @@ return false;
         });
         binding.radioPossession2.setOnCheckedChangeListener((compoundButton, b) -> {
             if (binding.radioPossession2.isChecked()) {
+                binding.RentColaet.setVisibility(View.GONE);
                 if (binding.radioPossession.isChecked() || binding.radioPossession3.isChecked() || binding.radioPossession4.isChecked()
                         || binding.radioPossession5.isChecked()) {
                     binding.radioPossession.setChecked(false);
@@ -1019,6 +1108,7 @@ return false;
 
         });
         binding.radioPossession3.setOnCheckedChangeListener((compoundButton, b) -> {
+            binding.RentColaet.setVisibility(View.VISIBLE);
             if (binding.radioPossession3.isChecked()) {
                 if (binding.radioPossession.isChecked() || binding.radioPossession2.isChecked() || binding.radioPossession4.isChecked()
                         || binding.radioPossession5.isChecked()) {
@@ -1032,6 +1122,7 @@ return false;
         });
         binding.radioPossession4.setOnCheckedChangeListener((compoundButton, b) -> {
             if (binding.radioPossession4.isChecked()) {
+                binding.RentColaet.setVisibility(View.VISIBLE);
                 if (binding.radioPossession.isChecked() || binding.radioPossession2.isChecked() || binding.radioPossession3.isChecked()
                         || binding.radioPossession5.isChecked()) {
                     binding.radioPossession.setChecked(false);
@@ -1044,6 +1135,7 @@ return false;
         });
         binding.radioPossession5.setOnCheckedChangeListener((compoundButton, b) -> {
             if (binding.radioPossession5.isChecked()) {
+                binding.RentColaet.setVisibility(View.VISIBLE);
                 if (binding.radioPossession.isChecked() || binding.radioPossession2.isChecked() || binding.radioPossession4.isChecked()
                         || binding.radioPossession3.isChecked()) {
                     binding.radioPossession.setChecked(false);
@@ -1055,6 +1147,94 @@ return false;
             }
 
         });
+        binding.radioPartnerCH.setOnCheckedChangeListener((compoundButton, b) -> {
+            if (binding.radioPartnerCH.isChecked()) {
+                binding.NumberOfPartnervispley.setVisibility(View.GONE);
+                binding.PartnerPersangeVispily.setVisibility(View.GONE);
+                binding.Choiess.setVisibility(View.GONE);
+                binding.CostRentVispily.setVisibility(View.GONE);
+            }
+        });
+        binding.radioPartnerCH2.setOnCheckedChangeListener((compoundButton, b) -> {
+            if (binding.radioPartnerCH2.isChecked()) {
+                binding.NumberOfPartnervispley.setVisibility(View.VISIBLE);
+                binding.PartnerPersangeVispily.setVisibility(View.VISIBLE);
+                binding.Choiess.setVisibility(View.VISIBLE);
+                binding.CostRentVispily.setVisibility(View.VISIBLE);
+            }
+        });
+
+    }
+
+    @Override
+    public void imageDone(Uri uri) {
+        aboudfile = new File(FileUtil.getPath(uri, getContext()));
+        attachments.add(aboudfile);
+        setAdpater(uri, aboudfile.getName(), imageFileData,Adapter);
+    }
+
+    private void setTheUpload() {
+        activityResultLauncher = registerForActivityResult(new ActivityResultContracts.GetMultipleContents()
+                , result -> {
+
+                    if (result != null) {
+
+                        for (int i = 0; i < result.size(); i++) {
+                            try {
+                                //   String extanton=getFileExtension(result.get(i),getContext());
+                                aboudfile = new File(FileUtil.getPath(result.get(i), getContext()));
+                                attachments.add(aboudfile);
+                                setAdpater(result.get(i), aboudfile.getName(), imageFileData,Adapter);
+                            } catch (Exception ex) {
+                                Log.d("Aboud", "on" +
+                                        "ViewCreated: " + result.get(i) + " " + ex.getMessage());
+                                Toast.makeText(getContext(), ex.getMessage() + "  " + result.get(i).getPath() + " " + getString(R.string.errorMeshae), Toast.LENGTH_SHORT).show();
+                                break;
+                            }
+
+
+
+
+                        }
+
+
+                    }
+                });
+    }
+
+
+    private void SelectFiles() {
+        activityResultLauncher.launch("*/*");
+    }
+
+    private void SelectImage() {
+        activityResultLauncher.launch("image/*");
+    }
+
+    private void selectUploadType() {
+        final CharSequence[] options = {getString(R.string.Camera), getString(R.string.Show),
+                getString(R.string.file), getString(R.string.Cancle)};
+        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+        builder.setTitle("اضف!");
+        builder.setItems(options, (dialog, item) -> {
+            if (options[item].equals(getString(R.string.Camera))) {
+                if (getPermationForCamre(getContext(), getActivity())) {
+                    Intent intent = new Intent(getContext(), CameraActivity.class);
+                    CameraActivity.imgaetakeIt = this;
+                    getContext().startActivity(intent);
+                }
+            } else if (options[item].equals(getString(R.string.Show))) {
+                SelectImage();
+            } else if (options[item].equals(getString(R.string.file))) {
+                if (getPermationForFiles(getContext(), getActivity())) {
+                    SelectFiles();
+                }
+
+            } else if (options[item].equals(getString(R.string.Cancle))) {
+                dialog.dismiss();
+            }
+        });
+        builder.show();
     }
 
 }

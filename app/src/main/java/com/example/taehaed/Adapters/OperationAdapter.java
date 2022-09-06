@@ -22,8 +22,8 @@ import com.example.taehaed.Model.TaehaedVModel;
 import com.example.taehaed.Pojo.Request.RequestService;
 import com.example.taehaed.Pojo.Request.RequsetRoot;
 import com.example.taehaed.R;
-import com.example.taehaed.Screens.Fragment.NotesAddsFragment;
-import com.example.taehaed.Screens.Fragment.ServiersFragment;
+import com.example.taehaed.Screens.Fragment.DelegateCycle.NotesAddsFragment;
+import com.example.taehaed.Screens.Fragment.DelegateCycle.ServiersFragment;
 import com.example.taehaed.Screens.OperartionQuset;
 import com.example.taehaed.databinding.RequestServiesBinding;
 
@@ -63,7 +63,7 @@ public class OperationAdapter extends RecyclerView.Adapter<OperationAdapter.Opar
         public OparetaionHolder(@NonNull View itemView) {
             super(itemView);
             binding = RequestServiesBinding.bind(itemView);
-            alertDialog = setAlertMeaage("جار اظهار البيانات", binding.getRoot().getContext());
+            alertDialog = setAlertMeaage(binding.getRoot().getContext().getString(R.string.showr), binding.getRoot().getContext());
             context = (Activity) binding.getRoot().getContext();
 
         }
@@ -72,7 +72,7 @@ public class OperationAdapter extends RecyclerView.Adapter<OperationAdapter.Opar
             //اسم الخدمة
             binding.ServeText.setText(requestRequestService.getService());
             //رقم الخدمة
-            binding.RequestNumber.setText("رقم الخدمة : " + requestRequestService.getId());
+            binding.RequestNumber.setText(context.getString(R.string.NumberOpertation) + requestRequestService.getId());
 
             //هنا يتم عملية اظهار الخدمات المتكلمة او الغير المتكملة وعملية اظهار الملاحظات
             ShowTheNotesAndDoneStatus(requestRequestService);
@@ -85,38 +85,47 @@ public class OperationAdapter extends RecyclerView.Adapter<OperationAdapter.Opar
                 }
                 //في حالة لو الطلب ب 3 معني كده ان المندوب وافق علي الطلب ومهمته في اللحظة دي انه يملي الفورم ويضيف ملاحظات او يرجع في كلامه ويرجع الطلب لحالة رقم 2
                 else if (requestRequestService.getStatus() == 3) {
+                    if(requestRequestService.getHas_form()==1)
+                    {
+                        ShowForm(requestRequestService);
+                    }else{
+                        FillServiesAndAddNotes(requestRequestService);
+                    }
 
-                    FillServiesAndAddNotes(requestRequestService);
 
                 }
                 // اذا هي مش ب2  او 3 يبقا هي كده ب6 او خلصت  في الحالة دي بيقا الفوم اتملي بالبيانات ولايمكن التعديل عليه لكن يمكن حذف الفورم ده وارجاعه الي حالة رقم 3
-                else {
-
-                    alertDialog.show();
-                    context.getWindow().setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
-                            WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
-                    taehaedVModel.getOperationReuqest(requestRequestService.getId(), Status -> {
-
-                        if (Status) {
-                            alertDialog.dismiss();
-                            context.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
-                            //  Toast.makeText(context, "done", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(context, OperartionQuset.class);
-                            intent.putExtra(Constans.RequsetIDSend, requestRequestService.getId());
-                            intent.putExtra(Constans.FormNumberSend, requestRequestService.getForm());
-                            intent.putExtra(Constans.KayMoudleOpration, taehaedVModel.operationRequestRootMutableLiveData.getValue().request_service.form);
-                            context.startActivity(intent);
-
-                        } else {
-                            alertDialog.dismiss();
-                            context.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
-                            Toast.makeText(context, "عفوا يبدو ان هناك خطأ ما", Toast.LENGTH_SHORT).show();
-                        }
-                    });
+                else if(requestRequestService.getDone()==1|| requestRequestService.getHas_form()==1){
+                    ShowForm(requestRequestService);
                 }
 
             });
 
+        }
+
+        private void ShowForm(RequestService requestRequestService) {
+            alertDialog.show();
+            context.getWindow().setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
+                    WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
+            taehaedVModel.getOperationReuqest(requestRequestService.getId(), Status -> {
+
+                if (Status) {
+                    alertDialog.dismiss();
+                    context.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
+                    //  Toast.makeText(context, "done", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(context, OperartionQuset.class);
+                    intent.putExtra(Constans.RequsetIDSend, requestRequestService.getId());
+                    intent.putExtra(Constans.FormNumberSend, requestRequestService.getForm());
+                    intent.putExtra(Constans.KeyForDone,requestRequestService.getDone());
+                    intent.putExtra(Constans.KayMoudleOpration, taehaedVModel.operationRequestRootMutableLiveData.getValue().request_service.form);
+                    context.startActivity(intent);
+
+                } else {
+                    alertDialog.dismiss();
+                    context.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
+                    Toast.makeText(context, "عفوا يبدو ان هناك خطأ ما", Toast.LENGTH_SHORT).show();
+                }
+            });
         }
 
         private void ShowTheNotesAndDoneStatus(RequestService requestRequestService) {

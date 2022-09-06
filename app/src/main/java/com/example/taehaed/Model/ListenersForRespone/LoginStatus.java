@@ -6,5 +6,5 @@ package com.example.taehaed.Model.ListenersForRespone;
  */
 public interface LoginStatus {
 
-    public void setStatus(boolean status, String Token);
+    public void setStatus(boolean status, String Token,String ErrorMessage);
 }

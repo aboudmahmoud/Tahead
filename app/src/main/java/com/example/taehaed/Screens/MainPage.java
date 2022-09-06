@@ -19,7 +19,6 @@ import com.example.taehaed.Adapters.jobsAdpater;
 import com.example.taehaed.Constans;
 import com.example.taehaed.Model.TaehaedVModel;
 import com.example.taehaed.Pojo.LogIn.LoginRoot;
-import com.example.taehaed.Pojo.home.HomeRoot;
 import com.example.taehaed.R;
 import com.example.taehaed.Screens.Fragment.CoustemDilogFragment;
 import com.example.taehaed.Screens.Fragment.ProfileFrgament;
@@ -31,12 +30,10 @@ import java.io.Serializable;
 public class MainPage extends AppCompatActivity implements Serializable , NavigationView.OnNavigationItemSelectedListener , CoustemDilogFragment.OnPostiveButton, CoustemDilogFragment.OnNegativeButton {
     private ActivityMainPageBinding binding;
     private TaehaedVModel taehaedVModel;
-    private HomeRoot routea;
-    //this Insated of ProggesBar
 
     private AlertDialog alertDialog;
+    //loginRoot is  we Get Modle Data of our use
     private LoginRoot loginRoot;
-    private ProfileFrgament profileFrgament;
     private SharedPreferences sharedPreferences;
     private jobsAdpater adpater;
 private CoustemDilogFragment fragment;
@@ -53,19 +50,25 @@ private CoustemDilogFragment fragment;
         taehaedVModel = new ViewModelProvider(this).get(TaehaedVModel.class);
 
 
+        //In This Method We get Number Of jobs
         SetRecylerViewData();
+        //Here in ReeFesh
         binding.swiperefresh.setOnRefreshListener(() -> {
             SetRecylerViewData();
             binding.swiperefresh.setRefreshing(false);
         });
 
+        //ForNavDrwaer
         binding.Freg.setOnClickListener(view -> {
             binding.MainPage.openDrawer(GravityCompat.END);
         });
+
         alertDialog =Constans.setAlertMeaage(getString(R.string.orderget),this);
 
 
-
+        /*Here I am fetching user data.. There are two ways to get data
+The first way I can store his data from the first login process
+The second way is that he is already logged in*/
         loginRoot=(LoginRoot)getIntent().getSerializableExtra(Constans.LoginKeyMain);
         if(  loginRoot==null)
         {
@@ -76,7 +79,10 @@ private CoustemDilogFragment fragment;
     }
 
     private void SetRecylerViewData() {
-        taehaedVModel.getIndexes(status -> {
+        binding.ProgeesPar.setVisibility(View.VISIBLE);
+        binding.TvMessage.setVisibility(View.GONE);
+        binding.listOfData.setVisibility(View.INVISIBLE);
+        taehaedVModel.getIndexes((status ,message) -> {
             if(status)
             {
                 adpater = new jobsAdpater(taehaedVModel.indexRootMutableLiveData.getValue());
@@ -87,12 +93,14 @@ private CoustemDilogFragment fragment;
                 binding.TvMessage.setVisibility(View.GONE);
             }
             else{
-                Toast.makeText(this, "عفوا يبدو ان هناك خطأ في تحميل الوظائف ", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, getString(R.string.errortype)+" " + message , Toast.LENGTH_SHORT).show();
                 binding.ProgeesPar.setVisibility(View.INVISIBLE);
                 binding.TvMessage.setVisibility(View.VISIBLE);
                 binding.listOfData.setVisibility(View.GONE);
+
             }
         });
+
     }
 
     @Override
@@ -101,7 +109,8 @@ private CoustemDilogFragment fragment;
 
         if (id==R.id.pofile)
         {
-              profileFrgament = ProfileFrgament.newInstance(loginRoot);
+            //profilePageWithInfo
+            ProfileFrgament profileFrgament = ProfileFrgament.newInstance(loginRoot);
                 FragmentManager fragmentManager =getSupportFragmentManager();
                 profileFrgament.show(fragmentManager,"");
                 profileFrgament.setCancelable(false);
@@ -110,7 +119,8 @@ private CoustemDilogFragment fragment;
         }
         if(id==R.id.Logout)
         {
-            fragment = CoustemDilogFragment.getInstance("تسجيل الخروج","هل انت متأكد ");
+            //here is logout but listner
+            fragment = CoustemDilogFragment.getInstance(getString(R.string.logOut),getString(R.string.areushor));
             fragment.show(getSupportFragmentManager(),null);
 
         }
@@ -120,12 +130,13 @@ private CoustemDilogFragment fragment;
     @Override
     protected void onRestart() {
         super.onRestart();
+
         SetRecylerViewData();
     }
 
     @Override
     public void onpostiveClicked() {
-        alertDialog =Constans.setAlertMeaage("جار تسجيل الخروج",MainPage.this);
+        alertDialog =Constans.setAlertMeaage(getString(R.string.LogginfOut),MainPage.this);
         alertDialog.show();
         taehaedVModel.DeletUserToken(status -> {
             if (status)
@@ -138,7 +149,7 @@ private CoustemDilogFragment fragment;
             }
             else{
                 alertDialog.dismiss();
-                Toast.makeText(this, "عفوا يبدو ان هناك خطأ قد حصل ", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, getString(R.string.ErrorHappend), Toast.LENGTH_SHORT).show();
             }
 
 

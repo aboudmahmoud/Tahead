@@ -6,5 +6,5 @@ package com.example.taehaed.Model.ListenersForRespone;
 
 public interface RequsetOberttionListner {
 
-    public void statusOperation(boolean Status);
+    public void statusOperation(boolean Status,String Message);
 }

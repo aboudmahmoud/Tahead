@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -11,8 +12,7 @@
 android:id="@+id/cartInfo"
         android:layout_height="match_parent"
         android:layout_margin="@dimen/_10sdp"
-        android:layout_marginStart="13dp"
-        android:layout_marginEnd="13dp"
+
         app:cardCornerRadius="@dimen/_8sdp"
 
         app:layout_constraintBottom_toBottomOf="parent"
@@ -35,8 +35,7 @@ android:id="@+id/cartInfo"
           <LinearLayout
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
-              android:layout_gravity="right"
-              android:gravity="right"
+
               android:orientation="vertical">
               <com.google.android.material.imageview.ShapeableImageView
                   android:id="@+id/CardEgypt"
@@ -50,7 +49,6 @@ android:id="@+id/cartInfo"
                   android:scaleType="fitCenter"
                   android:adjustViewBounds="true"
                   app:strokeColor="@color/nearGreen"
-
                   app:strokeWidth="@dimen/_1sdp"
                   app:shapeAppearanceOverlay="@style/roundedImageView2"
                   />
@@ -63,7 +61,7 @@ android:id="@+id/cartInfo"
                   android:layout_gravity="center"
                   android:layout_marginTop="@dimen/_5sdp"
                   android:textColor="@color/nearGreen"
-                  android:text="CompanyName"/>
+                  android:text="اسم الشركة"/>
           </LinearLayout>
                 <LinearLayout
                     android:layout_width="0dp"
@@ -109,8 +107,9 @@ android:layout_weight="1"
          <LinearLayout
              android:layout_width="match_parent"
              android:layout_height="wrap_content"
-       android:layout_gravity="right"
-             android:gravity="right"
+
+             android:gravity="end"
+             android:layout_marginTop="@dimen/_5sdp"
              android:orientation="horizontal">
 
              <TextView

@@ -12,11 +12,9 @@ import com.example.taehaed.Pojo.Request.RequsetRoot;
 import com.example.taehaed.Pojo.UserData;
 import com.example.taehaed.Pojo.home.HomeRoot;
 
-import java.io.File;
-import java.io.IOException;
+import java.util.Map;
 
 import io.reactivex.rxjava3.core.Observable;
-import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -34,6 +32,7 @@ public class TaahiedImplements {
     TaaheidMathod taaheidMathod;
     //That is Signletion Pattern
     private static TaahiedImplements taahiedImplements;
+
     private TaahiedImplements() {
         Retrofit retrofit = new Retrofit.Builder().client(new OkHttpClient.Builder()
                         .addNetworkInterceptor(chain -> {
@@ -47,12 +46,14 @@ public class TaahiedImplements {
                             Response response = chain.proceed(request);
 
                             return response;
-                        }).build()).baseUrl(baseUrl)
-                .addConverterFactory(GsonConverterFactory.create()).
-                addCallAdapterFactory(RxJava3CallAdapterFactory.create()).build();
+                        })
+                        .followRedirects(false).build()).baseUrl(baseUrl).
+                addConverterFactory(GsonConverterFactory.create())
+                .addCallAdapterFactory(RxJava3CallAdapterFactory.create()).build();
 
         taaheidMathod = retrofit.create(TaaheidMathod.class);
     }
+
     public static TaahiedImplements getInstanse() {
         if (taahiedImplements == null) {
             taahiedImplements = new TaahiedImplements();
@@ -60,69 +61,85 @@ public class TaahiedImplements {
         }
         return taahiedImplements;
     }
+
     //end of Signeltion
+
+
     public Call<LoginRoot> InsertLogin(UserData userData) {
         return taaheidMathod.InsetLogin(userData);
     }
-    public Call<IndexRoot> getIndex(){
+
+    public Call<IndexRoot> getIndex() {
         return taaheidMathod.getIndexs();
     }
-    public Call<IndexRoot> getCurrentIndexs(){
+
+    public Call<IndexRoot> getCurrentIndexs() {
         return taaheidMathod.getCurrentIndexs();
     }
-    public Call<IndexRoot> getNewIndex(){
+
+    public Call<IndexRoot> getNewIndex() {
         return taaheidMathod.getNewIndexs();
     }
-    public Call<HomeRoot> getHomeRute(){
+
+    public Call<HomeRoot> getHomeRute() {
         return taaheidMathod.getHomeRute();
     }
-    public Call<RequsetRoot> getRequsetRoot(int clientId){
-        Call<RequsetRoot> call=taaheidMathod.getRequsetRoot(clientId);
+
+    public Call<RequsetRoot> getRequsetRoot(int clientId) {
+        Call<RequsetRoot> call = taaheidMathod.getRequsetRoot(clientId);
         return call;
     }
-    public Call<FormRoot> getOperationRequsetRoot(int request_service_id){
-        return taaheidMathod.getOperationRequset(request_service_id);}
-    public Call<StatusRoot> DeletUserToken(){
+
+    public Call<FormRoot> getOperationRequsetRoot(int request_service_id) {
+        return taaheidMathod.getOperationRequset(request_service_id);
+    }
+
+    public Call<StatusRoot> DeletUserToken() {
         return taaheidMathod.logoutUser();
     }
-    public Call<NotesRoot> getNotes(int request_service_id){
+
+    public Call<NotesRoot> getNotes(int request_service_id) {
         return taaheidMathod.getNotes(request_service_id);
     }
-    public Call<StatusRoot> CancelRequstNote(NoteBodey noteBodey)
-    {
+
+    public Call<StatusRoot> CancelRequstNote(NoteBodey noteBodey) {
         return taaheidMathod.CancelRequstNote(noteBodey);
     }
 
-    public Call<StatusRoot> ConverNoteToAccept( int request_service_id)
-    {
+    public Call<StatusRoot> ConverNoteToAccept(int request_service_id) {
         return taaheidMathod.ConverNoteToAccept(request_service_id);
     }
 
-    public Call<StatusRoot> ConverServiersAceptToCanel( NoteBodey noteBodey)
-    {
+    public Call<StatusRoot> ConverServiersAceptToCanel(NoteBodey noteBodey) {
         return taaheidMathod.ConverServiersAceptToCanel(noteBodey);
     }
 
-    public Call<StatusRoot> setNotes( NoteBodey noteBodey){
+    public Call<StatusRoot> setNotes(NoteBodey noteBodey) {
         return taaheidMathod.setNotes(noteBodey);
     }
-    public Call<StatusRoot> setDoneservies( FormData formData){
+
+    public Call<StatusRoot> setDoneservies(FormData formData) {
         return taaheidMathod.setDoneservies(formData);
     }
 
-    public Call<StatusRoot>  ConvertDoneToAccept( NoteBodey noteBodey){
+    public Call<StatusRoot> ConvertDoneToAccept(NoteBodey noteBodey) {
         return taaheidMathod.ConvertDoneToAccept(noteBodey);
     }
 
-    public Observable<NotesRoot> ObesrveNotes( int request_service_id)
-    {
+    public Observable<NotesRoot> ObesrveNotes(int request_service_id) {
         return taaheidMathod.ObesrveNotes(request_service_id);
     }
 
-    public Call<StatusRoot> setDoneserviesWithFiels(MultipartBody.Part[] file, RequestBody json){
-        return taaheidMathod.setDoneserviesWithFiels(file,json);
+    public Call<StatusRoot> setDoneserviesWithFiels(MultipartBody.Part[] file, FormData formData) {
+        return taaheidMathod.setDoneserviesWithFiels(  formData,file);
+    }
+    public Call<StatusRoot> setDoneserviesWithFiels2(RequestBody form){
+        return taaheidMathod.setDoneserviesWithFiels2(form);
     }
 
 
+    public Call<StatusRoot> setDoneserviesWithFiels3( Map<String, RequestBody> params){
 
+        return taaheidMathod.setDoneserviesWithFiels3(params);
+    }
 }

@@ -5,5 +5,5 @@ package com.example.taehaed.Model.ListenersForRespone;
  if data is Colactect form api than getJobs(status=true);
    */
 public interface AllJobLisnter {
-    public void getJobs(boolean status);
+    public void getJobs(boolean status,String Message);
 }

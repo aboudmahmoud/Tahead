@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".Screens.Fragment.FourthMachineFragment">
+    tools:context=".Screens.Fragment.Forms.FourthMachineFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -30,7 +30,7 @@
                 android:layout_gravity="center"
 
                 android:gravity="center"
-                android:text="إمتلاك / حالة مركبة"
+                android:text="@string/VaicleCondation"
                 android:textColor="@color/white"
                 android:textSize="@dimen/_11ssp" />
 
@@ -57,9 +57,9 @@
             >
 
             <LinearLayout
+                android:id="@+id/TopBoss"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -74,9 +74,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="@dimen/_5sdp"
-
+                        android:fontFamily="@font/gstb"
                         android:gravity="center"
-                        android:text="بيانات العميل"
+                        android:text="@string/agetInformation"
                         android:textAlignment="center"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_15ssp" />
@@ -88,7 +88,8 @@
                         android:layout_height="wrap_content"
 
                         android:layout_margin="@dimen/_4sdp"
-                        android:hint="الإسم بالكامل - وفقاً للرقم القومي"
+                        android:hint="@string/FullName"
+                        android:inputType="text"
                         android:textColorHint="@color/nearGreen"
                         android:textSize="@dimen/_9ssp"
                         app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
@@ -101,37 +102,9 @@
                         app:hintTextColor="#A8A8A8">
 
                         <com.google.android.material.textfield.TextInputEditText
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
                             android:id="@+id/FullName"
-                            android:inputType="text"
-                            android:textSize="@dimen/_9ssp" />
-
-                    </com.google.android.material.textfield.TextInputLayout>
-
-                    <com.google.android.material.textfield.TextInputLayout
-
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-
-                        android:layout_margin="@dimen/_4sdp"
-                        android:hint="إسم الشهرة (إن وجد)"
-                        android:textColorHint="@color/nearGreen"
-                        android:textSize="@dimen/_9ssp"
-                        app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
-                        app:boxCornerRadiusBottomStart="@dimen/_12sdp"
-                        app:boxCornerRadiusTopEnd="@dimen/_12sdp"
-                        app:boxCornerRadiusTopStart="@dimen/_12sdp"
-                        app:boxStrokeColor="@color/outlined_storke"
-                        app:boxStrokeWidth="@dimen/_2sdp"
-                        app:boxStrokeWidthFocused="@dimen/_2sdp"
-                        app:hintTextColor="#A8A8A8">
-
-                        <com.google.android.material.textfield.TextInputEditText
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:id="@+id/NakeName"
                             android:inputType="text"
                             android:textSize="@dimen/_9ssp" />
 
@@ -144,7 +117,8 @@
                         android:layout_height="wrap_content"
 
                         android:layout_margin="@dimen/_4sdp"
-                        android:hint="الرقم القومي "
+                        android:hint="@string/NakeNameFound"
+                        android:inputType="text"
                         android:textColorHint="@color/nearGreen"
                         android:textSize="@dimen/_9ssp"
                         app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
@@ -157,10 +131,38 @@
                         app:hintTextColor="#A8A8A8">
 
                         <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/NakeName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="text"
+                            android:textSize="@dimen/_9ssp" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:layout_margin="@dimen/_4sdp"
+                        android:hint="@string/NailnolityNumber"
+                        android:textColorHint="@color/nearGreen"
+                        android:textSize="@dimen/_9ssp"
+                        app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
+                        app:boxCornerRadiusBottomStart="@dimen/_12sdp"
+                        app:boxCornerRadiusTopEnd="@dimen/_12sdp"
+                        app:boxCornerRadiusTopStart="@dimen/_12sdp"
+                        app:boxStrokeColor="@color/outlined_storke"
+                        app:boxStrokeWidth="@dimen/_2sdp"
+                        app:boxStrokeWidthFocused="@dimen/_2sdp"
+                        app:hintTextColor="#A8A8A8">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/NainolIdNumber"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:inputType="number"
-                            android:id="@+id/NainolIdNumber"
                             android:textSize="@dimen/_9ssp" />
 
                     </com.google.android.material.textfield.TextInputLayout>
@@ -172,7 +174,11 @@
                         android:layout_height="wrap_content"
 
                         android:layout_margin="@dimen/_4sdp"
-                        android:hint="تاريخ الميلاد"
+                        android:clickable="false"
+                        android:cursorVisible="false"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"
+                        android:hint="@string/DataOfparthe"
                         android:textColorHint="@color/nearGreen"
                         android:textSize="@dimen/_9ssp"
                         app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
@@ -182,17 +188,18 @@
                         app:boxStrokeColor="@color/outlined_storke"
                         app:boxStrokeWidth="@dimen/_2sdp"
                         app:boxStrokeWidthFocused="@dimen/_2sdp"
+
                         app:hintTextColor="#A8A8A8">
 
                         <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/PerathData"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:inputType="date"
                             android:clickable="false"
                             android:cursorVisible="false"
                             android:focusable="false"
                             android:focusableInTouchMode="false"
-                            android:id="@+id/PerathData"
+                            android:inputType="date"
                             android:textSize="@dimen/_9ssp" />
 
                     </com.google.android.material.textfield.TextInputLayout>
@@ -204,7 +211,7 @@
                         android:layout_height="wrap_content"
 
                         android:layout_margin="@dimen/_4sdp"
-                        android:hint="رقم المحمول 1"
+                        android:hint="@string/NumberPhone1"
                         android:textColorHint="@color/nearGreen"
                         android:textSize="@dimen/_9ssp"
                         app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
@@ -217,10 +224,10 @@
                         app:hintTextColor="#A8A8A8">
 
                         <com.google.android.material.textfield.TextInputEditText
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:inputType="phone"
                             android:id="@+id/PhonNumber"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="phone"
                             android:textSize="@dimen/_9ssp" />
 
                     </com.google.android.material.textfield.TextInputLayout>
@@ -232,7 +239,7 @@
                         android:layout_height="wrap_content"
 
                         android:layout_margin="@dimen/_4sdp"
-                        android:hint="رقم المحمول 2"
+                        android:hint="@string/PhoneNumber_2"
                         android:textColorHint="@color/nearGreen"
                         android:textSize="@dimen/_9ssp"
                         app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
@@ -245,8 +252,8 @@
                         app:hintTextColor="#A8A8A8">
 
                         <com.google.android.material.textfield.TextInputEditText
-                            android:layout_width="match_parent"
                             android:id="@+id/PhonNumber2"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:inputType="phone"
                             android:textSize="@dimen/_9ssp" />
@@ -261,7 +268,7 @@
                         android:layout_height="wrap_content"
 
                         android:layout_margin="@dimen/_4sdp"
-                        android:hint="الرقم الارضي"
+                        android:hint="@string/ErthNumber"
                         android:textColorHint="@color/nearGreen"
                         android:textSize="@dimen/_9ssp"
                         app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
@@ -274,10 +281,10 @@
                         app:hintTextColor="#A8A8A8">
 
                         <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/PhonNumber3"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:inputType="phone"
-                            android:id="@+id/PhonNumber3"
                             android:textSize="@dimen/_9ssp" />
 
                     </com.google.android.material.textfield.TextInputLayout>
@@ -294,7 +301,7 @@
                         android:layout_margin="@dimen/_10sdp"
                         android:fontFamily="@font/gstb"
                         android:gravity="center"
-                        android:text="بيانات رخصة القيادة"
+                        android:text="@string/LiseneData"
                         android:textAlignment="center"
                         android:textColor="#000000"
                         android:textSize="@dimen/_15ssp" />
@@ -315,7 +322,7 @@
                             android:layout_height="wrap_content"
 
                             android:layout_margin="@dimen/_4sdp"
-                            android:hint="نوع الرخصة"
+                            android:hint="@string/LisentType"
                             android:textColorHint="@color/nearGreen"
                             android:textSize="@dimen/_9ssp"
                             app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
@@ -342,7 +349,7 @@
                             android:layout_height="wrap_content"
 
                             android:layout_margin="@dimen/_4sdp"
-                            android:hint="رقم الرخصة"
+                            android:hint="@string/LisenseNumber"
                             android:textColorHint="@color/nearGreen"
                             android:textSize="@dimen/_9ssp"
                             app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
@@ -370,7 +377,7 @@
                             android:layout_height="wrap_content"
 
                             android:layout_margin="@dimen/_4sdp"
-                            android:hint="وحدة مرور"
+                            android:hint="@string/MororUnit"
                             android:textColorHint="@color/nearGreen"
                             android:textSize="@dimen/_9ssp"
                             app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
@@ -398,7 +405,7 @@
                             android:layout_height="wrap_content"
 
                             android:layout_margin="@dimen/_4sdp"
-                            android:hint="تاريخ التحرير"
+                            android:hint="@string/CraetedData"
                             android:textColorHint="@color/nearGreen"
                             android:textSize="@dimen/_9ssp"
                             app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
@@ -434,7 +441,7 @@
                             android:layout_height="wrap_content"
 
                             android:layout_margin="@dimen/_4sdp"
-                            android:hint="نهاية الترخيص"
+                            android:hint="@string/EndinfData"
                             android:textColorHint="@color/nearGreen"
                             android:textSize="@dimen/_9ssp"
                             app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
@@ -485,7 +492,7 @@
                         android:layout_margin="@dimen/_5sdp"
                         android:fontFamily="@font/gstb"
                         android:gravity="center"
-                        android:text="بيانات رخصة المركبة"
+                        android:text="@string/VieclLiensedata"
                         android:textAlignment="center"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_15ssp" />
@@ -499,7 +506,7 @@
                         android:layout_height="wrap_content"
 
                         android:layout_margin="@dimen/_4sdp"
-                        android:hint="نوع المركبة"
+                        android:hint="@string/VieclalType"
                         android:textColorHint="@color/nearGreen"
                         android:textSize="@dimen/_9ssp"
                         app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
@@ -527,7 +534,7 @@
                         android:layout_height="wrap_content"
 
                         android:layout_margin="@dimen/_4sdp"
-                        android:hint="الماركة"
+                        android:hint="@string/Moudler"
                         android:textColorHint="@color/nearGreen"
                         android:textSize="@dimen/_9ssp"
                         app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
@@ -554,7 +561,7 @@
                         android:layout_height="wrap_content"
 
                         android:layout_margin="@dimen/_4sdp"
-                        android:hint="الموديل"
+                        android:hint="@string/Molde"
                         android:textColorHint="@color/nearGreen"
                         android:textSize="@dimen/_9ssp"
                         app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
@@ -589,7 +596,7 @@
                         android:layout_height="wrap_content"
 
                         android:layout_margin="@dimen/_4sdp"
-                        android:hint="سعة المحرك"
+                        android:hint="@string/Capsityy"
                         android:textColorHint="@color/nearGreen"
                         android:textSize="@dimen/_9ssp"
                         app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
@@ -616,7 +623,7 @@
                         android:layout_height="wrap_content"
 
                         android:layout_margin="@dimen/_4sdp"
-                        android:hint="سنة الصنع"
+                        android:hint="@string/FactroyData"
                         android:textColorHint="@color/nearGreen"
                         android:textSize="@dimen/_9ssp"
                         app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
@@ -651,7 +658,7 @@
                         android:layout_height="wrap_content"
 
                         android:layout_margin="@dimen/_4sdp"
-                        android:hint="المسافة المقطوعة"
+                        android:hint="@string/DistanseCuted"
                         android:textColorHint="@color/nearGreen"
                         android:textSize="@dimen/_9ssp"
                         app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
@@ -678,7 +685,7 @@
                         android:layout_height="wrap_content"
 
                         android:layout_margin="@dimen/_4sdp"
-                        android:hint="تاريخ التحرير"
+                        android:hint="@string/CraetedData"
                         android:textColorHint="@color/nearGreen"
                         android:textSize="@dimen/_9ssp"
                         app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
@@ -714,7 +721,7 @@
                         android:layout_height="wrap_content"
 
                         android:layout_margin="@dimen/_4sdp"
-                        android:hint="نهاية الترخيص"
+                        android:hint="@string/EndinfData"
                         android:textColorHint="@color/nearGreen"
                         android:textSize="@dimen/_9ssp"
                         app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
@@ -749,7 +756,7 @@
                         android:layout_height="wrap_content"
 
                         android:layout_margin="@dimen/_4sdp"
-                        android:hint="القيمة السوقية عند الشراء"
+                        android:hint="@string/ValueWhewebutit"
                         android:textColorHint="@color/nearGreen"
                         android:textSize="@dimen/_9ssp"
                         app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
@@ -776,7 +783,7 @@
                         android:layout_height="wrap_content"
 
                         android:layout_margin="@dimen/_4sdp"
-                        android:hint="القيمة الحالية"
+                        android:hint="@string/nowval"
                         android:textColorHint="@color/nearGreen"
                         android:textSize="@dimen/_9ssp"
                         app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
@@ -810,7 +817,7 @@
 
 
                             android:maxWidth="@dimen/_80sdp"
-                            android:text="الحالة عند الحيازة"
+                            android:text="@string/ConeedtionWhenWeGoIt"
                             android:textColor="@color/nearGreen"
 
                             android:textSize="@dimen/_9ssp"
@@ -828,20 +835,20 @@
                                 android:id="@+id/rch3"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="مستعمل"
+                                android:text="@string/Used"
                                 android:textSize="@dimen/_8ssp" />
 
                             <RadioButton
                                 android:id="@+id/rch2"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="جديد مستورد"
+                                android:text="@string/NewRecive"
                                 android:textSize="@dimen/_8ssp" />
                             <RadioButton
                                 android:id="@+id/rch"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="جديد محلي"
+                                android:text="@string/LocalNew"
                                 android:textSize="@dimen/_8ssp" />
 
 
@@ -868,7 +875,7 @@
                         android:layout_margin="@dimen/_5sdp"
 
                         android:gravity="center"
-                        android:text="نتيجة الإستعلام"
+                        android:text="@string/Requsetdata"
                         android:textAlignment="center"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_15ssp" />
@@ -889,7 +896,7 @@
                             android:layout_height="wrap_content"
                             android:id="@+id/LissornsTrue"
                             android:maxWidth="@dimen/_80sdp"
-                            android:text="هل بيانات رخصة القيادة مطابقة أم لا ؟"
+                            android:text="@string/IstheLiseAgered"
                             android:textColor="@color/nearGreen"
 
                             android:textSize="@dimen/_9ssp"
@@ -907,14 +914,14 @@
                                 android:id="@+id/radioLieesnasCH"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="لا"
+                                android:text="@string/no"
                                 android:textSize="@dimen/_8ssp" />
 
                             <RadioButton
                                 android:id="@+id/radioLieesnasCH2"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="نعم"
+                                android:text="@string/yes"
                                 android:textSize="@dimen/_8ssp" />
 
 
@@ -939,7 +946,7 @@
 
 
                             android:maxWidth="@dimen/_80sdp"
-                            android:text="هل بيانات رخصة المركبة مطابقة أم لا ؟"
+                            android:text="@string/isView"
                             android:textColor="@color/nearGreen"
 
                             android:textSize="@dimen/_9ssp"
@@ -957,14 +964,14 @@
                                 android:id="@+id/radioMachineLiesnseCH"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="لا"
+                                android:text="@string/no"
                                 android:textSize="@dimen/_8ssp" />
 
                             <RadioButton
                                 android:id="@+id/radioMachineLiesnseCH2"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="نعم"
+                                android:text="@string/yes"
                                 android:textSize="@dimen/_8ssp" />
 
 
@@ -987,7 +994,7 @@
                             android:layout_height="wrap_content"
                             android:id="@+id/WorthetyTrue"
                             android:maxWidth="@dimen/_80sdp"
-                            android:text="هل القيمة الحالية للمركبة مطابقة أم لا ؟"
+                            android:text="@string/isCiren"
                             android:textColor="@color/nearGreen"
 
                             android:textSize="@dimen/_9ssp"
@@ -1005,14 +1012,14 @@
                                 android:id="@+id/radioValueCH"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="لا"
+                                android:text="@string/no"
                                 android:textSize="@dimen/_8ssp" />
 
                             <RadioButton
                                 android:id="@+id/radioValueCH2"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="نعم"
+                                android:text="@string/yes"
                                 android:textSize="@dimen/_8ssp" />
 
 
@@ -1040,7 +1047,7 @@
                             android:id="@+id/StatusVieaclTrue"
 
                             android:maxWidth="@dimen/_80sdp"
-                            android:text="الحالة الفنية الحالية للمركبة"
+                            android:text="@string/Statisus"
                             android:textColor="@color/nearGreen"
 
                             android:textSize="@dimen/_9ssp"
@@ -1058,21 +1065,21 @@
                                 android:id="@+id/radioRaptaionCH"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="جيدة"
+                                android:text="@string/goodeh"
                                 android:textSize="@dimen/_8ssp" />
 
                             <RadioButton
                                 android:id="@+id/radioRaptaionCH2"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="متوسطة"
+                                android:text="@string/Milleldh"
                                 android:textSize="@dimen/_8ssp" />
 
                             <RadioButton
                                 android:id="@+id/radioRaptaionCH3"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="سيئة"
+                                android:text="@string/Worthe"
                                 android:textSize="@dimen/_8ssp" />
 
 
@@ -1094,7 +1101,7 @@
 
 
                             android:maxWidth="@dimen/_80sdp"
-                            android:text="المرفقات"
+                            android:text="@string/Attachemnt"
                             android:textColor="@color/nearGreen"
 
                             android:textSize="@dimen/_9ssp"
@@ -1117,14 +1124,14 @@
                                     android:id="@+id/radioFielsCH"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="الرقم القومي"
+                                    android:text="@string/Idnoltue"
                                     android:textSize="@dimen/_8ssp" />
 
                                 <CheckBox
                                     android:id="@+id/radioFielsCH2"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="رخصة القيادة"
+                                    android:text="@string/DervingLiesne"
                                     android:textSize="@dimen/_8ssp" />
                             </LinearLayout>
 
@@ -1134,17 +1141,23 @@
                                 android:gravity="right"
                                 android:orientation="horizontal">
                                 <CheckBox
+                                    android:id="@+id/radioFielsCH5"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/other"
+                                    android:textSize="@dimen/_8ssp" />
+                                <CheckBox
                                     android:id="@+id/radioFielsCH3"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="رخصة المركبة"
+                                    android:text="@string/LiesnseViecal"
                                     android:textSize="@dimen/_8ssp" />
 
                                 <CheckBox
                                     android:id="@+id/radioFielsCH4"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="صورة العقد الشراء"
+                                    android:text="@string/psd"
                                     android:textSize="@dimen/_8ssp" />
                             </LinearLayout>
                         </LinearLayout>
@@ -1153,53 +1166,287 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/attacmentImagetShoer"
                         android:layout_width="match_parent"
+                        android:visibility="gone"
                         android:layout_height="wrap_content"
-                        android:layout_margin="@dimen/_4sdp"
-                        android:gravity="center"
                         android:orientation="vertical">
-
+                        <Space
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_margin="@dimen/_15sdp"/>
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-
-
-                            android:maxWidth="@dimen/_80sdp"
-                            android:text="مصارد الاستعلام"
+                            android:gravity="right"
+                            android:textSize="@dimen/_8ssp"
                             android:textColor="@color/nearGreen"
+                            android:text="@string/Idnoltue"/>
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:id="@+id/coms2"
+                            android:layout_height="wrap_content">
 
-                            android:textSize="@dimen/_9ssp"
-                            android:textStyle="bold" />
-                        <com.google.android.material.textfield.TextInputLayout
 
-                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+
+
+
+
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/RescView2"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="right"
+                                app:layout_constraintTop_toTopOf="@+id/coms2"
+                                app:layout_constraintStart_toStartOf="@+id/coms2"
+                                app:layout_constraintEnd_toEndOf="@id/coms2"
+                                app:layout_constraintBottom_toBottomOf="@+id/coms2"
+                                android:layout_weight="1" />
+
+
+                            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/fobutton2"
+                                android:src="@drawable/ic_blus"
+
+                                android:layout_margin="@dimen/_2sdp"
+                                app:layout_constraintTop_toTopOf="@+id/coms2"
+
+                                app:layout_constraintEnd_toEndOf="@id/coms2"
+                                app:layout_constraintBottom_toBottomOf="@+id/coms2"
+
+                                android:padding="@dimen/_4sdp"/>
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/attacmentLisensDriveShoer"
+                        android:layout_width="match_parent"
+                        android:visibility="gone"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <Space
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_margin="@dimen/_15sdp"/>
+                        <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:gravity="right"
+                            android:textSize="@dimen/_8ssp"
+                            android:textColor="@color/nearGreen"
+                            android:text="@string/DervingLiesne"/>
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:id="@+id/coms"
+                            android:layout_height="wrap_content">
 
-                            android:layout_margin="@dimen/_4sdp"
-
-                            android:textColorHint="@color/nearGreen"
-                            android:textSize="@dimen/_9ssp"
-                            app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
-                            app:boxCornerRadiusBottomStart="@dimen/_12sdp"
-                            app:boxCornerRadiusTopEnd="@dimen/_12sdp"
-                            app:boxCornerRadiusTopStart="@dimen/_12sdp"
-                            app:boxStrokeColor="@color/outlined_storke"
-                            app:boxStrokeWidth="@dimen/_2sdp"
-                            app:boxStrokeWidthFocused="@dimen/_2sdp"
-                            app:hintTextColor="#A8A8A8">
-
-                            <com.google.android.material.textfield.TextInputEditText
-                                android:layout_width="match_parent"
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/RescView"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
-                                android:id="@+id/Sourersre"
-                                android:textSize="@dimen/_9ssp" />
+                                android:layout_gravity="right"
+                                app:layout_constraintTop_toTopOf="@+id/coms"
+                                app:layout_constraintStart_toStartOf="@+id/coms"
+                                app:layout_constraintEnd_toEndOf="@id/coms"
+                                app:layout_constraintBottom_toBottomOf="@+id/coms"
+                                android:layout_weight="1" />
 
-                        </com.google.android.material.textfield.TextInputLayout>
+
+                            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/fobutton"
+                                android:src="@drawable/ic_blus"
+
+                                android:layout_margin="@dimen/_2sdp"
+                                app:layout_constraintTop_toTopOf="@+id/coms"
+
+                                app:layout_constraintEnd_toEndOf="@id/coms"
+                                app:layout_constraintBottom_toBottomOf="@+id/coms"
+
+                                android:padding="@dimen/_4sdp"/>
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/attacmentLiesnesViecalShoer"
+                        android:layout_width="match_parent"
+                        android:visibility="gone"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <Space
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_margin="@dimen/_15sdp"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="right"
+                            android:textSize="@dimen/_8ssp"
+                            android:textColor="@color/nearGreen"
+                            android:text="@string/LiesnseViecal"/>
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:id="@+id/coms3"
+                            android:layout_height="wrap_content">
+
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/RescView3"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="right"
+                                app:layout_constraintTop_toTopOf="@+id/coms3"
+                                app:layout_constraintStart_toStartOf="@+id/coms3"
+                                app:layout_constraintEnd_toEndOf="@id/coms3"
+                                app:layout_constraintBottom_toBottomOf="@+id/coms3"
+                                android:layout_weight="1" />
+
+
+                            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/fobutton3"
+                                android:src="@drawable/ic_blus"
+
+                                android:layout_margin="@dimen/_2sdp"
+                                app:layout_constraintTop_toTopOf="@+id/coms3"
+
+                                app:layout_constraintEnd_toEndOf="@id/coms3"
+                                app:layout_constraintBottom_toBottomOf="@+id/coms3"
+
+                                android:padding="@dimen/_4sdp"/>
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/attacmentAgrremtnShoer"
+                        android:layout_width="match_parent"
+                        android:visibility="gone"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <Space
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_margin="@dimen/_15sdp"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="right"
+                            android:textSize="@dimen/_8ssp"
+                            android:textColor="@color/nearGreen"
+                            android:text="@string/PhotoOFagemnt"/>
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:id="@+id/coms4"
+                            android:layout_height="wrap_content">
+
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/RescView4"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="right"
+                                app:layout_constraintTop_toTopOf="@+id/coms4"
+                                app:layout_constraintStart_toStartOf="@+id/coms4"
+                                app:layout_constraintEnd_toEndOf="@id/coms4"
+                                app:layout_constraintBottom_toBottomOf="@+id/coms4"
+                                android:layout_weight="1" />
+
+
+                            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/fobutton4"
+                                android:src="@drawable/ic_blus"
+
+                                android:layout_margin="@dimen/_2sdp"
+                                app:layout_constraintTop_toTopOf="@+id/coms4"
+
+                                app:layout_constraintEnd_toEndOf="@id/coms4"
+                                app:layout_constraintBottom_toBottomOf="@+id/coms4"
+
+                                android:padding="@dimen/_4sdp"/>
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/attacmentOtherShoer"
+                        android:layout_width="match_parent"
+                        android:visibility="gone"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <Space
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_margin="@dimen/_15sdp"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="right"
+                            android:textSize="@dimen/_8ssp"
+                            android:textColor="@color/nearGreen"
+                            android:text="@string/other"/>
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:id="@+id/coms7"
+                            android:layout_height="wrap_content">
+
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/RescView7"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="right"
+                                app:layout_constraintTop_toTopOf="@+id/coms7"
+                                app:layout_constraintStart_toStartOf="@+id/coms7"
+                                app:layout_constraintEnd_toEndOf="@id/coms7"
+                                app:layout_constraintBottom_toBottomOf="@+id/coms7"
+                                android:layout_weight="1" />
+
+
+                            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/fobutton5"
+                                android:src="@drawable/ic_blus"
+
+                                android:layout_margin="@dimen/_2sdp"
+                                app:layout_constraintTop_toTopOf="@+id/coms7"
+
+                                app:layout_constraintEnd_toEndOf="@id/coms7"
+                                app:layout_constraintBottom_toBottomOf="@+id/coms7"
+
+                                android:padding="@dimen/_4sdp"/>
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 
                     </LinearLayout>
 
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:gravity="end"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/ArrgemtnShow"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/_5sdp"
+                            android:visibility="gone"
+
+                            android:text="@string/downlodAllFile"
+                            android:textSize="@dimen/_7ssp" />
+
+
+
+                    </LinearLayout>
                 </LinearLayout>
 
                 <LinearLayout
@@ -1211,25 +1458,25 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="left"
                         android:id="@+id/Sumbit"
+                        android:visibility="gone"
                         android:fontFamily="@font/gstb"
                         android:paddingLeft="@dimen/_20sdp"
                         android:paddingRight="@dimen/_20sdp"
-                        android:text="تسليم"
+                        android:text="@string/Done"
                         android:textSize="@dimen/_12ssp" />
                     <Space
                         android:layout_width="0dp"
                         android:layout_height="0dp"
                         android:layout_weight="1"/>
-
                     <Button
+                        android:id="@+id/Location"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:backgroundTint="@color/NearRed"
-                        android:id="@+id/DeletSumbit"
-                        android:visibility="gone"
-                        android:paddingLeft="@dimen/_15sdp"
-                        android:paddingRight="@dimen/_15sdp"
-                        android:text="حذف الاستعلام"
+                        android:layout_gravity="left"
+                        android:fontFamily="@font/gstb"
+                        android:paddingLeft="@dimen/_20sdp"
+                        android:paddingRight="@dimen/_20sdp"
+                        android:text="@string/Locationdetacter"
                         android:textSize="@dimen/_12ssp" />
                 </LinearLayout>
             </LinearLayout>

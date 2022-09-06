@@ -1,42 +1,71 @@
-package com.example.taehaed.Screens.Fragment;
+package com.example.taehaed.Screens.Fragment.Forms;
 
 import static com.example.taehaed.Constans.CheckInputfield;
 import static com.example.taehaed.Constans.DESCRIBABLE_KEY;
+import static com.example.taehaed.Constans.VadlditoForIdNumber;
+import static com.example.taehaed.Constans.checkLocation;
+import static com.example.taehaed.Constans.donlowdTheFile;
+import static com.example.taehaed.Constans.getLoaction;
+import static com.example.taehaed.Constans.getPermationForCamre;
+import static com.example.taehaed.Constans.getPermationForFiles;
+import static com.example.taehaed.Constans.getPermationForLocation;
 import static com.example.taehaed.Constans.getValue;
 import static com.example.taehaed.Constans.getValueOfboleaan;
 import static com.example.taehaed.Constans.itsNotNull;
+import static com.example.taehaed.Constans.setAdpater;
 import static com.example.taehaed.Constans.setAlertMeaage;
 import static com.example.taehaed.Constans.setErrorTextView;
+import static com.example.taehaed.Constans.setPhoneNumberValdtion;
+import static com.example.taehaed.Constans.setRes;
 
+import android.content.Intent;
+import android.location.Location;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Toast;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Toast;
-
+import com.example.taehaed.Adapters.ImageFileApabter;
 import com.example.taehaed.Constans;
+import com.example.taehaed.FileUtil;
 import com.example.taehaed.Model.TaehaedVModel;
 import com.example.taehaed.Pojo.FormReuest.FormData;
+import com.example.taehaed.Pojo.ImageFileData;
 import com.example.taehaed.Pojo.NoteBodey;
 import com.example.taehaed.R;
+import com.example.taehaed.Screens.CameraActivity;
+import com.example.taehaed.Screens.Fragment.ImageTakeIt;
 import com.example.taehaed.databinding.FragmentEighthRealetateBinding;
 
+import java.io.File;
+import java.util.ArrayList;
 
-public class EighthRealetateFragment extends Fragment {
+
+public class EighthRealetateFragment extends Fragment implements ImageTakeIt {
 
     private FragmentEighthRealetateBinding binding;
     private FormData formdata;
     private AlertDialog alertDialog;
     private TaehaedVModel taehaedVModel;
-    private int servier_id;
-
+    private int servier_id, DoneStatus;
+    private ArrayList<ImageFileData> imageFileData;
+    private ImageFileApabter Adapter;
+    private ArrayList<File> attachments;
+    private File aboudfile;
+    ActivityResultLauncher<String> activityResultLauncher;
     public EighthRealetateFragment() {
 
     }
@@ -50,11 +79,12 @@ public class EighthRealetateFragment extends Fragment {
         return fragment;
     }
 
-    public static EighthRealetateFragment newInstance(int id, FormData formData) {
+    public static EighthRealetateFragment newInstance(int id, FormData formData, int DoneStatus) {
         EighthRealetateFragment fragment = new EighthRealetateFragment();
         Bundle args = new Bundle();
         args.putInt(Constans.IdkeyFrgment, id);
         args.putSerializable(DESCRIBABLE_KEY, formData);
+        args.putInt(Constans.DoneStatus, DoneStatus);
         fragment.setArguments(args);
         return fragment;
     }
@@ -65,7 +95,11 @@ public class EighthRealetateFragment extends Fragment {
         if (getArguments() != null) {
             servier_id = getArguments().getInt(Constans.IdkeyFrgment);
             formdata = (FormData) getArguments().getSerializable(DESCRIBABLE_KEY);
+            DoneStatus = getArguments().getInt(Constans.DoneStatus);
         }
+        attachments= new ArrayList<>();
+        Adapter=new ImageFileApabter();
+        imageFileData = new ArrayList<>();
     }
 
     @Override
@@ -83,43 +117,116 @@ public class EighthRealetateFragment extends Fragment {
         SetTheRadioButton();
 
         setDate();
-        SetDataUI();
+
+
+        if (SetDataUI()) {
+            //  Constans.enableDisableViewGroup(binding.TopBoss,false);
+        }else{
+            //هنا بنتاكد الاول هل هي كانت فيه دتا او لا
+            //لو فيه يبقا مش هيعمل حاجة
+            //لو مش فيه بيعمل اوبجيكت جديد
+            setNewFormData();
+        }
+        binding.fobutton3.setOnClickListener(view1 -> {
+
+            selectUploadType();
+
+        });
+        binding.DisplayPDf.setOnClickListener(view1 -> {
+            donlowdTheFile(formdata.attachments,getActivity(),getContext());
+
+        });
+        setRes(binding.RescView7,Adapter,getContext());
+        //ظبط الملفات لرفع
+        setTheUpload();
+        binding.Location.setOnClickListener(view1 -> {
+            setLoavtion();
+        });
         binding.Sumbit.setOnClickListener(view1 -> {
+
+
+            if (getDataUI()) return;
+            alertDialog = setAlertMeaage(getString(R.string.getthedata), getContext());
+            alertDialog.show();
+            if (DoneStatus == 1) {
+                NoteBodey noteBodey = new NoteBodey();
+                noteBodey.setRequest_service_id(servier_id);
+                noteBodey.setReport("تم تعديل الاستعلام");
+                taehaedVModel.ConvertDoneToAccept(noteBodey, (status, errorM) -> {
+                    if (status) {
+                        DoneStatus=0;
+                        setDone();
+
+                    } else {
+                        Toast.makeText(getContext(), getString(R.string.deletProblen) + " \n " + errorM, Toast.LENGTH_SHORT).show();
+                        alertDialog.dismiss();
+                    }
+                });
+            } else {
+
+                setDone();
+            }
+
+
+        });
+
+    }
+
+    private void setDone() {
+        taehaedVModel.setDoneserviesWithFielsFroms(formdata, attachments, (status, Message) -> {
+            if(status)
+            {
+                alertDialog.dismiss();
+                Toast.makeText(getContext(), getString(R.string.thereWorng)+"\n "+ Message, Toast.LENGTH_SHORT).show();
+            }else{
+                alertDialog.dismiss();
+                Toast.makeText(getContext(), getString(R.string.done), Toast.LENGTH_SHORT).show();
+                getActivity().onBackPressed();
+            }
+
+        });
+    }
+
+    private void setNewFormData() {
+        if (DoneStatus == 0) {
             formdata = new FormData();
+        }
+    }
 
-            if(getDataUI()) return;
-            alertDialog = setAlertMeaage("جاري ارسال البيانات", getContext());
-            alertDialog.show();
-            taehaedVModel.setDoneservies(formdata, status -> {
-                if (status) {
-                    alertDialog.dismiss();
-                    Toast.makeText(getContext(), "تم", Toast.LENGTH_SHORT).show();
-                    getActivity().onBackPressed();
-                } else {
-                    alertDialog.dismiss();
-                    Toast.makeText(getContext(), "يبدو ان هناك خطأ ما", Toast.LENGTH_SHORT).show();
-                }
-            });
+    private void setLoavtion() {
+        if(checkLocation(getActivity(),getContext()))
+        {
+            if (!getPermationForLocation(getContext(),getActivity())) {
 
+                Toast.makeText(getContext(),getString( R.string.hitagian), Toast.LENGTH_SHORT).show();
+                binding.Sumbit.setVisibility(View.GONE);
+            }
+            else {
+                alertDialog= setAlertMeaage("جاري تحديد المكان",getContext());
+                alertDialog.show();
+                new Handler(Looper.getMainLooper()).post(() -> {
+                    // write your code here
+                    Location location  =getLoaction(getActivity(),getContext());
+                    getActivity().runOnUiThread(() -> {
+                        if(location==null)
+                        {    Toast.makeText(getContext(), R.string.errorsd, Toast.LENGTH_SHORT).show();
+                            alertDialog.dismiss();
+                        }else{
+                            formdata.longitude=location.getLongitude();
+                            formdata.latitude=location.getLatitude();
 
-        });
-        binding.DeletSumbit.setOnClickListener(view1 -> {
-            alertDialog = setAlertMeaage("جاري حذف الاستعلام", getContext());
-            alertDialog.show();
-            NoteBodey noteBodey = new NoteBodey();
-            noteBodey.setRequest_service_id(servier_id);
-            noteBodey.setReport("تم حذف الاستعلام لوقت لاحق");
-            taehaedVModel.ConvertDoneToAccept(noteBodey, status -> {
-                if (status) {
-                    alertDialog.dismiss();
-                    getActivity().onBackPressed();
-//                        getActivity().recreate();
-                } else {
-                    alertDialog.dismiss();
-                    Toast.makeText(getContext(), "عفوا يبدو ان هناك خطأ ما", Toast.LENGTH_SHORT).show();
-                }
-            });
-        });
+                            binding.Sumbit.setVisibility(View.VISIBLE);
+
+                            Toast.makeText(getContext(), getString(R.string.Loaction), Toast.LENGTH_SHORT).show();
+                            alertDialog.dismiss();
+                        }
+                        // todo: update your ui / view in activity
+                    });
+
+                });
+
+            }
+        }
     }
 
     private void setDate() {
@@ -357,9 +464,10 @@ public class EighthRealetateFragment extends Fragment {
     private boolean getWHDataValdion() {
         if (CheckInputfield(binding.WHFullName, getContext())) return true;
         if (CheckInputfield(binding.WHNakeName, getContext())) return true;
-        if (CheckInputfield(binding.WHPerathData, getContext())) return true;
-        if (CheckInputfield(binding.WHPhonNumber, getContext())) return true;
-        if (CheckInputfield(binding.WHPhonNumber2, getContext())) return true;
+
+        if (VadlditoForIdNumber(binding.WHNainolIdNumber, getContext())) return true;
+        if (setPhoneNumberValdtion(binding.WHPhonNumber, getContext())) return true;
+        if (setPhoneNumberValdtion(binding.WHPhonNumber2, getContext())) return true;
         if (CheckInputfield(binding.WHPhonNumber3, getContext())) return true;
         if (CheckInputfield(binding.WHFamilyMammaber, getContext())) return true;
         getWHData();
@@ -380,9 +488,9 @@ public class EighthRealetateFragment extends Fragment {
     private boolean getAgentDataValdion() {
         // بيانات العميل
         if (CheckInputfield(binding.FullName, getContext())) return true;
-        if (CheckInputfield(binding.NainolIdNumber, getContext())) return true;
+        if (VadlditoForIdNumber(binding.NainolIdNumber, getContext())) return true;
         if (CheckInputfield(binding.PerathData, getContext())) return true;
-        if (CheckInputfield(binding.PhonNumber, getContext())) return true;
+        if (setPhoneNumberValdtion(binding.PhonNumber, getContext())) return true;
 
         getAgentData();
         return false;
@@ -398,10 +506,10 @@ public class EighthRealetateFragment extends Fragment {
         formdata.client_phone = getValue(binding.PhonNumber3.getText());
     }
 
-    private void SetDataUI() {
+    private boolean SetDataUI() {
         if (itsNotNull(formdata)) {
-            binding.Sumbit.setVisibility(View.GONE);
-            binding.DeletSumbit.setVisibility(View.VISIBLE);
+            binding.Sumbit.setVisibility(View.VISIBLE);
+            binding.DisplayPDf.setVisibility(View.VISIBLE);
 
             //بيانات العميل
             SetAgentData();
@@ -416,6 +524,9 @@ public class EighthRealetateFragment extends Fragment {
 
             // الاستعلامات
             SetAskingInfoData();
+            return true;
+        } else {
+            return false;
         }
 
     }
@@ -549,6 +660,15 @@ public class EighthRealetateFragment extends Fragment {
 
         }
 
+        if (itsNotNull(formdata.attachments)) {
+            for (int i = 0; i < formdata.attachments.size(); i++) {
+                String name = getValue(formdata.attachments.get(i));
+
+                setAdpater(Uri.parse(name), Uri.parse(name).getLastPathSegment(), imageFileData, Adapter);
+
+            }
+            //
+        }
 
     }
 
@@ -678,5 +798,75 @@ public class EighthRealetateFragment extends Fragment {
             }
 
         });
+    }
+
+    private void selectUploadType() {
+        final CharSequence[] options = {getString(R.string.Camera), getString(R.string.Show),
+                getString(R.string.file), getString(R.string.Cancle)};
+        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+        builder.setTitle("اضف!");
+        builder.setItems(options, (dialog, item) -> {
+            if (options[item].equals(getString(R.string.Camera))) {
+                if (getPermationForCamre(getContext(), getActivity())) {
+                    Intent intent = new Intent(getContext(), CameraActivity.class);
+                    CameraActivity.imgaetakeIt = this;
+                    getContext().startActivity(intent);
+                }
+            } else if (options[item].equals(getString(R.string.Show))) {
+                SelectImage();
+            } else if (options[item].equals(getString(R.string.file))) {
+                if (getPermationForFiles(getContext(), getActivity())) {
+                    SelectFiles();
+                }
+
+            } else if (options[item].equals(getString(R.string.Cancle))) {
+                dialog.dismiss();
+            }
+        });
+        builder.show();
+    }
+
+    private void SelectFiles() {
+        activityResultLauncher.launch("*/*");
+    }
+
+    private void SelectImage() {
+        activityResultLauncher.launch("image/*");
+    }
+
+    @Override
+    public void imageDone(Uri uri) {
+        aboudfile = new File(FileUtil.getPath(uri, getContext()));
+        attachments.add(aboudfile);
+        setAdpater(uri, aboudfile.getName(), imageFileData,Adapter);
+    }
+
+    private void setTheUpload() {
+        activityResultLauncher = registerForActivityResult(new ActivityResultContracts.GetMultipleContents()
+                , result -> {
+
+                    if (result != null) {
+
+                        for (int i = 0; i < result.size(); i++) {
+                            try {
+                                //   String extanton=getFileExtension(result.get(i),getContext());
+                                aboudfile = new File(FileUtil.getPath(result.get(i), getContext()));
+                                attachments.add(aboudfile);
+                                setAdpater(result.get(i), aboudfile.getName(), imageFileData,Adapter);
+                            } catch (Exception ex) {
+                                Log.d("Aboud", "on" +
+                                        "ViewCreated: " + result.get(i) + " " + ex.getMessage());
+                                Toast.makeText(getContext(), ex.getMessage() + "  " + result.get(i).getPath() + " " + getString(R.string.errorMeshae), Toast.LENGTH_SHORT).show();
+                                break;
+                            }
+
+
+
+
+                        }
+
+
+                    }
+                });
     }
 }
