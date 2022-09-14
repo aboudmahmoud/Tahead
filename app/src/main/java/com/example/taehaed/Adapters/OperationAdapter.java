@@ -129,6 +129,7 @@ public class OperationAdapter extends RecyclerView.Adapter<OperationAdapter.Opar
         }
 
         private void ShowTheNotesAndDoneStatus(RequestService requestRequestService) {
+
             if (requestRequestService.getDone() == 0) {
                 binding.ChackPoint0.setImageResource(R.drawable.ic_notdone);
 
@@ -137,6 +138,7 @@ public class OperationAdapter extends RecyclerView.Adapter<OperationAdapter.Opar
                 binding.ChackPoint0.setImageResource(R.drawable.ic_done);
             }
 
+            //Status == 2 wait , 3 acepted , 4 done
             if (requestRequestService.getStatus() == 2) {
 
                 binding.StatuseOFServies.setText("( في الانتظار )");
@@ -148,6 +150,7 @@ public class OperationAdapter extends RecyclerView.Adapter<OperationAdapter.Opar
                 binding.StatuseOFServies.setTextColor(context.getResources().getColor(R.color.black));
 
             } else if (requestRequestService.getStatus() == 4) {
+                binding.StatuseOFServies.setTextColor(context.getResources().getColor(R.color.nearGreen));
                 binding.StatuseOFServies.setText("( مكتمل )");
 
 

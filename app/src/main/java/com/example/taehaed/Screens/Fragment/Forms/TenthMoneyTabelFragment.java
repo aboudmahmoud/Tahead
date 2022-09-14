@@ -210,7 +210,8 @@ public class TenthMoneyTabelFragment extends Fragment implements ImageTakeIt {
         if(getTheAhentcostaValdion()){
             return true;
         }
-
+        //اضف ملاحظة
+        formdata.note = getValue(binding.Noteanser.getText());
         return false;
     }
 
@@ -478,7 +479,8 @@ public class TenthMoneyTabelFragment extends Fragment implements ImageTakeIt {
 
         ////المصروفات الشهرية المرتبطة بالعميل
         setTheAhentcosta();
-
+        //اضف ملاحظة
+        binding.Noteanser.setText(getValue(formdata.note));
     }
 
     private void setTheAhentcosta() {

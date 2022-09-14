@@ -344,7 +344,8 @@ public class SevenSevriesFragment extends Fragment implements ImageTakeIt {
 
         //بيانات النشاط
         if(getActvityDataValdion()) return true;
-
+        //اضف ملاحظة
+        formdata.note = getValue(binding.Noteanser.getText());
         //نتيجة الاستعلام
         if(getAskingData());
 
@@ -589,7 +590,8 @@ public class SevenSevriesFragment extends Fragment implements ImageTakeIt {
             //بيانات النشاط
             SetActvityData();
 
-
+            //اضف ملاحظة
+            binding.Noteanser.setText(getValue(formdata.note));
             //نتيجة الاستعلام
             SetAskingData();
 return true;

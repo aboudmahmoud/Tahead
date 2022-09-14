@@ -1,16 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:showIn="navigation_view">
-    <group android:checkableBehavior="single">
+    tools:showIn="navigation_view"
+    android:gravity="end"
+    android:layoutDirection="rtl"
+    android:layout_gravity="end">
+    <group android:checkableBehavior="single"
+        android:layout_gravity="end"
+        android:gravity="end">
         <item
             android:id="@+id/pofile"
             android:icon="@drawable/ic_userinfo"
-            android:title="الملف الشخصي"/>
+            android:title="@string/PersonlProfile"/>
         <item
             android:id="@+id/Logout"
             android:icon="@drawable/ic_log_out_svgrepo_com"
-            android:title="تسجيل خروج" />
+            android:title="@string/LogOut" />
 
 
     </group>

@@ -90,12 +90,14 @@ public class ServiersFragment extends DialogFragment {
         binding.ButtonCoremit.setOnClickListener(view1 ->{
 
             if (binding.RadioDiel.isChecked()) {
+
                 if(binding.Noteanser.getText().toString().equals("")) {
-                    binding.TextInputDenyResson.setError("ارجو منك كتابة سبب الرفض");
+                    binding.TextInputDenyResson.setError(getString(R.string.RessonwhyDeny));
+
                 }
                 else {
                     binding.TextInputDenyResson.setError(null);
-                    alertDialog= setAlertMeaage("جاري حذف الطلب",getContext());
+                    alertDialog= setAlertMeaage(getString(R.string.currentDelet),getContext());
                     alertDialog.show();
                     noteBodey = new NoteBodey();
                     noteBodey.setRequest_service_id(id);
@@ -109,7 +111,7 @@ public class ServiersFragment extends DialogFragment {
 
                         } else {
                             alertDialog.dismiss();
-                            Toast.makeText(getContext(), "يبدو ان هنأك خطأ ما", Toast.LENGTH_LONG).show();
+                            Toast.makeText(getContext(), R.string.Cirrrentworj, Toast.LENGTH_LONG).show();
                         }
                     });
 

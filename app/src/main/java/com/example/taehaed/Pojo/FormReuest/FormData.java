@@ -265,7 +265,7 @@ public class FormData  implements Serializable {
     public Object financial_study_summary_net_income;
     public Object financial_study_summary_public_spending_rate;
     public Object financial_net_income;
-    public Object financial_Debt_burden;
+    public Object financial_debt_burden;
     public Object financial_monthly_savings_savings_book;
     public Object financial_monthly_savings_associations;
     public Object financial_monthly_savings_other;
@@ -301,6 +301,7 @@ public class FormData  implements Serializable {
     public Object financial_monthly_work_customer_personal_finance_installment;
     public Object financial_monthly_work_customer_travel_leisure;
     public Object financial_monthly_work_customer_miscellaneous;
+    public Object note;
     public Object financial_monthly_work_customer_total;
     public Object created_at;
     public Object updated_at;

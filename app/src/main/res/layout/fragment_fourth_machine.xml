@@ -860,7 +860,36 @@
                     </LinearLayout>
                 </LinearLayout>
 
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/TextInputDenyResson"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:layout_margin="@dimen/_4sdp"
+                    android:hint="@string/Notes"
+                    app:boxStrokeColor="@color/outlined_storke"
+                    android:textColorHint="@color/nearGreen"
+                    android:textSize="@dimen/_9ssp"
 
+                    app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
+                    app:boxCornerRadiusBottomStart="@dimen/_12sdp"
+                    app:boxCornerRadiusTopEnd="@dimen/_12sdp"
+                    app:boxCornerRadiusTopStart="@dimen/_12sdp"
+
+                    app:boxStrokeWidth="@dimen/_2sdp"
+                    app:boxStrokeWidthFocused="@dimen/_2sdp"
+                    >
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/Noteanser"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="@dimen/_60sdp"
+                        android:inputType="text"
+                        android:textSize="@dimen/_9ssp" />
+                </com.google.android.material.textfield.TextInputLayout>
                 <LinearLayout
                     android:id="@+id/FeadBack"
                     android:layout_width="match_parent"

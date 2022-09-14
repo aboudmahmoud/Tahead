@@ -229,7 +229,8 @@ public class NinthSuppliersFragment extends Fragment implements ImageTakeIt {
         //بيانات مالك النشاط
         if (getOwnerDataValdion()) return true;
 
-
+        //اضف ملاحظة
+        formdata.note = getValue(binding.Noteanser.getText());
         //نتيجة الاستعلام
         return getAskingData();
 
@@ -732,7 +733,8 @@ public class NinthSuppliersFragment extends Fragment implements ImageTakeIt {
             SetRacietAttach();
             //بيانات مالك النشاط
             setOwnerData();
-
+            //اضف ملاحظة
+            binding.Noteanser.setText(getValue(formdata.note));
             //تقيم المورد
             SetAskingData();
             return true;

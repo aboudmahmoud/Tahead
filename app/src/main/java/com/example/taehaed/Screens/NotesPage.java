@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import com.example.taehaed.Adapters.NotesAdapter;
 import com.example.taehaed.Constans;
 import com.example.taehaed.Model.TaehaedVModel;
+import com.example.taehaed.R;
 import com.example.taehaed.Screens.Fragment.DelegateCycle.StepsNotesAdd;
 import com.example.taehaed.databinding.ActivityNotesPageBinding;
 
@@ -64,7 +65,7 @@ public class NotesPage extends AppCompatActivity implements StepsNotesAdd.OnClic
     private void ObsevrNotes() {
         taehaedVModel.ObesverNotes(SeriverId, (status, Message) -> {
             if (status) {
-                Toast.makeText(this, "عفوا يبدو ان هناك خطأ في ما  " + Message, Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, getString(R.string.errorMe) + Message, Toast.LENGTH_SHORT).show();
                 binding.ProgeesPar.setVisibility(View.GONE);
                 binding.NoNotes.setVisibility(View.VISIBLE);
                 binding.listOfData.setVisibility(View.INVISIBLE);

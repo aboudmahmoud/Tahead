@@ -79,6 +79,7 @@ public class Constans  {
     public final static String KeyForDone = "Mahmoud1";
     public final static String DoneStatus = "Mahmoud2";
     public final static String ImageUri = "Mahmoud3";
+    public final static String  NotesKey= "Mahmoud4";
     public final static String ErrorMessageValdition = "برجاء عدم ترك الحقل فارغ";
     public  static Location letion ;
 

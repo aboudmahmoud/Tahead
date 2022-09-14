@@ -1,5 +1,6 @@
 package com.example.taehaed.Screens.Fragment.DelegateCycle;
 
+import static com.example.taehaed.Constans.NotesKey;
 import static com.example.taehaed.Constans.setAlertMeaage;
 
 import android.content.Context;
@@ -43,7 +44,7 @@ public class StepsNotesAdd extends DialogFragment {
         StepsNotesAdd fragment = new StepsNotesAdd();
         Bundle args = new Bundle();
        // args.putString(ARG_PARAM1, param1);
-        args.putInt("Keysor",id);
+        args.putInt(NotesKey,id);
         fragment.setArguments(args);
         return fragment;
     }
@@ -66,7 +67,7 @@ public class StepsNotesAdd extends DialogFragment {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
 
-            SeriverId=getArguments().getInt("Keysor");
+            SeriverId=getArguments().getInt(NotesKey);
         }
     }
 
@@ -88,22 +89,23 @@ public class StepsNotesAdd extends DialogFragment {
                 stepsNotesAddBinding.Noteanser.setError(getString(R.string.dontLettheField));
             }else{
                 stepsNotesAddBinding.Noteanser.setError(null);
-                alertDialog =setAlertMeaage("جاري اضافة الملاحظة",getContext());
+                alertDialog =setAlertMeaage(getString(R.string.notesAdde),getContext());
                 alertDialog.show();
                 noteBodey = new NoteBodey();
                 noteBodey.setRequest_service_id(SeriverId);
                 noteBodey.setNote(stepsNotesAddBinding.Noteanser.getText().toString());
-                taehaedVModel.SendNote(noteBodey, status -> {
+                taehaedVModel.SendNote(noteBodey, (status,Message) -> {
                     if(status)
                     {
                         alertDialog.dismiss();
                         stepsNotesAddBinding.Noteanser.setText("");
 
                         onClickkSend.onSendClicked();
+                        this.dismiss();
                     }
                     else{
                         alertDialog.dismiss();
-                        Toast.makeText(getContext(),getString( R.string.SometingWorng), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(),getString( R.string.SometingWorng)+"\n"+Message, Toast.LENGTH_SHORT).show();
 
                     }
                 });

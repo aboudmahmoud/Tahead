@@ -28,7 +28,7 @@
         <entry key="..\:/work place/AndrodWorkSpace/Taehaed/app/src/main/res/layout/activity_camera.xml" value="0.16" />
         <entry key="..\:/work place/AndrodWorkSpace/Taehaed/app/src/main/res/layout/activity_client_info.xml" value="0.1826086956521739" />
         <entry key="..\:/work place/AndrodWorkSpace/Taehaed/app/src/main/res/layout/activity_form_operation.xml" value="0.33" />
-        <entry key="..\:/work place/AndrodWorkSpace/Taehaed/app/src/main/res/layout/activity_login_page.xml" value="0.25" />
+        <entry key="..\:/work place/AndrodWorkSpace/Taehaed/app/src/main/res/layout/activity_login_page.xml" value="0.2" />
         <entry key="..\:/work place/AndrodWorkSpace/Taehaed/app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="..\:/work place/AndrodWorkSpace/Taehaed/app/src/main/res/layout/activity_main_page.xml" value="0.18" />
         <entry key="..\:/work place/AndrodWorkSpace/Taehaed/app/src/main/res/layout/activity_notes_page.xml" value="0.17875647668393782" />
@@ -42,7 +42,7 @@
         <entry key="..\:/work place/AndrodWorkSpace/Taehaed/app/src/main/res/layout/fragment_fourth_machine.xml" value="0.18" />
         <entry key="..\:/work place/AndrodWorkSpace/Taehaed/app/src/main/res/layout/fragment_ninth_suppliers.xml" value="0.12911923307369683" />
         <entry key="..\:/work place/AndrodWorkSpace/Taehaed/app/src/main/res/layout/fragment_notes_adds.xml" value="0.25" />
-        <entry key="..\:/work place/AndrodWorkSpace/Taehaed/app/src/main/res/layout/fragment_place.xml" value="0.1" />
+        <entry key="..\:/work place/AndrodWorkSpace/Taehaed/app/src/main/res/layout/fragment_place.xml" value="0.22" />
         <entry key="..\:/work place/AndrodWorkSpace/Taehaed/app/src/main/res/layout/fragment_pop_attachment.xml" value="0.1" />
         <entry key="..\:/work place/AndrodWorkSpace/Taehaed/app/src/main/res/layout/fragment_pop_up_image.xml" value="0.22" />
         <entry key="..\:/work place/AndrodWorkSpace/Taehaed/app/src/main/res/layout/fragment_profile_frgament.xml" value="0.12" />
@@ -52,11 +52,11 @@
         <entry key="..\:/work place/AndrodWorkSpace/Taehaed/app/src/main/res/layout/fragment_steps_notes_add.xml" value="0.22" />
         <entry key="..\:/work place/AndrodWorkSpace/Taehaed/app/src/main/res/layout/fragment_steps_server.xml" value="0.25" />
         <entry key="..\:/work place/AndrodWorkSpace/Taehaed/app/src/main/res/layout/fragment_tenth_money_tabel.xml" value="0.21304992585269403" />
-        <entry key="..\:/work place/AndrodWorkSpace/Taehaed/app/src/main/res/layout/fragment_thrid_job_info.xml" value="0.1029082774049217" />
+        <entry key="..\:/work place/AndrodWorkSpace/Taehaed/app/src/main/res/layout/fragment_thrid_job_info.xml" value="0.2" />
         <entry key="..\:/work place/AndrodWorkSpace/Taehaed/app/src/main/res/layout/image_file.xml" value="0.25" />
         <entry key="..\:/work place/AndrodWorkSpace/Taehaed/app/src/main/res/layout/item_of_choesies.xml" value="0.1" />
         <entry key="..\:/work place/AndrodWorkSpace/Taehaed/app/src/main/res/layout/item_of_quest.xml" value="0.33" />
-        <entry key="..\:/work place/AndrodWorkSpace/Taehaed/app/src/main/res/layout/list_client_info.xml" value="0.11375212224108659" />
+        <entry key="..\:/work place/AndrodWorkSpace/Taehaed/app/src/main/res/layout/list_client_info.xml" value="0.33" />
         <entry key="..\:/work place/AndrodWorkSpace/Taehaed/app/src/main/res/layout/list_of_notes.xml" value="0.25" />
         <entry key="..\:/work place/AndrodWorkSpace/Taehaed/app/src/main/res/layout/request_servies.xml" value="0.2" />
         <entry key="..\:/work place/AndrodWorkSpace/Taehaed/app/src/main/res/layout/textview_rject.xml" value="0.16631038905515177" />

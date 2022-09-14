@@ -145,7 +145,7 @@ public class ThridJobInfoFragment extends Fragment  implements ImageTakeIt {
         });
         binding.Sumbit.setOnClickListener(view1 -> {
 
-            if (getFromUiData()) return; ;
+            if (getFromUiData()) return ;
             //Log.d("Aboud", "onViewCreated: id" + formdata.request_service_id);
             alertDialog = setAlertMeaage(getString(R.string.getthedata), getContext());
             alertDialog.show();
@@ -248,6 +248,8 @@ public class ThridJobInfoFragment extends Fragment  implements ImageTakeIt {
         JobInfo();
         //بيانات الموارد البشرية
         HrInfo();
+        //اضف ملاحظة
+        binding.Noteanser.setText(getValue(formdata.note));
         //نتيجة الاستعلام
         AskingOperation();
     }
@@ -268,6 +270,8 @@ public class ThridJobInfoFragment extends Fragment  implements ImageTakeIt {
         if (getHrInfoValdtion()) {
             return true;
         }
+        //اضف ملاحظة
+        formdata.note = getValue(binding.Noteanser.getText());
         //نتيجة الاستعلام
         if (getAskingInfo()) {
             return true;

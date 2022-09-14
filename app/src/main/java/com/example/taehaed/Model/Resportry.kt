@@ -848,6 +848,10 @@ class Resportry {
                 "supplier_result_business_volume",
                 getValue(formdata.supplier_result_business_volume)
             )
+            addFormDataPart(
+                "note",
+                getValue(formdata.note)
+            )
 
             // my files are List<ByteArray>, okhttp has a few utility methods like .toRequestBody for various types like below
             if (result_attached_utilities_receipt != null) {

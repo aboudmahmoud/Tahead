@@ -415,6 +415,8 @@ public class FourthMachineFragment extends Fragment implements ImageTakeIt {
             SetLisenesData();
             //بيانات رخصة المركبة
             SetViesicalLisesData();
+            //اضف ملاحظة
+            binding.Noteanser.setText(getValue(formdata.note));
             // نتيجة الاستعلام
             SetAskingData();
             return true;
@@ -579,7 +581,8 @@ public class FourthMachineFragment extends Fragment implements ImageTakeIt {
         if(getDerivng_LisenseValditon()) return true;
         //بيانات رخصة المركبة
         if(getVehicle_LicenseValdtion()) return true;
-
+        //اضف ملاحظة
+        formdata.note = getValue(binding.Noteanser.getText());
         // نتيجة الاستعلام
         return getAskingDataInfo();
     }

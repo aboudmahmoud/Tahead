@@ -19,6 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/nearGreen"
+
             app:layout_constraintStart_toStartOf="@id/constraintParent"
             app:layout_constraintEnd_toEndOf="@id/constraintParent"
             app:layout_constraintTop_toTopOf="@id/constraintParent">
@@ -34,7 +35,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="الرئيسية"
+                    android:text="@string/MaingPage"
 
                     android:gravity="end"
                     android:textStyle="bold"
@@ -97,7 +98,7 @@ android:layout_gravity="center"
             android:layout_height="wrap_content"
       android:visibility="gone"
         android:textColor="@color/nearGreen"
-            android:text="لاتوجد وظائف"
+            android:text="@string/nojobs"
             android:textSize="@dimen/_15sdp"
             app:layout_constraintTop_toBottomOf="@id/CLientHadder"
             app:layout_constraintStart_toStartOf="parent"
@@ -110,12 +111,15 @@ android:layout_gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
 
-android:layout_gravity="end"
+        android:layout_gravity="right"
+
+        android:fitsSystemWindows="true"
+
 android:layout_marginTop="@dimen/_25sdp"
         android:visibility="invisible"
-        app:menu="@menu/nav_content">
+        app:menu="@menu/nav_content"/>
 
 
-    </com.google.android.material.navigation.NavigationView>
+
 </androidx.drawerlayout.widget.DrawerLayout>
 

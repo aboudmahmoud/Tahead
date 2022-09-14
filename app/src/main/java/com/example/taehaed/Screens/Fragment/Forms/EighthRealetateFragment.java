@@ -251,7 +251,8 @@ public class EighthRealetateFragment extends Fragment implements ImageTakeIt {
 
         //بيانات العقار
         if (getRealestateValdion()) return true;
-
+        //اضف ملاحظة
+        formdata.note = getValue(binding.Noteanser.getText());
         // الاستعلامات
         if (getAskingInfoData()) return true;
         return false;
@@ -463,8 +464,6 @@ public class EighthRealetateFragment extends Fragment implements ImageTakeIt {
 
     private boolean getWHDataValdion() {
         if (CheckInputfield(binding.WHFullName, getContext())) return true;
-        if (CheckInputfield(binding.WHNakeName, getContext())) return true;
-
         if (VadlditoForIdNumber(binding.WHNainolIdNumber, getContext())) return true;
         if (setPhoneNumberValdtion(binding.WHPhonNumber, getContext())) return true;
         if (setPhoneNumberValdtion(binding.WHPhonNumber2, getContext())) return true;
@@ -521,7 +520,8 @@ public class EighthRealetateFragment extends Fragment implements ImageTakeIt {
             SetHrInfo();
             //بيانات العقار
             SetRealestate();
-
+            //اضف ملاحظة
+            binding.Noteanser.setText(getValue(formdata.note));
             // الاستعلامات
             SetAskingInfoData();
             return true;

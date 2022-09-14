@@ -158,7 +158,7 @@ public class ScendPlaceFragment extends Fragment implements ImageTakeIt {
         binding.RescView3.setLayoutManager(new LinearLayoutManager(binding.getRoot().getContext(), LinearLayoutManager.HORIZONTAL, false));
         binding.Sumbit.setOnClickListener(view1 -> {
 
-            if (getFromUiData())  return;
+            if (getFromUiData()) return; ;
             alertDialog = setAlertMeaage(getString(R.string.current), getContext());
             alertDialog.show();
             if (DoneStatus == 1) {
@@ -347,6 +347,8 @@ public class ScendPlaceFragment extends Fragment implements ImageTakeIt {
             SetRacietAttach();
             //بيانات الزوج او الزوجة
             SetWHData();
+            //اضف ملاحظة
+            binding.Noteanser.setText(getValue(formdata.note));
             // الاستعلامات
             SetAskingInfoData();
 
@@ -577,7 +579,8 @@ public class ScendPlaceFragment extends Fragment implements ImageTakeIt {
         if (getWHDataValditon()) {
             return true;
         }
-
+        //اضف ملاحظة
+        formdata.note = getValue(binding.Noteanser.getText());
         //الاستعلام
         return getAskingData();
     }

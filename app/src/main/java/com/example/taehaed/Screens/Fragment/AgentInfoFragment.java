@@ -3,7 +3,9 @@ package com.example.taehaed.Screens.Fragment;
 import static com.example.taehaed.Constans.getValue;
 import static com.example.taehaed.Constans.showMap;
 
+import android.graphics.Color;
 import android.graphics.Point;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.Display;
@@ -116,4 +118,9 @@ public class AgentInfoFragment extends DialogFragment {
         super.onResume();
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        getDialog().getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+    }
 }

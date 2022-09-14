@@ -27,7 +27,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="تعهيد"
+            android:text="@string/ArabicThaead"
             android:textColor="@color/black"
             android:textStyle="bold"
 
@@ -36,7 +36,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Taahied"
+            android:text="@string/Englttaahied"
           android:textStyle="bold"
             android:textColor="@color/black"
             android:textSize="@dimen/_20ssp" />
@@ -58,7 +58,7 @@ app:layout_constraintBottom_toTopOf="@id/ForgetPassword"
             android:id="@+id/Email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="البريد الالكتروني"
+            android:hint="@string/email"
 
 
             android:textSize="@dimen/_12ssp"
@@ -78,7 +78,7 @@ app:layout_constraintBottom_toTopOf="@id/ForgetPassword"
        android:id="@+id/passworded"
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
-       android:hint="كلمة السر"
+       android:hint="@string/Password"
 
        android:inputType="textPassword"
 
@@ -100,7 +100,7 @@ app:layout_constraintBottom_toTopOf="@id/ForgetPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_10sdp"
-        android:text="نسيت كلمة السر ؟"
+
         android:gravity="start"
 android:textStyle="bold"
         android:visibility="invisible"
@@ -118,7 +118,7 @@ android:textStyle="bold"
         android:paddingStart="@dimen/_30sdp"
         android:paddingEnd="@dimen/_30sdp"
 android:textSize="@dimen/_18ssp"
-        android:text="تسجيل الدخول"
+        android:text="@string/LogIn"
         android:textColor="@color/nearGreen"
         app:backgroundTint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"

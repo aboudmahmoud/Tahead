@@ -30,12 +30,10 @@ import com.example.taehaed.Pojo.home.HomeRoot;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Map;
 
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.core.Observable;
 import io.reactivex.rxjava3.schedulers.Schedulers;
-import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -283,10 +281,10 @@ public class TaehaedVModel extends ViewModel {
 
                 if (response.isSuccessful()) {
                     Log.d("Aboud", "onResponse: CancelRequstNote" + response.body().getMessage());
-                    cancelServes.canseStatus(response.body().isSuccessful());
+                    cancelServes.canseStatus(true);
                 } else {
                     Log.d("Aboud", "onResponse: CancelRequstNote" + response.message());
-                    cancelServes.canseStatus(response.body().isSuccessful());
+                    cancelServes.canseStatus(false);
                 }
             }
 
@@ -346,25 +344,32 @@ public class TaehaedVModel extends ViewModel {
         });
     }
 
-    public void SendNote(NoteBodey noteBodey, CancelServes cancelServes) {
+    public void SendNote(NoteBodey noteBodey, StatusApi cancelServes) {
         resportry.setNotes(noteBodey).enqueue(new Callback<StatusRoot>() {
             @Override
             public void onResponse(Call<StatusRoot> call, Response<StatusRoot> response) {
 
 
                 if (response.isSuccessful()) {
-                    Log.d("Aboud", "onResponse:  SendNote " + response.body().getMessage());
-                    cancelServes.canseStatus(response.body().isSuccessful());
+                    if(response.body().isSuccessful())
+                    {
+                        Log.d("Aboud", "onResponse:  SendNote " + response.body().getMessage());
+                        cancelServes.SetStatus(true,null);
+                    }else{
+                        Log.d("Aboud", "onResponse:  FaliledApi " + response.body().getMessage());
+                        cancelServes.SetStatus(false,response.body().getMessage());
+                    }
+
                 } else {
-                    Log.d("Aboud", "onResponse:  SendNote " + response.message());
-                    cancelServes.canseStatus(false);
+                    Log.d("Aboud", "onResponse:  Falied link  " + response.message());
+                    cancelServes.SetStatus(false,response.message());
                 }
             }
 
             @Override
             public void onFailure(Call<StatusRoot> call, Throwable t) {
                 Log.d("Aboud", "onFailure:  SendNote " + t.getMessage());
-                cancelServes.canseStatus(false);
+                cancelServes.SetStatus(false,t.getMessage());
             }
         });
     }
@@ -431,6 +436,7 @@ public class TaehaedVModel extends ViewModel {
     public void ObesverNotes(int request_service_id, OberverTheError oberverTheError) {
         Observable<NotesRoot> notesRootObservable = resportry.ObesrveNotes(request_service_id)
                 .subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
+
         notesRootObservable.subscribe(o -> {
                     notesRootMutableLiveData.setValue(o);
                     if (!o.isSuccessful()) {
@@ -447,31 +453,19 @@ public class TaehaedVModel extends ViewModel {
     }
 
 
-
-    /*public void setDoneserviesWithFiels2(FormData form, OberverTheError oberverTheError)
-    {
-        resportry.setDoneserviesWithFiels2(form).enqueue(new Callback<StatusRoot>() {
-            @Override
-            public void onResponse(Call<StatusRoot> call, Response<StatusRoot> response) {
-                if(response.isSuccessful()){
-                    if(response.body().isSuccessful())
-                    {
-                        oberverTheError.errormessage(false,null);
-                    }else{
-                        oberverTheError.errormessage(true,"response api Failed "+response.body().getMessage());
-                    }
-                }else{
-                    oberverTheError.errormessage(true,"response link Failed "+response.message());
-                }
-
-            }
-
-            @Override
-            public void onFailure(Call<StatusRoot> call, Throwable t) {
-                oberverTheError.errormessage(true,"onFailure "+t.getMessage());
-            }
-        });
-    }*/
+  /*
+  الموضوع يطول شرحه بس باختصار
+  دلوقتي عندنا 10 فورمات
+  كل فورم فيه ملف بيتبعت (كان في الاول مفيش ملفات بتبعتب )
+  فكان المشكلة عشان اعرف ابعت ملف ل سيرفر محتاج افصل الدتا كلها وابعت كل واحد لوحدها
+  في الحل كان اني اعمل كونفرتور بيسيط في الريبوزرتي
+  الريبوزتي حولته لملف كولتن عشان الاسباب الاتاتية
+  البرامتير الاختياريه (اذا ماعرفتها ابحث عن choseoable pramiter )
+  و ميثود apply
+  المهم في ملف الكولتن هتلاقي ميثود واحده فقط بتبعت الملفات  هي باختصار بتاخد الملفات من اي ميثود هنا
+   choseoable pramiter الحل الامثل كان اني استخدم كولتن من البداية بدل مانا مكرر ميثود لكل فورم .. واللي يجي بنل اتجاهله .. ازاي ؟ ارجع ابحث علي
+   المهم ان دلوقتي الفايلات بتبعت  .. لو في المستقبل فيه نوع جديد لازم يتضاف .. هتضطر تعمل عملية الاضافة دي في صفحة Resporty
+   */
     public void setDoneserviesWithFielsFroms(FormData form, ArrayList<File> attachments, OberverTheError oberverTheError) {
         resportry.setDoneserviesWithFiels(form, null, null,
                         null,
@@ -741,28 +735,5 @@ public class TaehaedVModel extends ViewModel {
                     }
                 });
     }
-    public void setDoneserviesWithFiels3(Map<String, RequestBody> params, OberverTheError oberverTheError) {
-        resportry.setDoneserviesWithFiels3(params).enqueue(new Callback<StatusRoot>() {
-            @Override
-            public void onResponse(Call<StatusRoot> call, Response<StatusRoot> response) {
-                if (response.isSuccessful()) {
-                    if (response.body().isSuccessful()) {
-                        oberverTheError.errormessage(false, null);
-                    } else {
-                        oberverTheError.errormessage(true, "onResponse repsones fial " + response.body().getMessage());
-                        Log.d("Aboud", "onResponse: succes body fail" + response.body().getMessage());
-                    }
-                } else {
-                    oberverTheError.errormessage(true, "onResponse failde" + response.message());
-                    Log.d("Aboud", "onResponse: failde" + response.message());
-                }
-            }
 
-            @Override
-            public void onFailure(Call<StatusRoot> call, Throwable t) {
-                oberverTheError.errormessage(true, "onFailure " + t.getMessage());
-                Log.d("Aboud", "onFailure " + t.getMessage());
-            }
-        });
-    }
 }

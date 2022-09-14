@@ -485,7 +485,8 @@ public class FifithEnquiryComarialFragment extends Fragment  implements ImageTak
 
         //بيانات القائم بإدارة النشاط
         if (getactivityManagerValdation()) return true;
-
+        //اضف ملاحظة
+        formdata.note = getValue(binding.Noteanser.getText());
         //نتيجة الاستعلام
         return getAskingData();
     }
@@ -915,6 +916,8 @@ public class FifithEnquiryComarialFragment extends Fragment  implements ImageTak
             //بيانات القائم بإدارة النشاط
             SetactivityManager();
 
+            //اضف ملاحظة
+            binding.Noteanser.setText(getValue(formdata.note));
             //نتيجة الاستعلام
             SetAskingData();
             return true;

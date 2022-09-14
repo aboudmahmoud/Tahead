@@ -419,7 +419,8 @@ public class SixHomeFragment extends Fragment implements ImageTakeIt {
 
         //بيانات المبيعات / المشتريات
         if(getSelasBuyData())return true;
-
+        //اضف ملاحظة
+        formdata.note = getValue(binding.Noteanser.getText());
         //نتيجة الاستعلام
         if(getAskingData())return true;
         return false;
@@ -715,7 +716,8 @@ public class SixHomeFragment extends Fragment implements ImageTakeIt {
 
             //بيانات المبيعات / المشتريات
             SetSelasBuyData();
-
+            //اضف ملاحظة
+            binding.Noteanser.setText(getValue(formdata.note));
             //نتيجة الاستعلام
             SetAskingData();
 return true;

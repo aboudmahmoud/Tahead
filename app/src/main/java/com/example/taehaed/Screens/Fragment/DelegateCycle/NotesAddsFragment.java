@@ -96,34 +96,14 @@ public class NotesAddsFragment extends DialogFragment {
 
             noteBodey = new NoteBodey();
             noteBodey.setRequest_service_id(SeriverId);
-            alertDialog= Constans.setAlertMeaage(getString(R.string.Orderrequset),getContext());
+            alertDialog = Constans.setAlertMeaage(getString(R.string.Orderrequset), getContext());
 
+            //here we check the Deny resson
+        CheckThedenyRessonAndSumbit();
 
-            if( choes.isEmpty())
-            {
-                binding.TextInputDenyResson1.setVisibility(View.GONE);
-            //    binding.autotext.setError(getString(R.string.itsNotEmpty));
-
-            }
-            else if (choes.equals(getString(R.string.otherResson))){
-               // binding.TextInputDenyResson1.setVisibility(View.VISIBLE);
-
-                if (binding.Noteanser.getText().toString().equals("")) {
-                    binding.TextInputDenyResson1.setError(getString(R.string.itsNotEmpty));
-                } else {
-                    binding.TextInputDenyResson1.setError(null);
-
-                    alertDialog.show();
-                    noteBodey.setReport(binding.Noteanser.getText().toString());
-                    setThdata();
                 }
-            }
-            else{
-                alertDialog.show();
-                noteBodey.setReport(choes);
-                setThdata();
-            }
-        });
+
+        );
 
 
         binding.ButtonCoremit.setOnClickListener(view1 -> {
@@ -138,6 +118,34 @@ public class NotesAddsFragment extends DialogFragment {
             getActivity().startActivity(intent);
             getActivity().getSupportFragmentManager().beginTransaction().remove(this).commit();
         });
+    }
+
+    private void CheckThedenyRessonAndSumbit() {
+        //if he didnt choes anytihng that is valdtion we can't alowe it
+        if(choes==null)
+        {
+            binding.TextInputDenyResson.setError(getString(R.string.dontletemp));
+        }
+        //if its other Reson We Have ToKnow Why
+            else if (choes.equals(getString(R.string.otherResson))){
+                // binding.TextInputDenyResson1.setVisibility(View.VISIBLE);
+            binding.TextInputDenyResson.setError(null);
+                if (binding.Noteanser.getText().toString().equals("")) {
+                    binding.TextInputDenyResson1.setError(getString(R.string.itsNotEmpty));
+                } else {
+                    binding.TextInputDenyResson1.setError(null);
+
+                    alertDialog.show();
+                    noteBodey.setReport(binding.Noteanser.getText().toString());
+                    setThdata();
+                }
+            }
+            else{
+            binding.TextInputDenyResson.setError(null);
+                alertDialog.show();
+                noteBodey.setReport(choes);
+                setThdata();
+            }
     }
 
     private void setErrorMessage() {
@@ -186,11 +194,14 @@ public class NotesAddsFragment extends DialogFragment {
 
         binding.autotext.setOnItemClickListener((adapterView, view12, i, l) -> {
            choes =adapterView.getItemAtPosition(i).toString();
+           // if he choer othe reson make the field why visible else gone
            if(choes.equals(getString(R.string.otherResson)))
            {
+               binding.TextInputDenyResson.setError(null);
                binding.TextInputDenyResson1.setVisibility(View.VISIBLE);
            }
            else{
+               binding.TextInputDenyResson.setError(null);
                binding.TextInputDenyResson1.setVisibility(View.GONE);
            }
 

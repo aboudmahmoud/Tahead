@@ -33,9 +33,10 @@
         android:requestLegacyExternalStorage="true"
         android:roundIcon="@drawable/applogo"
         android:supportsRtl="false"
+        tools:replace="android:supportsRtl"
         android:theme="@style/Theme.Taehaed"
         android:usesCleartextTraffic="true"
-        tools:replace="android:supportsRtl"
+
         tools:targetApi="31">
         <activity
             android:name=".Screens.CameraActivity"

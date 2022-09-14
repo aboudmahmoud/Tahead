@@ -13,6 +13,7 @@ import com.example.taehaed.Pojo.UserData;
 import com.example.taehaed.Pojo.home.HomeRoot;
 
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 import io.reactivex.rxjava3.core.Observable;
 import okhttp3.MultipartBody;
@@ -29,12 +30,13 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class TaahiedImplements {
 
     private static final String baseUrl = "https://ms.taahied.com/api/employees/";
-    TaaheidMathod taaheidMathod;
+   private TaaheidMathod taaheidMathod;
     //That is Signletion Pattern
     private static TaahiedImplements taahiedImplements;
 
     private TaahiedImplements() {
-        Retrofit retrofit = new Retrofit.Builder().client(new OkHttpClient.Builder()
+        Retrofit retrofit = new Retrofit.Builder().client(new OkHttpClient.Builder().readTimeout(60, TimeUnit.SECONDS)
+                .connectTimeout(60, TimeUnit.SECONDS)
                         .addNetworkInterceptor(chain -> {
                             Request.Builder builder = chain.request().newBuilder();
 
